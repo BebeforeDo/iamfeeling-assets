@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iamfeeling™ — 感知實驗</title>
+  <title>iamfeeling™ — 完整意識的甦醒</title>
   <style>
     :root {
       --c-bg: #fafaf8;
@@ -14,9 +14,6 @@
       --c-green: #1D9E75;
       --c-green-bg: #E1F5EE;
       --c-green-text: #085041;
-      --c-red: #D85A30;
-      --c-red-bg: #FAECE7;
-      --c-red-text: #712B13;
       --r-sm: 8px;
       --r-md: 12px;
       --r-lg: 16px;
@@ -28,15 +25,8 @@
       background: var(--c-bg);
       color: var(--c-text);
       font-family: 'Georgia', serif;
-      -webkit-font-smoothing: antialiased
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0)
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
 
     /* ── NAV ── */
@@ -64,7 +54,7 @@
       color: var(--c-text);
       text-decoration: none;
       letter-spacing: 0.08em;
-      text-transform: none;
+      text-transform: uppercase;
     }
 
     .nav-links {
@@ -83,17 +73,27 @@
       white-space: nowrap;
     }
 
-    .nav-links a:hover { color: var(--c-text); background: #f0f0ec; }
-    .nav-links a.active { color: var(--c-text); }
+    .nav-links a:hover {
+      color: var(--c-text);
+      background: #f0f0ec;
+    }
+
+    .nav-links a.active {
+      color: var(--c-text);
+    }
 
     .nav-cta {
       background: var(--c-green) !important;
       color: #fff !important;
       border-radius: var(--r-sm) !important;
+      font-size: 13px;
       margin-left: 6px;
     }
 
-    .nav-cta:hover { opacity: 0.88; background: var(--c-green) !important; }
+    .nav-cta:hover {
+      opacity: 0.88;
+      background: var(--c-green) !important;
+    }
 
     .nav-divider {
       width: 0.5px;
@@ -120,358 +120,150 @@
       transition: all 0.2s;
     }
 
-    /* ── EXPERIMENT ── */
-    .wrap {
+    /* ── HERO ── */
+    .hero {
       max-width: 560px;
       margin: 0 auto;
-      padding: 2.5rem 1.25rem
+      padding: 5rem 1.25rem 3rem;
+      text-align: center;
     }
 
-    .prog {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 2rem
+    .hero-label {
+      font-size: 11px;
+      color: var(--c-ter);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
     }
 
-    .dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--c-border);
-      transition: background 0.4s
+    .hero-title {
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 400;
+      line-height: 1.45;
+      font-style: italic;
+      color: var(--c-text);
+      margin-bottom: 1.25rem;
     }
 
-    .dot.on { background: var(--c-green) }
+    .hero-sub {
+      font-size: 15px;
+      color: var(--c-sub);
+      line-height: 1.9;
+      margin-bottom: 3rem;
+    }
 
-    .step { display: none }
-    .step.active { display: block }
+    /* ── ENTRY CARDS ── */
+    .entries {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
 
-    .step-lbl {
+    .entry-card {
+      background: #fff;
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: 1.75rem 1.25rem;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      text-align: left;
+    }
+
+    .entry-card:hover {
+      border-color: var(--c-green);
+      box-shadow: 0 2px 16px rgba(29,158,117,0.08);
+    }
+
+    .entry-icon {
+      font-size: 24px;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .entry-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--c-text);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .entry-desc {
+      font-size: 13px;
+      color: var(--c-sub);
+      line-height: 1.75;
+    }
+
+    .entry-arrow {
+      display: block;
+      margin-top: 1.25rem;
+      font-size: 12px;
+      color: var(--c-green);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      padding: 0 1.25rem;
+      border-top: 0.5px solid var(--c-border);
+    }
+
+    /* ── SUBSCRIBE ── */
+    .subscribe-section {
+      border-top: 0.5px solid var(--c-border);
+      padding: 3rem 1.25rem;
+    }
+
+    .subscribe-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .subscribe-label {
       font-size: 11px;
       color: var(--c-ter);
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 1.25rem
+      margin-bottom: 1rem;
+      font-family: sans-serif;
     }
 
-    .big-q {
-      font-size: 21px;
+    .subscribe-title {
+      font-size: 20px;
       font-weight: 400;
+      font-style: italic;
       color: var(--c-text);
-      line-height: 1.55;
-      margin-bottom: 0.6rem;
-      font-style: italic
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
     }
 
-    .sub {
+    .subscribe-sub {
       font-size: 14px;
       color: var(--c-sub);
       line-height: 1.8;
-      margin-bottom: 1.25rem
-    }
-
-    .hint {
-      font-size: 12px;
-      color: var(--c-ter);
-      margin-bottom: 0.6rem;
-      letter-spacing: 0.02em
-    }
-
-    .img-wrap {
-      position: relative;
-      width: 100%;
-      cursor: crosshair;
-      margin-bottom: 1.25rem;
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      border: 0.5px solid var(--c-border)
-    }
-
-    .img-wrap img { width: 100%; display: block }
-
-    .pin {
-      position: absolute;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 600;
-      pointer-events: none;
-      font-family: sans-serif
-    }
-
-    .pb { background: var(--c-red); color: #fff }
-    .pa { background: var(--c-green); color: #fff }
-
-    .words {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 1.5rem
-    }
-
-    .wb {
-      background: var(--c-bg);
-      border: 0.5px solid var(--c-border);
-      border-radius: 20px;
-      padding: 7px 16px;
-      font-size: 13px;
-      color: var(--c-text);
-      cursor: pointer;
-      transition: all 0.15s;
-      font-family: 'Georgia', serif
-    }
-
-    .wb:hover { background: #f0f0ec; border-color: #bbb }
-    .wb.sb { border-color: var(--c-red); background: var(--c-red-bg); color: var(--c-red-text) }
-    .wb.sa { border-color: var(--c-green); background: var(--c-green-bg); color: var(--c-green-text) }
-
-    .nb {
-      background: var(--c-bg);
-      border: 0.5px solid var(--c-border);
-      border-radius: var(--r-sm);
-      padding: 10px 26px;
-      font-size: 14px;
-      color: var(--c-text);
-      cursor: pointer;
-      font-family: 'Georgia', serif;
-      transition: background 0.15s
-    }
-
-    .nb:hover { background: #f0f0ec }
-    .nb:disabled { opacity: 0.28; cursor: default }
-
-    .breath-box { text-align: center; padding: 1.25rem 0 }
-
-    .breath-note {
-      font-size: 13px;
-      color: var(--c-ter);
       margin-bottom: 1.5rem;
-      line-height: 1.7
     }
 
-    .bring { width: 120px; height: 120px; margin: 0 auto 0.75rem }
-
-    .bphase {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--c-text);
-      margin-top: 0.75rem;
-      min-height: 24px;
-      font-style: italic
-    }
-
-    .bcount {
-      font-size: 12px;
-      color: var(--c-ter);
-      margin-top: 0.3rem;
-      font-family: sans-serif
-    }
-
-    .sbtn {
-      background: var(--c-bg);
-      border: 0.5px solid var(--c-border);
-      border-radius: var(--r-sm);
-      padding: 10px 26px;
-      font-size: 14px;
-      color: var(--c-text);
-      cursor: pointer;
-      margin-top: 0.75rem;
-      font-family: 'Georgia', serif;
-      transition: background 0.15s
-    }
-
-    .sbtn:hover { background: #f0f0ec }
-
-    .audio-status {
-      font-size: 11px;
-      color: var(--c-ter);
-      margin-top: 0.5rem;
-      min-height: 16px;
-      font-family: sans-serif
-    }
-
-    .rgrid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 1.5rem
-    }
-
-    .rcard {
-      background: #fff;
-      border: 0.5px solid var(--c-border);
-      border-radius: var(--r-lg);
-      padding: 0.875rem
-    }
-
-    .rimg {
-      position: relative;
-      width: 100%;
-      margin-bottom: 0.625rem;
-      border-radius: var(--r-sm);
-      overflow: hidden
-    }
-
-    .rimg img { width: 100%; display: block }
-
-    .rpin {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 10px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-      font-family: sans-serif
-    }
-
-    .rwords { display: flex; flex-wrap: wrap; gap: 5px }
-
-    .rw {
-      font-size: 11px;
-      padding: 3px 9px;
-      border-radius: 10px;
-      font-family: sans-serif
-    }
-
-    .rwb { background: var(--c-red-bg); color: var(--c-red-text) }
-    .rwa { background: var(--c-green-bg); color: var(--c-green-text) }
-
-    .clbl {
-      font-size: 10px;
-      color: var(--c-ter);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-family: sans-serif
-    }
-
-    .crop-section {
-      margin: 1.5rem 0;
-      padding: 1.25rem;
-      background: #fff;
-      border-radius: var(--r-lg);
-      border: 0.5px solid var(--c-border)
-    }
-
-    .crop-title {
-      font-size: 11px;
-      color: var(--c-ter);
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-      font-family: sans-serif
-    }
-
-    .crop-preview {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      border-radius: var(--r-sm);
-      margin-bottom: 1rem;
-      border: 0.5px solid var(--c-border);
-      background: #fafaf8;
-      line-height: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .crop-preview canvas {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
-    }
-
-    .slider-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 1rem
-    }
-
-    .slider-wrap label {
-      font-size: 12px;
-      color: var(--c-ter);
-      white-space: nowrap;
-      font-family: sans-serif
-    }
-
-    .slider-wrap input[type=range] { flex: 1; accent-color: var(--c-green) }
-
-    .crop-btn {
-      background: var(--c-green);
-      border: none;
-      border-radius: var(--r-sm);
-      padding: 10px 0;
-      font-size: 14px;
-      color: #fff;
-      cursor: pointer;
-      width: 100%;
-      font-family: 'Georgia', serif;
-      letter-spacing: 0.02em;
-      transition: opacity 0.15s
-    }
-
-    .crop-btn:hover { opacity: 0.88 }
-
-    .crop-hint {
-      font-size: 11px;
-      color: var(--c-ter);
-      text-align: center;
-      margin-top: 0.6rem;
-      font-family: sans-serif
-    }
-
-    .closing {
+    /* ── FOOTER ── */
+    .footer {
       border-top: 0.5px solid var(--c-border);
-      padding-top: 1.75rem;
-      margin-top: 0.5rem
+      padding: 1.5rem 1.25rem;
+      text-align: center;
     }
 
-    .closing-q {
-      font-size: 17px;
-      font-weight: 400;
-      color: var(--c-text);
-      line-height: 1.7;
-      margin: 0 0 1.1rem;
-      font-style: italic
+    .footer p {
+      font-size: 12px;
+      color: var(--c-ter);
     }
 
-    .closing p {
-      font-size: 14px;
-      color: var(--c-sub);
-      line-height: 1.9;
-      margin: 0 0 1rem
-    }
-
-    .cta {
-      background: var(--c-bg);
-      border: 0.5px solid var(--c-border);
-      border-radius: var(--r-sm);
-      padding: 10px 26px;
-      font-size: 14px;
-      color: var(--c-text);
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
-      font-family: 'Georgia', serif;
-      transition: background 0.15s
-    }
-
-    .cta:hover { background: #f0f0ec }
-
-    /* ── MOBILE NAV ── */
+    /* ── MOBILE ── */
     @media (max-width: 600px) {
       .nav-links {
         display: none;
@@ -488,20 +280,17 @@
       }
 
       .nav-links.open { display: flex; }
+
       .nav-links a { width: 100%; padding: 10px 12px; }
       .nav-cta { margin-left: 0 !important; margin-top: 6px; text-align: center; }
       .nav-divider { display: none; }
       .nav-toggle { display: flex; }
+
+      .entries { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-  <h2 class="sr-only">一個感知實驗：你的身體狀態如何影響你所看見的東西</h2>
-
-  <audio id="bowl-audio" preload="auto" crossorigin="anonymous">
-    <source src="https://raw.githubusercontent.com/BebeforeDo/iamfeeling-assets/main/436095__glen_hoban__himalayan-singing-bowl-1a.mp3" type="audio/mpeg">
-  </audio>
 
   <nav class="nav">
     <div class="nav-inner">
@@ -510,8 +299,8 @@
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="navLinks">
-        <a href="/experiment" class="active">感知實驗</a>
-        <a href="https://bebeforedo.github.io/carddrawing/">帶著牌進入98%</a>
+        <a href="/experiment" >感知實驗</a>
+        <a href="/carddrawing/">抽牌</a>
         <a href="https://bedo.beehiiv.com/p/tune-in" target="_blank" class="nav-cta">加入對頻</a>
         <div class="nav-divider"></div>
         <a href="https://bedo.beehiiv.com/p/about" target="_blank">關於我</a>
@@ -521,304 +310,41 @@
     </div>
   </nav>
 
-  <div class="wrap">
-
-    <div class="prog" id="prog">
-      <div class="dot" id="p0"></div>
-      <div class="dot" id="p1"></div>
-      <div class="dot" id="p2"></div>
-      <div class="dot" id="p3"></div>
-    </div>
-
-    <!-- Step 0 -->
-    <div class="step active" id="s0">
-      <div class="step-lbl">第一眼</div>
-      <div class="big-q">看這張圖。</div>
-      <div class="sub">點一個讓你停下來的地方，然後選最多兩個此刻的感受。</div>
-      <div class="hint">在圖上點一下</div>
-      <div class="img-wrap" id="iw0">
-        <img id="img0" src="https://raw.githubusercontent.com/BebeforeDo/iamfeeling-assets/main/rackham_1x1.jpg" alt="Arthur Rackham插畫" crossorigin="anonymous">
-        <div class="pin pb" id="pin0" style="display:none">1</div>
-      </div>
-      <div class="words" id="words0"></div>
-      <button class="nb" id="n0" disabled onclick="goStep(1)">繼續 →</button>
-    </div>
-
-    <!-- Step 1 -->
-    <div class="step" id="s1">
-      <div class="step-lbl">呼吸</div>
-      <div class="big-q">在看第二次之前，先跟著呼吸三輪。</div>
-      <div class="breath-note">吸氣和吐氣都用鼻子。</div>
-      <div class="breath-box">
-        <div class="bring">
-          <canvas id="bcanvas" width="120" height="120" style="width:120px;height:120px"></canvas>
-        </div>
-        <div id="bphase" class="bphase"></div>
-        <div id="bcount" class="bcount"></div>
-        <button class="sbtn" id="sbtn" onclick="startBreath()">開始</button>
-        <div class="audio-status" id="audio-status"></div>
-      </div>
-      <button class="nb" id="n1" disabled onclick="goStep(2)">繼續 →</button>
-    </div>
-
-    <!-- Step 2 -->
-    <div class="step" id="s2">
-      <div class="step-lbl">第二眼</div>
-      <div class="big-q">再看一次同一張圖。</div>
-      <div class="sub">點一個此刻讓你停下來的地方。感受一樣嗎？</div>
-      <div class="hint">在圖上點一下</div>
-      <div class="img-wrap" id="iw2">
-        <img id="img2" src="https://raw.githubusercontent.com/BebeforeDo/iamfeeling-assets/main/rackham_1x1.jpg" alt="同一張圖，第二次" crossorigin="anonymous">
-        <div class="pin pa" id="pin2" style="display:none">2</div>
-      </div>
-      <div class="words" id="words2"></div>
-      <button class="nb" id="n2" disabled onclick="goStep(3)">看結果 →</button>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="step" id="s3">
-      <div class="step-lbl">你的兩次</div>
-      <div class="rgrid">
-        <div class="rcard">
-          <div class="clbl">呼吸前</div>
-          <div class="rimg">
-            <img id="ri0" src="https://raw.githubusercontent.com/BebeforeDo/iamfeeling-assets/main/rackham_1x1.jpg" alt="呼吸前" crossorigin="anonymous">
-            <div class="rpin pb" id="rp0" style="display:none">1</div>
-          </div>
-          <div class="rwords" id="rw0"></div>
-        </div>
-        <div class="rcard">
-          <div class="clbl">呼吸後</div>
-          <div class="rimg">
-            <img id="ri2" src="https://raw.githubusercontent.com/BebeforeDo/iamfeeling-assets/main/rackham_1x1.jpg" alt="呼吸後" crossorigin="anonymous">
-            <div class="rpin pa" id="rp2" style="display:none">2</div>
-          </div>
-          <div class="rwords" id="rw2"></div>
-        </div>
-      </div>
-
-      <div class="crop-section" id="cropSection" style="display:none">
-        <div class="crop-title">擷取你的畫面</div>
-        <div class="crop-preview">
-          <canvas id="cropCanvas"></canvas>
-        </div>
-        <div class="slider-wrap">
-          <label>範圍</label>
-          <input type="range" id="cropSlider" min="1.0" max="3.0" step="0.1" value="1.0" oninput="updateCrop()">
-        </div>
-        <button class="crop-btn" onclick="downloadCrop()">擷取這個畫面</button>
-        <div class="crop-hint">長按圖片可儲存（行動裝置）</div>
-      </div>
-
-      <div class="closing">
-        <div class="closing-q" id="cq"></div>
-        <p id="cp1"></p>
-        <p id="cp2"></p>
-        <p id="cp3"></p>
-        <p id="cp4"></p>
-        <a class="cta" href="https://bedo.beehiiv.com/p/tune-in" target="_blank">加入對頻 →</a>
-      </div>
-    </div>
-
+  <div class="hero">
+    <div class="hero-label">iamfeeling™</div>
+    <h1 class="hero-title">你的意識，比你以為的<br>還要完整。</h1>
+    <p class="hero-sub">我們只活用了 2% 的意識。<br>剩下的 98%，正在等你回來。</p>
   </div>
 
+  <div class="entries">
+    <a class="entry-card" href="/experiment">
+      <span class="entry-icon">◎</span>
+      <div class="entry-title">感知實驗</div>
+      <div class="entry-desc">一張圖，一次呼吸，看看你的身體狀態如何改變你所看見的東西。</div>
+      <span class="entry-arrow">進入實驗 →</span>
+    </a>
+    <a class="entry-card" href="/carddrawing/">
+      <span class="entry-icon">⬡</span>
+      <div class="entry-title">抽一張牌</div>
+      <div class="entry-desc">不是占卜，是讓身體說話的方式。讓圖像繞過語言，直接觸碰感知。</div>
+      <span class="entry-arrow">開始抽牌 →</span>
+    </a>
+  </div>
+
+  <div class="subscribe-section">
+    <div class="subscribe-inner">
+      <div class="subscribe-label">電子報</div>
+      <h2 class="subscribe-title">讓生命重獲完整的必要練習</h2>
+      <p class="subscribe-sub">不只是電子報。每一封，都是一次把意識帶回身體的邀請。</p>
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="b599d456-c019-4312-bd4b-33ea70a5b4f9"></script>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>iamfeeling™ &nbsp;·&nbsp; BeDo LLC &nbsp;·&nbsp; 影響顧問有限公司</p>
+  </footer>
+
   <script>
-    var IMG_SRC = "https://raw.githubusercontent.com/BebeforeDo/iamfeeling-assets/main/rackham_1x1.jpg";
-    var WORDS = ["不安","迷失","沉重","孤單","抽離","好奇","開闊","期待","安靜","自信","說不清楚","什麼都沒有"];
-    var sel = {0:[],2:[]};
-    var pins = {0:null,2:null};
-
-    var audio = document.getElementById("bowl-audio");
-    var audioUnlocked = false;
-
-    function unlockAudio(){
-      if(audioUnlocked) return;
-      audio.play().then(function(){ audio.pause(); audio.currentTime=0; audioUnlocked=true; }).catch(function(){});
-    }
-    document.addEventListener("click", unlockAudio, {once:true});
-    document.addEventListener("touchstart", unlockAudio, {once:true});
-
-    function playBowl(){
-      if(!audio) return;
-      audio.currentTime=0;
-      var st=document.getElementById("audio-status");
-      var p=audio.play();
-      if(p!==undefined){
-        p.then(function(){ if(st) st.textContent=""; })
-         .catch(function(){ if(st) st.textContent="（請開啟聲音以聆聽頌缽）"; });
-      }
-    }
-
-    window.addEventListener("load",function(){ bindImg(0); bindImg(2); buildWords(0); buildWords(2); });
-
-    function bindImg(sid){
-      var wrap=document.getElementById("iw"+sid);
-      wrap.addEventListener("click",function(e){
-        var r=wrap.getBoundingClientRect();
-        var x=((e.clientX-r.left)/r.width*100).toFixed(1);
-        var y=((e.clientY-r.top)/r.height*100).toFixed(1);
-        pins[sid]={x:parseFloat(x),y:parseFloat(y)};
-        var pin=document.getElementById("pin"+sid);
-        pin.style.left=x+"%"; pin.style.top=y+"%"; pin.style.display="flex";
-        checkNext(sid);
-      });
-    }
-
-    function buildWords(sid){
-      var el=document.getElementById("words"+sid);
-      el.innerHTML="";
-      WORDS.forEach(function(w){
-        var b=document.createElement("button");
-        b.className="wb"; b.textContent=w;
-        b.onclick=function(){toggleWord(sid,w,b);};
-        el.appendChild(b);
-      });
-    }
-
-    function toggleWord(sid,word,btn){
-      var cls=sid===0?"sb":"sa";
-      if(btn.classList.contains(cls)){
-        btn.classList.remove(cls);
-        sel[sid]=sel[sid].filter(function(x){return x!==word;});
-      }else{
-        if(sel[sid].length>=2) return;
-        btn.classList.add(cls);
-        sel[sid].push(word);
-      }
-      checkNext(sid);
-    }
-
-    function checkNext(sid){
-      var btn=document.getElementById("n"+sid);
-      if(btn) btn.disabled=!(pins[sid]!==null&&sel[sid].length>0);
-    }
-
-    function goStep(n){
-      document.querySelectorAll(".step").forEach(function(s){s.classList.remove("active");});
-      document.getElementById("s"+n).classList.add("active");
-      for(var i=0;i<n;i++) document.getElementById("p"+i).classList.add("on");
-      if(n===3) buildReveal();
-      try{ window.scrollTo({top:0,behavior:"smooth"}); }catch(e){}
-    }
-
-    function drawRing(progress){
-      var c=document.getElementById("bcanvas");
-      if(!c) return;
-      var ctx=c.getContext("2d"), cx=60,cy=60,r=50;
-      ctx.clearRect(0,0,120,120);
-      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
-      ctx.strokeStyle="#e0e0d8"; ctx.lineWidth=6; ctx.stroke();
-      if(progress>0){
-        ctx.beginPath();
-        ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*progress);
-        ctx.strokeStyle="#1D9E75"; ctx.lineWidth=6; ctx.lineCap="round"; ctx.stroke();
-      }
-    }
-
-    function startBreath(){
-      document.getElementById("sbtn").style.display="none";
-      playBowl();
-      var phases=[{l:"吸氣",s:5,dir:1},{l:"呼氣",s:5,dir:-1}];
-      var round=0,pi=0;
-      var bphase=document.getElementById("bphase"),bcount=document.getElementById("bcount");
-      drawRing(0);
-      function runPhase(){
-        if(round>=3){
-          bphase.textContent="完成"; bcount.textContent="";
-          drawRing(0);
-          document.getElementById("n1").disabled=false; return;
-        }
-        var ph=phases[pi];
-        bphase.textContent=ph.l; bcount.textContent="第"+(round+1)+"輪 / 共3輪";
-        var dur=ph.s*1000,t0=performance.now();
-        var startP=ph.dir===1?0:1, endP=ph.dir===1?1:0;
-        function tick(now){
-          var t=Math.min((now-t0)/dur,1);
-          drawRing(startP+(endP-startP)*t);
-          if(t<1){requestAnimationFrame(tick);}
-          else{pi++; if(pi>=2){pi=0;round++;} setTimeout(runPhase,80);}
-        }
-        requestAnimationFrame(tick);
-      }
-      runPhase();
-    }
-
-    var cropImg = null;
-    var cropPinX = 50, cropPinY = 50;
-
-    function buildReveal(){
-      var p0=pins[0],p2=pins[2];
-      if(p0){var rp=document.getElementById("rp0");rp.style.left=p0.x+"%";rp.style.top=p0.y+"%";rp.style.display="flex";}
-      if(p2){var rp=document.getElementById("rp2");rp.style.left=p2.x+"%";rp.style.top=p2.y+"%";rp.style.display="flex";}
-
-      var rw0=document.getElementById("rw0");
-      sel[0].forEach(function(w){var s=document.createElement("span");s.className="rw rwb";s.textContent=w;rw0.appendChild(s);});
-      if(!sel[0].length){var s=document.createElement("span");s.className="rw rwb";s.textContent="（未選）";rw0.appendChild(s);}
-      var rw2=document.getElementById("rw2");
-      sel[2].forEach(function(w){var s=document.createElement("span");s.className="rw rwa";s.textContent=w;rw2.appendChild(s);});
-      if(!sel[2].length){var s=document.createElement("span");s.className="rw rwa";s.textContent="（未選）";rw2.appendChild(s);}
-
-      var same=sel[0].length>0&&sel[2].length>0&&sel[0].join()===sel[2].join();
-      var px0=p0?p0.x:50, py0=p0?p0.y:50;
-      var px2=p2?p2.x:50, py2=p2?p2.y:50;
-      var pClose=Math.abs(px0-px2)<8&&Math.abs(py0-py2)<8;
-      var cq=document.getElementById("cq");
-      if(same&&pClose){cq.textContent="兩次停在同一個地方，感受也沒有動。";}
-      else if(same){cq.textContent="眼睛移動了，但感受還在原來的位置。";}
-      else if(pClose){cq.textContent="同一個角落，呼吸前後卻看見不同的東西。";}
-      else{cq.textContent="兩次都不一樣了。";}
-
-      document.getElementById("cp1").textContent = "兩次都不一樣了。";
-      document.getElementById("cp2").textContent = "你沒有主導任何事。你只是改變了條件——然後它自己發生了。";
-      document.getElementById("cp3").textContent = "這就是顛覆。不是意志力，是條件。";
-      document.getElementById("cp4").textContent = "";
-      document.getElementById("p3").classList.add("on");
-
-      cropPinX = p2 ? p2.x : 50;
-      cropPinY = p2 ? p2.y : 50;
-      var img = new Image();
-      img.crossOrigin = "anonymous";
-      img.onload = function(){
-        cropImg = img;
-        document.getElementById("cropSection").style.display = "block";
-        document.getElementById("cropSlider").value = "1.0";
-        updateCrop();
-      };
-      img.onerror = function(){ document.getElementById("cropSection").style.display = "none"; };
-      img.src = IMG_SRC + "?t=" + Date.now();
-    }
-
-    function updateCrop(){
-      if(!cropImg) return;
-      var zoom = parseFloat(document.getElementById("cropSlider").value);
-      var canvas = document.getElementById("cropCanvas");
-      var outSize = 400;
-      canvas.width = outSize; canvas.height = outSize;
-      var ctx = canvas.getContext("2d");
-      var iw = cropImg.naturalWidth, ih = cropImg.naturalHeight;
-      var sw = iw / zoom, sh = ih / zoom;
-      var cx = (cropPinX / 100) * iw, cy = (cropPinY / 100) * ih;
-      var sx = cx - (sw / 2), sy = cy - (sh / 2);
-      if(sx < 0) sx = 0;
-      if(sy < 0) sy = 0;
-      if(sx + sw > iw) sx = iw - sw;
-      if(sy + sh > ih) sy = ih - sh;
-      ctx.drawImage(cropImg, sx, sy, sw, sh, 0, 0, outSize, outSize);
-    }
-
-    function downloadCrop(){
-      var canvas = document.getElementById("cropCanvas");
-      try{
-        var link = document.createElement("a");
-        link.download = "iamfeeling-moment.jpg";
-        link.href = canvas.toDataURL("image/jpeg", 0.92);
-        link.click();
-      }catch(e){
-        var w = window.open();
-        if(w) w.document.write('<img src="'+canvas.toDataURL("image/jpeg",0.92)+'" style="max-width:100%;touch-action:auto">');
-      }
-    }
-
     document.getElementById('navToggle').addEventListener('click', function(){
       document.getElementById('navLinks').classList.toggle('open');
     });
