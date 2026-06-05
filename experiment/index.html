@@ -59,12 +59,23 @@
     }
 
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .nav-logo-text {
       font-size: 13px;
       font-weight: 600;
       color: var(--c-text);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: none;
+      letter-spacing: 0.04em;
     }
 
     .nav-links {
@@ -505,13 +516,16 @@
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">iamfeeling™</a>
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="iamfeeling™">
+        <span class="nav-logo-text">iamfeeling™</span>
+      </a>
       <button class="nav-toggle" id="navToggle" aria-label="選單">
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="navLinks">
         <a href="/experiment" class="active">感知實驗</a>
-        <a href="https://bebeforedo.github.io/carddrawing/">帶著牌進入98%</a>
+        <a href="https://bebeforedo.github.io/carddrawing/">每日抽牌</a>
         <a href="https://bedo.beehiiv.com/p/tune-in" target="_blank" class="nav-cta">加入對頻</a>
         <div class="nav-divider"></div>
         <a href="https://bedo.beehiiv.com/p/about" target="_blank">關於我</a>
