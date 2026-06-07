@@ -179,7 +179,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <span class="size-lbl">光的大小</span>
       <input type="range" id="size-sl" min="20" max="180" value="70" oninput="lightSize=+this.value">
     </div>
-    <div class="vib">讓振頻決定。</div>
     <button class="btn-go" onclick="prepareCapture()">留住這個閃閃發光的片刻 →</button>
   </div>
 
@@ -396,7 +395,7 @@ function prepareCapture(){
   off.width=lc.width;off.height=lc.height;
   const ctx=off.getContext('2d');
   ctx.drawImage(img,0,0,off.width,off.height);
-  ctx.drawImage(lc,0,0);
+  // 光只是尋找的工具，截圖保留原始畫面
   composite=off;
   goStep(3);
   document.getElementById('crop-sl').value='1.5';
