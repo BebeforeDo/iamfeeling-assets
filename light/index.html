@@ -15,78 +15,43 @@
 body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;color:#e8e4dc;min-height:100vh}
 #app{max-width:500px;margin:0 auto;padding:0 1.25rem 5rem}
 
-/* Nav */
 .nav{position:sticky;top:0;z-index:100;background:#0c0c0a;border-bottom:.5px solid rgba(255,255,255,.07);padding:.9rem 1.25rem}
 .nav-inner{max-width:500px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{font-size:.7rem;letter-spacing:.25em;color:rgba(232,228,220,.45);text-decoration:none;text-transform:uppercase}
-.nav-back{font-size:.75rem;color:rgba(232,228,220,.35);text-decoration:none;font-style:italic;transition:color .2s}
-.nav-back:hover{color:rgba(232,228,220,.6)}
+.nav-back{font-size:.75rem;color:rgba(232,228,220,.35);text-decoration:none;font-style:italic}
 
-/* Header */
 .hd{text-align:center;padding:2rem 0 1.5rem;border-bottom:.5px solid rgba(255,255,255,.09);margin-bottom:1.75rem}
 .hd h1{font-size:2rem;font-weight:300;font-style:italic;margin-bottom:.5rem}
 .hd p{font-size:.92rem;color:rgba(232,228,220,.6);line-height:1.85}
 
-/* Progress */
 .prog{display:flex;gap:7px;justify-content:center;margin-bottom:2rem}
 .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.1);transition:background .4s}
 .dot.on{background:#1D9E75}
 
-/* Steps */
 .step{display:none}
 .step.active{display:flex;flex-direction:column;gap:1.25rem;animation:fi .4s ease forwards}
 @keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* Text */
 .lbl{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,228,220,.4)}
 .q{font-size:1.25rem;font-weight:300;font-style:italic;line-height:1.65;color:#e8e4dc}
 .sub{font-size:.95rem;color:rgba(232,228,220,.65);line-height:1.9}
 .note{font-size:.9rem;color:rgba(232,228,220,.52);line-height:1.85;font-style:italic}
 
-/* Buttons */
-.btn-go{
-  font-family:inherit;font-size:1.05rem;
-  width:100%;padding:1.1rem;border:none;
-  background:#1D9E75;color:#fff;
-  cursor:pointer;border-radius:4px;
-  -webkit-appearance:none;appearance:none;
-  transition:opacity .15s;
-}
+.btn-go{font-family:inherit;font-size:1.05rem;width:100%;padding:1.1rem;border:none;background:#1D9E75;color:#fff;cursor:pointer;border-radius:4px;-webkit-appearance:none;appearance:none;transition:opacity .15s}
 .btn-go:active{opacity:.82}
 .btn-go:disabled{background:rgba(29,158,117,.18);color:rgba(255,255,255,.28);cursor:default}
-
-.btn-ghost{
-  font-family:inherit;font-size:.9rem;
-  width:100%;padding:.95rem;
-  border:.5px solid rgba(255,255,255,.22);background:transparent;
-  color:rgba(232,228,220,.65);cursor:pointer;border-radius:4px;
-  -webkit-appearance:none;appearance:none;
-}
+.btn-ghost{font-family:inherit;font-size:.9rem;width:100%;padding:.95rem;border:.5px solid rgba(255,255,255,.22);background:transparent;color:rgba(232,228,220,.65);cursor:pointer;border-radius:4px;-webkit-appearance:none;appearance:none}
 .btn-ghost:active{border-color:rgba(255,255,255,.45)}
-
-.btn-amber{
-  font-family:inherit;font-size:.9rem;
-  width:100%;padding:.95rem;
-  border:.5px solid rgba(255,220,100,.35);background:rgba(255,220,100,.06);
-  color:rgba(255,220,100,.85);cursor:pointer;border-radius:4px;
-  text-decoration:none;display:block;text-align:center;
-  -webkit-appearance:none;appearance:none;
-}
+.btn-amber{font-family:inherit;font-size:.9rem;width:100%;padding:.95rem;border:.5px solid rgba(255,220,100,.35);background:rgba(255,220,100,.06);color:rgba(255,220,100,.85);cursor:pointer;border-radius:4px;text-decoration:none;display:block;text-align:center;-webkit-appearance:none;appearance:none}
 .btn-amber:active{background:rgba(255,220,100,.12)}
 
-/* Upload */
-#upload-zone{
-  border:.5px solid rgba(255,255,255,.12);border-radius:4px;
-  padding:2.75rem 1.5rem;text-align:center;cursor:pointer;
-  -webkit-tap-highlight-color:transparent;transition:border-color .25s;
-}
+#upload-zone{border:.5px solid rgba(255,255,255,.12);border-radius:4px;padding:2.75rem 1.5rem;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:border-color .25s}
 #upload-zone:active{border-color:rgba(29,158,117,.5)}
 .uz-icon{font-size:1.8rem;opacity:.18;margin-bottom:.9rem}
 .uz-text{font-size:1rem;color:rgba(232,228,220,.6);font-style:italic;line-height:1.9}
 .uz-small{font-size:.75rem;color:rgba(232,228,220,.3);display:block;margin-top:.4rem;letter-spacing:.06em;font-style:normal}
 #file-input{display:none}
 
-/* Breath */
 .breath-center{display:flex;flex-direction:column;align-items:center;gap:1rem}
 .ring-wrap{position:relative;width:150px;height:150px}
 .ring-track{position:absolute;inset:0;border-radius:50%;border:5px solid rgba(255,255,255,.08)}
@@ -96,42 +61,27 @@ body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;c
 .b-count{font-size:.75rem;color:rgba(232,228,220,.4);font-family:sans-serif;text-align:center;min-height:20px}
 .audio-msg{font-size:.72rem;color:rgba(232,228,220,.3);font-family:sans-serif;text-align:center;min-height:16px}
 
-/* Canvas */
-#canvas-wrap{
-  position:relative;border-radius:4px;overflow:hidden;
-  cursor:crosshair;touch-action:none;
-  border:.5px solid rgba(255,255,255,.09);
-  background:#111;min-height:200px;
-}
+#canvas-wrap{position:relative;border-radius:4px;overflow:hidden;touch-action:none;border:.5px solid rgba(255,255,255,.09);background:#111;min-height:200px}
+#canvas-wrap.free{cursor:crosshair}
+#canvas-wrap.locked{cursor:pointer}
 #base-img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain}
 #light-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
 
-/* Color dots */
+/* Lock indicator */
+.lock-hint{font-size:.82rem;color:rgba(232,228,220,.4);text-align:center;font-style:italic;min-height:22px}
+.lock-badge{display:inline-block;font-size:.7rem;font-family:sans-serif;letter-spacing:.08em;padding:.2rem .6rem;border-radius:10px;background:rgba(29,158,117,.15);color:rgba(29,158,117,.8);border:.5px solid rgba(29,158,117,.3);margin-left:.5rem;vertical-align:middle}
+
 .color-row{display:flex;gap:1.1rem;align-items:center}
-.cdot{
-  width:34px;height:34px;border-radius:50%;cursor:pointer;
-  border:3px solid transparent;transition:all .2s;
-  -webkit-tap-highlight-color:transparent;flex-shrink:0;
-}
+.cdot{width:34px;height:34px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s;-webkit-tap-highlight-color:transparent;flex-shrink:0}
 .cdot.active{border-color:rgba(255,255,255,.65);transform:scale(1.2)}
 
-/* Vib hint */
-.vib{
-  font-size:1rem;font-style:italic;
-  color:rgba(232,228,220,.55);line-height:1.7;
-  border-left:.5px solid rgba(255,220,100,.2);
-  padding:.75rem 1rem;
-  background:rgba(255,220,100,.03);
-  border-radius:0 3px 3px 0;
-}
+.vib{font-size:1rem;font-style:italic;color:rgba(232,228,220,.55);line-height:1.7;border-left:.5px solid rgba(255,220,100,.2);padding:.75rem 1rem;background:rgba(255,220,100,.03);border-radius:0 3px 3px 0}
 
-/* Size slider */
 .size-row{display:flex;align-items:center;gap:.9rem}
 .size-lbl{font-size:.75rem;color:rgba(232,228,220,.5);white-space:nowrap}
 input[type=range]{flex:1;-webkit-appearance:none;height:2px;background:rgba(255,255,255,.15);outline:none;cursor:pointer;border-radius:2px}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:rgba(255,220,100,.8);cursor:pointer}
 
-/* Crop */
 .crop-box{border:.5px solid rgba(255,255,255,.09);border-radius:4px;padding:1.25rem;background:rgba(255,255,255,.02)}
 .crop-lbl{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,228,220,.38);margin-bottom:.9rem}
 #crop-canvas{display:block;width:100%;border-radius:3px;margin-bottom:1rem;aspect-ratio:1/1;background:#111}
@@ -139,7 +89,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .sl-wrap label{font-size:.75rem;color:rgba(232,228,220,.5);white-space:nowrap}
 .save-note{font-size:.8rem;color:rgba(232,228,220,.42);text-align:center;line-height:1.75;margin-top:.6rem}
 
-/* Collage */
 #coll-sec{display:none}
 .coll-hd{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:.75rem;border-bottom:.5px solid rgba(255,255,255,.08)}
 .coll-title{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,228,220,.35)}
@@ -149,14 +98,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .c-item img{width:100%;height:100%;object-fit:cover;display:block}
 .c-rm{position:absolute;top:4px;right:4px;width:18px;height:18px;background:rgba(0,0,0,.72);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:rgba(255,255,255,.8);cursor:pointer;font-family:sans-serif}
 
-/* Closing */
 .closing{display:flex;flex-direction:column;gap:.75rem;padding-top:1.5rem;border-top:.5px solid rgba(255,255,255,.08)}
 .closing-line{font-size:1rem;font-style:italic;color:rgba(232,228,220,.55);line-height:1.85;text-align:center}
 
-/* Footer */
 .footer{text-align:center;padding:2rem 0 1rem;border-top:.5px solid rgba(255,255,255,.06);margin-top:2rem}
 .footer a{font-size:.7rem;letter-spacing:.2em;color:rgba(232,228,220,.25);text-decoration:none;text-transform:uppercase}
-.footer a:hover{color:rgba(232,228,220,.45)}
 </style>
 </head>
 <body>
@@ -173,7 +119,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </nav>
 
 <div id="app">
-
   <div class="hd">
     <h1>用光找記憶</h1>
     <p>讓你的98%帶著光<br>去找那個還在振動的瞬間</p>
@@ -225,16 +170,17 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     <div class="sub">讓你的98%去感知哪個顏色。</div>
     <div class="color-row" id="color-row"></div>
     <div class="note">移動你的手，讓光帶著你在照片裡走。</div>
-    <div id="canvas-wrap">
+    <div id="canvas-wrap" class="free">
       <img id="base-img" alt="你的照片">
       <canvas id="light-canvas"></canvas>
     </div>
+    <div class="lock-hint" id="lock-hint">點一下照片，讓光停在那裡</div>
     <div class="size-row">
       <span class="size-lbl">光的大小</span>
       <input type="range" id="size-sl" min="20" max="180" value="70" oninput="lightSize=+this.value">
     </div>
     <div class="vib">讓振頻決定。</div>
-    <button class="btn-go" onclick="prepareCapture()">將這個記憶裡的光留下來</button>
+    <button class="btn-go" onclick="prepareCapture()">讓這個記憶繼續流動 →</button>
   </div>
 
   <!-- S3: Save -->
@@ -249,7 +195,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
         <label>縮放</label>
         <input type="range" id="crop-sl" min="1.0" max="3.5" step="0.1" value="1.5" oninput="updateCrop()">
       </div>
-      <button class="btn-go" onclick="saveCrop()">儲存這個光的瞬間</button>
+      <button class="btn-go" onclick="saveCrop()">讓這個記憶繼續流動 →</button>
       <div class="save-note">儲存後會在新視窗開啟圖片<br>長按圖片即可儲存到手機</div>
     </div>
 
@@ -262,8 +208,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     </div>
 
     <div class="closing">
-      <div class="closing-line">讓這個記憶繼續流動。</div>
-      <a class="btn-amber" href="https://iamfeeling.com/p/collage" target="_blank">繼續閱讀：關於拼貼與素材採集 →</a>
+      <div class="closing-line">這個光，還可以去哪裡？</div>
+      <a class="btn-amber" href="https://iamfeeling.com/p/collage" target="_blank">了解更多這裡發生的事 →</a>
       <button class="btn-go" onclick="goStep(2)">回去繼續找</button>
       <button class="btn-ghost" onclick="resetAll()">換一張照片</button>
     </div>
@@ -272,7 +218,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   <div class="footer">
     <a href="https://bedo.beehiiv.com/p/tune-in" target="_blank">加入對頻 →</a>
   </div>
-
 </div>
 
 <script>
@@ -285,19 +230,22 @@ const COLORS=[
 
 let activeC=0,lightSize=70,mx=-999,my=-999,raf=null;
 let capX=50,capY=50,composite=null,captures=[];
-let audioReady=false;
+let locked=false;
 
 const bowl=document.getElementById('bowl');
 
-function prepAudio(){
-  if(audioReady)return;
-  bowl.load();
-  bowl.play().then(()=>{bowl.pause();bowl.currentTime=0;audioReady=true;}).catch(()=>{});
+// Audio — play directly on button click, most reliable method
+function playBowl(){
+  bowl.currentTime=0;
+  const p=bowl.play();
+  const msg=document.getElementById('audio-msg');
+  if(p!==undefined){
+    p.then(()=>{if(msg)msg.textContent='';})
+     .catch(()=>{if(msg)msg.textContent='（請開啟音量以聆聽頌缽）';});
+  }
 }
-['touchstart','click'].forEach(ev=>document.addEventListener(ev,prepAudio,{once:true}));
 
 function triggerUpload(){
-  prepAudio();
   document.getElementById('file-input').click();
 }
 
@@ -331,17 +279,14 @@ function goStep(n){
   document.getElementById('s'+n).classList.add('active');
   for(let i=0;i<4;i++)document.getElementById('d'+i).classList.toggle('on',i<n);
   try{window.scrollTo({top:0,behavior:'smooth'});}catch(e){}
-  if(n===2)setTimeout(startDraw,200);
+  if(n===2){locked=false;setTimeout(startDraw,200);}
 }
 
+// Breath — play audio directly on button click
 function startBreath(btn){
-  btn.disabled=true;btn.textContent='呼吸中⋯';
-  prepAudio();
-  const msg=document.getElementById('audio-msg');
-  bowl.currentTime=0;
-  bowl.play()
-    .then(()=>msg.textContent='')
-    .catch(()=>msg.textContent='（請開啟音量以聆聽頌缽）');
+  btn.disabled=true;
+  btn.textContent='呼吸中⋯';
+  playBowl(); // direct call on user gesture
 
   const ring=document.getElementById('ring');
   const orb=document.getElementById('orb');
@@ -378,15 +323,37 @@ function startBreath(btn){
   runPhase();
 }
 
+// Canvas with lock mechanism
 function startDraw(){
   const img=document.getElementById('base-img');
   const c=document.getElementById('light-canvas');
   const wrap=document.getElementById('canvas-wrap');
   c.width=img.offsetWidth||400;
   c.height=img.offsetHeight||300;
-  wrap.onmousemove=getPos;
-  wrap.ontouchmove=e=>{e.preventDefault();getPos(e);};
-  wrap.onmouseleave=()=>{mx=-999;my=-999;};
+
+  // Click/tap to lock/unlock
+  wrap.onclick=e=>{
+    if(e.target===c||e.target===img||e.target===wrap){
+      locked=!locked;
+      const hint=document.getElementById('lock-hint');
+      const wrap2=document.getElementById('canvas-wrap');
+      if(locked){
+        hint.innerHTML='光已停在這裡 <span class="lock-badge">鎖定</span>　再點一下繼續移動';
+        wrap2.classList.remove('free');wrap2.classList.add('locked');
+      }else{
+        hint.textContent='點一下照片，讓光停在那裡';
+        wrap2.classList.remove('locked');wrap2.classList.add('free');
+      }
+    }
+  };
+
+  wrap.onmousemove=e=>{if(!locked)getPos(e);};
+  wrap.ontouchmove=e=>{
+    e.preventDefault();
+    if(!locked)getPos(e);
+  };
+  wrap.onmouseleave=()=>{if(!locked){mx=-999;my=-999;}};
+
   if(raf)cancelAnimationFrame(raf);
   loop();
 }
@@ -454,14 +421,12 @@ function updateCrop(){
 function saveCrop(){
   const c=document.getElementById('crop-canvas');
   const dataUrl=c.toDataURL('image/jpeg',.92);
-  // Direct download
   try{
     const a=document.createElement('a');
     a.download='iamfeeling-'+Date.now()+'.jpg';
     a.href=dataUrl;
     document.body.appendChild(a);a.click();document.body.removeChild(a);
   }catch(e){}
-  // New window for mobile long-press
   const w=window.open('','_blank');
   if(w){
     w.document.write(
@@ -510,7 +475,7 @@ function addToStrip(url){
 
 function resetAll(){
   if(raf)cancelAnimationFrame(raf);
-  mx=-999;my=-999;composite=null;
+  mx=-999;my=-999;composite=null;locked=false;
   document.getElementById('base-img').src='';
   const btn=document.getElementById('btn-start');
   btn.disabled=false;btn.textContent='開始呼吸';btn.style.display='block';
@@ -519,6 +484,9 @@ function resetAll(){
   document.getElementById('b-count').textContent='';
   document.getElementById('ring').style.transform='rotate(-90deg)';
   document.getElementById('orb').style.transform='scale(.5)';
+  document.getElementById('lock-hint').textContent='點一下照片，讓光停在那裡';
+  const wrap=document.getElementById('canvas-wrap');
+  wrap.classList.remove('locked');wrap.classList.add('free');
   goStep(0);
 }
 
