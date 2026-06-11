@@ -67,15 +67,12 @@ body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;c
 #base-img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain}
 #light-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
 
-/* Lock indicator */
 .lock-hint{font-size:.82rem;color:rgba(232,228,220,.4);text-align:center;font-style:italic;min-height:22px}
 .lock-badge{display:inline-block;font-size:.7rem;font-family:sans-serif;letter-spacing:.08em;padding:.2rem .6rem;border-radius:10px;background:rgba(29,158,117,.15);color:rgba(29,158,117,.8);border:.5px solid rgba(29,158,117,.3);margin-left:.5rem;vertical-align:middle}
 
 .color-row{display:flex;gap:1.1rem;align-items:center}
 .cdot{width:34px;height:34px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s;-webkit-tap-highlight-color:transparent;flex-shrink:0}
 .cdot.active{border-color:rgba(255,255,255,.65);transform:scale(1.2)}
-
-.vib{font-size:1rem;font-style:italic;color:rgba(232,228,220,.55);line-height:1.7;border-left:.5px solid rgba(255,220,100,.2);padding:.75rem 1rem;background:rgba(255,220,100,.03);border-radius:0 3px 3px 0}
 
 .size-row{display:flex;align-items:center;gap:.9rem}
 .size-lbl{font-size:.75rem;color:rgba(232,228,220,.5);white-space:nowrap}
@@ -98,8 +95,29 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .c-item img{width:100%;height:100%;object-fit:cover;display:block}
 .c-rm{position:absolute;top:4px;right:4px;width:18px;height:18px;background:rgba(0,0,0,.72);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:rgba(255,255,255,.8);cursor:pointer;font-family:sans-serif}
 
-.closing{display:flex;flex-direction:column;gap:.75rem;padding-top:1.5rem;border-top:.5px solid rgba(255,255,255,.08)}
-.closing-line{font-size:1rem;font-style:italic;color:rgba(232,228,220,.55);line-height:1.85;text-align:center}
+/* ── CLOSING: stripped back ── */
+.closing{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  padding-top:2rem;
+  border-top:.5px solid rgba(255,255,255,.08);
+}
+.closing-reset{
+  font-family:inherit;
+  font-size:.82rem;
+  background:none;
+  border:none;
+  color:rgba(232,228,220,.28);
+  cursor:pointer;
+  text-align:center;
+  padding:.25rem 0;
+  letter-spacing:.04em;
+  text-decoration:underline;
+  text-decoration-color:rgba(232,228,220,.15);
+  text-underline-offset:3px;
+}
+.closing-reset:hover{color:rgba(232,228,220,.5);}
 
 .footer{text-align:center;padding:2rem 0 1rem;border-top:.5px solid rgba(255,255,255,.06);margin-top:2rem}
 .footer a{font-size:.7rem;letter-spacing:.2em;color:rgba(232,228,220,.25);text-decoration:none;text-transform:uppercase}
@@ -206,17 +224,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <div id="coll-strip"></div>
     </div>
 
+    <!-- CLOSING: one primary action, one quiet reset -->
     <div class="closing">
-      <div class="closing-line">讓這個記憶繼續流動。</div>
       <a class="btn-amber" href="https://bedo.beehiiv.com/p/98" target="_blank">了解更多這裡發生的事 →</a>
-      <button class="btn-go" onclick="goStep(2)">回去繼續找</button>
-      <button class="btn-ghost" onclick="resetAll()">換一張照片</button>
+      <button class="closing-reset" onclick="resetAll()">換一張照片</button>
     </div>
   </div>
 
-  <div class="footer">
- 
-  </div>
+  <div class="footer"></div>
 </div>
 
 <script>
@@ -233,7 +248,6 @@ let locked=false;
 
 const bowl=document.getElementById('bowl');
 
-// Audio — play directly on button click, most reliable method
 function playBowl(){
   bowl.currentTime=0;
   const p=bowl.play();
@@ -260,7 +274,6 @@ document.getElementById('file-input').onchange=e=>{
   e.target.value='';
 };
 
-// Color dots
 const cr=document.getElementById('color-row');
 COLORS.forEach((c,i)=>{
   const d=document.createElement('div');
@@ -281,11 +294,10 @@ function goStep(n){
   if(n===2){locked=false;setTimeout(startDraw,200);}
 }
 
-// Breath — play audio directly on button click
 function startBreath(btn){
   btn.disabled=true;
   btn.textContent='呼吸中⋯';
-  playBowl(); // direct call on user gesture
+  playBowl();
 
   const ring=document.getElementById('ring');
   const orb=document.getElementById('orb');
@@ -322,7 +334,6 @@ function startBreath(btn){
   runPhase();
 }
 
-// Canvas with lock mechanism
 function startDraw(){
   const img=document.getElementById('base-img');
   const c=document.getElementById('light-canvas');
@@ -330,7 +341,6 @@ function startDraw(){
   c.width=img.offsetWidth||400;
   c.height=img.offsetHeight||300;
 
-  // Click/tap to lock/unlock
   wrap.onclick=e=>{
     if(e.target===c||e.target===img||e.target===wrap){
       locked=!locked;
@@ -395,7 +405,6 @@ function prepareCapture(){
   off.width=lc.width;off.height=lc.height;
   const ctx=off.getContext('2d');
   ctx.drawImage(img,0,0,off.width,off.height);
-  // 光只是尋找的工具，截圖保留原始畫面
   composite=off;
   goStep(3);
   document.getElementById('crop-sl').value='1.5';
