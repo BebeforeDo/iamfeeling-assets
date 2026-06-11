@@ -15,7 +15,6 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    /* homepage palette */
     --c-bg:         #fafaf8;
     --c-text:       #1a1a18;
     --c-sub:        #666660;
@@ -28,7 +27,6 @@
     --r-md: 12px;
     --r-lg: 16px;
 
-    /* tune-in dark palette (used inside dark sections) */
     --bg:        #0D0E1A;
     --bg-mid:    #13152A;
     --bg-card:   #181A2E;
@@ -54,9 +52,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ═══════════════════════════════
-     NAV — from homepage
-  ═══════════════════════════════ */
+  /* ── NAV ── */
   .nav {
     position: sticky;
     top: 0;
@@ -82,11 +78,7 @@
     text-decoration: none;
   }
 
-  .nav-logo img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-  }
+  .nav-logo img { width: 36px; height: 36px; object-fit: contain; }
 
   .nav-logo-text {
     font-family: var(--sans);
@@ -113,11 +105,7 @@
     white-space: nowrap;
   }
 
-  .nav-links a:hover {
-    color: var(--c-text);
-    background: #f0f0ec;
-  }
-
+  .nav-links a:hover { color: var(--c-text); background: #f0f0ec; }
   .nav-links a.active { color: var(--c-text); }
 
   .nav-cta {
@@ -125,7 +113,7 @@
     color: #fff !important;
     border-radius: var(--r-sm) !important;
     font-size: 13px;
-    margin-left: 6px;
+    margin-left: 2px;
   }
 
   .nav-cta:hover { opacity: 0.88; background: var(--c-green) !important; }
@@ -155,9 +143,7 @@
     transition: all 0.2s;
   }
 
-  /* ═══════════════════════════════
-     HERO — dark, full-height
-  ═══════════════════════════════ */
+  /* ── HERO ── */
   .hero {
     min-height: 100svh;
     background: var(--bg);
@@ -226,10 +212,7 @@
     position: relative;
   }
 
-  .hero-title em {
-    font-style: normal;
-    color: var(--amber);
-  }
+  .hero-title em { font-style: normal; color: var(--amber); }
 
   .hero-sub {
     font-family: var(--serif);
@@ -298,9 +281,7 @@
     70%       { transform: scaleY(1); opacity: 0.4; }
   }
 
-  /* ═══════════════════════════════
-     LIGHT SECTIONS (homepage style)
-  ═══════════════════════════════ */
+  /* ── LIGHT SECTIONS ── */
   .light-section {
     max-width: 600px;
     margin: 0 auto;
@@ -351,9 +332,7 @@
     margin: 0 auto;
   }
 
-  /* ═══════════════════════════════
-     FLOW STEPS
-  ═══════════════════════════════ */
+  /* ── FLOW STEPS ── */
   .flow { display: flex; flex-direction: column; margin-top: 8px; }
 
   .flow-step {
@@ -390,28 +369,12 @@
     margin: 0;
   }
 
-  /* ═══════════════════════════════
-     TAKEAWAY
-  ═══════════════════════════════ */
-  .takeaway-anchor {
-    font-family: var(--serif);
-    font-size: clamp(1.1rem, 4vw, 1.45rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--c-green-text);
-    line-height: 1.6;
-    border-left: 2px solid var(--c-green);
-    padding-left: 20px;
-    margin-bottom: 28px;
-    background: var(--c-green-bg);
-    padding: 20px 20px 20px 20px;
-    border-radius: 0 var(--r-sm) var(--r-sm) 0;
-  }
-
+  /* ── TAKEAWAY LIST (merged into flow section) ── */
   .takeaway-list {
     list-style: none;
     display: flex;
     flex-direction: column;
+    margin-top: 8px;
   }
 
   .takeaway-list li {
@@ -437,9 +400,7 @@
     font-style: italic;
   }
 
-  /* ═══════════════════════════════
-     SESSIONS — dark block
-  ═══════════════════════════════ */
+  /* ── SESSIONS dark block ── */
   .sessions-wrap {
     background: var(--bg);
     color: var(--t-text);
@@ -453,10 +414,7 @@
   }
 
   .sessions-wrap .section-label { color: var(--amber); }
-
-  .sessions-wrap p {
-    color: var(--t-dim);
-  }
+  .sessions-wrap p { color: var(--t-dim); }
 
   .session-list {
     display: flex;
@@ -498,7 +456,23 @@
     flex-shrink: 0;
   }
 
-  .price-tag { text-align: center; padding: 28px 0 8px; }
+  /* ── PRICING FIELD ── */
+  .price-field {
+    border: 1px solid var(--line);
+    background: var(--bg-mid);
+    padding: 36px 32px;
+    margin-bottom: 48px;
+  }
+
+  .price-field-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
 
   .price-num {
     font-family: var(--serif);
@@ -506,17 +480,50 @@
     font-weight: 300;
     color: var(--amber);
     letter-spacing: 0.04em;
+    flex-shrink: 0;
   }
 
-  .price-detail {
+  .price-specs {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .price-spec-item {
     font-size: 12px;
     color: var(--smoke);
-    letter-spacing: 0.12em;
-    margin-top: 4px;
+    letter-spacing: 0.1em;
+    line-height: 1.7;
   }
 
+  .price-field-body {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--t-dim);
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+  }
+
+  .price-field-body em {
+    font-style: normal;
+    color: var(--t-text);
+  }
+
+  .price-field-policy {
+    font-size: 12px;
+    color: var(--smoke);
+    line-height: 1.95;
+    letter-spacing: 0.02em;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+
+  /* ── REGISTER BLOCK ── */
   .register-block {
-    margin-top: 48px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -537,12 +544,7 @@
     margin-bottom: 14px;
   }
 
-  .reg-method p {
-    font-size: 14px;
-    color: var(--t-dim);
-    margin-bottom: 10px;
-  }
-
+  .reg-method p { font-size: 14px; color: var(--t-dim); margin-bottom: 10px; }
   .reg-method a { color: var(--amber); text-decoration: none; }
 
   .line-id {
@@ -554,11 +556,7 @@
     margin: 10px 0 6px;
   }
 
-  .bank-table {
-    font-size: 13px;
-    color: var(--t-dim);
-    line-height: 2.2;
-  }
+  .bank-table { font-size: 13px; color: var(--t-dim); line-height: 2.2; }
 
   .bank-table span {
     color: var(--smoke);
@@ -575,7 +573,7 @@
     line-height: 1.9;
   }
 
-  .note {
+  .sessions-note {
     font-size: 12px;
     color: var(--smoke);
     letter-spacing: 0.04em;
@@ -585,9 +583,7 @@
     line-height: 1.9;
   }
 
-  /* ═══════════════════════════════
-     TOOLS GRID (light style)
-  ═══════════════════════════════ */
+  /* ── TOOLS GRID ── */
   .tools-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -619,12 +615,7 @@
     margin-bottom: 8px;
   }
 
-  .tool-desc {
-    font-size: 13px;
-    color: var(--c-sub);
-    line-height: 1.8;
-    margin: 0;
-  }
+  .tool-desc { font-size: 13px; color: var(--c-sub); line-height: 1.8; margin: 0; }
 
   .tool-url {
     font-size: 11px;
@@ -634,20 +625,131 @@
     display: block;
   }
 
-  /* ═══════════════════════════════
-     FOOTER — from homepage
-  ═══════════════════════════════ */
-  footer {
+  /* ── NEWSLETTER SECTION ── */
+  .newsletter-wrap {
+    background: var(--c-bg);
     border-top: 0.5px solid var(--c-border);
-    padding: 1.5rem 1.25rem;
+  }
+
+  .newsletter-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 72px 28px;
     text-align: center;
+  }
+
+  .newsletter-inner .section-label {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .newsletter-inner h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--c-text);
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  .newsletter-inner p {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--c-sub);
+    line-height: 1.9;
+    margin-bottom: 32px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0;
+    max-width: 420px;
+    margin: 0 auto 14px;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 13px 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    border: 1px solid var(--c-border);
+    border-right: none;
+    border-radius: var(--r-sm) 0 0 var(--r-sm);
+    background: #fff;
+    color: var(--c-text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .newsletter-form input:focus { border-color: var(--c-green); }
+
+  .newsletter-form input::placeholder { color: var(--c-ter); }
+
+  .newsletter-form button {
+    padding: 13px 20px;
+    background: var(--c-green);
+    color: #fff;
+    border: none;
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .newsletter-form button:hover { opacity: 0.88; }
+
+  .newsletter-archive {
+    font-size: 13px;
+    color: var(--c-ter);
+    margin-top: 16px;
+  }
+
+  .newsletter-archive a {
+    color: var(--c-green);
+    text-decoration: none;
+  }
+
+  .newsletter-archive a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--c-bg);
+    border-top: 0.5px solid var(--c-border);
+    padding: 2rem 1.25rem;
+    text-align: center;
+  }
+
+  .footer-tagline {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--c-sub);
+    letter-spacing: 0.04em;
+    line-height: 1.9;
+    margin-bottom: 6px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--c-ter);
+    font-family: var(--sans);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
   }
 
   .footer-social {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: 1rem;
   }
 
   .social-link {
@@ -663,15 +765,7 @@
 
   .social-link:hover { color: var(--c-text); }
 
-  footer p {
-    font-size: 12px;
-    color: var(--c-ter);
-    font-family: var(--sans);
-  }
-
-  /* ═══════════════════════════════
-     MOBILE
-  ═══════════════════════════════ */
+  /* ── MOBILE ── */
   @media (max-width: 600px) {
     .nav-links {
       display: none;
@@ -696,12 +790,20 @@
     .tools-grid { grid-template-columns: 1fr; }
     .hero-meta span { display: block; margin: 4px 0; }
     .light-section { padding: 56px 22px; }
+
+    .price-field { padding: 28px 20px; }
+    .price-field-top { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .price-specs { text-align: left; }
+
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form input { border-right: 1px solid var(--c-border); border-bottom: none; border-radius: var(--r-sm) var(--r-sm) 0 0; }
+    .newsletter-form button { border-radius: 0 0 var(--r-sm) var(--r-sm); }
   }
 </style>
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
+<!-- ── NAV ── -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
@@ -713,8 +815,8 @@
     </button>
     <div class="nav-links" id="navLinks">
       <a href="/experiment">空隙實驗</a>
-      <a href="https://bebeforedo.github.io/carddrawing/">帶著牌進入98%</a>
-      <a href="#sessions" class="active nav-cta">加入對頻</a>
+      <a href="/light">用光找記憶</a>
+      <a href="#sessions" class="nav-cta">加入對頻</a>
       <div class="nav-divider"></div>
       <a href="https://bedo.beehiiv.com/p/about" target="_blank">關於我</a>
       <a href="https://bedo.beehiiv.com/p/the-system" target="_blank">關於這個系統</a>
@@ -723,7 +825,7 @@
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
+<!-- ── HERO ── -->
 <header class="hero">
   <div class="hero-pulse" aria-hidden="true">
     <div class="pulse-ring"></div>
@@ -756,104 +858,76 @@
 
 <hr class="divider">
 
-<!-- ═══ SECTION 1: 回聲 ═══ -->
+<!-- ── SECTION 1: 振頻 ── -->
 <div class="light-section">
-  <p class="section-label">問題所在</p>
-  <h2>你聽到的，<br>是回聲</h2>
-  <p>你聽見很多聲音。社會告訴你應該怎樣。世代的設定告訴你什麼叫成功。對未來的擔心，一遍又一遍說同樣的話。</p>
-  <p>這些聲音，都在2%的窄巷裡。它們互相反射，互相放大。你以為是世界在說話——其實是那個窄巷裡的回聲。</p>
-  <p><span class="highlight">你自己的振頻，在那些回聲底下，一直都在，一直都在振動。</span>只是被淹沒了。</p>
-  <p>不是你不夠努力。腦子繞再久，都在同一個窄巷裡打轉。出口不在那裡。</p>
+  <p class="section-label">為什麼是對頻</p>
+  <h2>你感覺資訊很多，<br>但方向很模糊</h2>
+  <p>這兩件事同時成立。因為那些真正屬於你的訊號——那個讓你在某個瞬間停住的畫面，那個說不清楚但身體知道的方向——<span class="highlight">不熟悉，不緊急，它們在抵達你的意識之前，就已經被過濾掉了。</span></p>
+  <p>腦袋的過濾標準是熟悉的和緊急的。通知熟悉。演算法緊急。你越忙，那些真正屬於你的訊號離你越遠。</p>
+  <p>出口不在那個窄巷裡。出口在你的98%——那個比意識更大、一直在運作的系統。它說話的方式，就是<span class="highlight">悅</span>。那個讓你停住的感覺。那個讀到某句話身體有一瞬間認出感的東西。</p>
+  <p>悅升起的地方，就是屬於你的振頻。對頻，就是創造空隙，讓它浮現的一個小時。</p>
 </div>
 
 <hr class="divider">
 
-<!-- ═══ SECTION 2: 98% ═══ -->
-<div class="light-section">
-  <p class="section-label">98%的物理</p>
-  <h2>你的98%，<br>從來沒有停止運作</h2>
-  <p>我們習慣用2%處理一切——分析、比較、計畫、判斷。它非常能幹，但它只能處理它已經認識的東西。它向後看，用昨天的地圖走今天的路。</p>
-  <p>剩下的98%，用完全不同的方式在運作——一直都是。</p>
-  <p>它不用語言思考。它記得那個讓你突然停下來的氣味。它知道為什麼你走進某個房間之後呼吸變淺了。它感覺到一張照片裡有一個角落還活著。它不給你結論，<span class="highlight">它給你方向感</span>。</p>
-  <p>當你感知到自己的振頻，你開始辨識：這個在我系統裡有沒有振？有，繼續。沒有，放下。路，就從這裡重新變寬。</p>
-  <p><span class="highlight">對頻，就是創造空隙，讓你的振頻浮現的一個小時。</span></p>
-</div>
-
-<hr class="divider">
-
-<!-- ═══ SECTION 3: 流程 ═══ -->
+<!-- ── SECTION 2: 流程 + 帶走 ── -->
 <div class="light-section">
   <p class="section-label">這一個小時</p>
   <h2>從你的真實生活開始，<br>回到你的真實生活</h2>
-  <p>你不是去參加一個活動，然後帶走一些東西。你帶著你真實生活裡的材料進來，讓整個系統接觸它，然後帶著一個新的方向回去。</p>
+  <p>你帶著真實生活裡的材料進來，讓整個系統接觸它，帶著一個清晰的振頻回去。</p>
 
   <div class="flow">
     <div class="flow-step">
       <div class="flow-dot"></div>
       <p class="flow-title">報名後，收到一張牌的邀請</p>
-      <p class="flow-body">不需要懂塔羅。收到一張牌的圖像，帶著它去生活幾天——你自己決定幾天。讓生活裡讓你停下來的東西，自然浮現。一杯茶、一個顏色、一句話、一個你說不清楚為什麼但想多看一眼的東西。那些，都是你的98%在說話。</p>
+      <p class="flow-body">帶著它去生活幾天——你自己決定幾天。讓生活裡讓你停下來的東西，自然浮現。一杯茶、一個顏色、一句話——那些，都是你的98%在說話，是悅在升起。</p>
     </div>
     <div class="flow-step">
       <div class="flow-dot"></div>
       <p class="flow-title">週四晚上八點，帶著這些進來</p>
-      <p class="flow-body">先一起呼吸。不是放鬆，是讓2%暫時退後，讓98%有空間說話。然後帶著這幾天在生活裡採集到的東西，在 Canva 裡找圖做拼貼。不是找美的圖，是找那張讓你停下來的——不知道為什麼，就是停了一下。</p>
+      <p class="flow-body">先一起呼吸——讓2%暫時退後，讓98%有空間說話。將生活裡讓你停下來的東西，變成拼貼素材，重新組合、變成新的振頻，回到生活。</p>
     </div>
     <div class="flow-step">
       <div class="flow-dot"></div>
-      <p class="flow-title">讓它們相遇，說出一個新的東西</p>
-      <p class="flow-body">把幾個讓你停下來的圖放在同一個桌面上。讓98%決定什麼放在哪裡。它們相遇之後，會說出一個任何一個單獨說不出來的東西——一個命名，用你自己的語言，說清楚此刻在哪裡、往哪裡走。</p>
+      <p class="flow-title">讓它們相遇，命名此刻的振頻</p>
+      <p class="flow-body">把讓你停下來的圖放在同一個桌面。讓98%決定什麼放在哪裡。它們相遇之後，說出一個任何單獨說不出來的東西——用你自己的語言，說清楚此刻在哪裡、往哪裡走。</p>
     </div>
     <div class="flow-step">
       <div class="flow-dot"></div>
-      <p class="flow-title">靜默貼上，被真實看見</p>
-      <p class="flow-body">拼貼完成，靜默貼上 Padlet。沒有分享環節，不需要開口說話。二十個人同步的振頻，各自在那個場裡創作。拼貼被其他成員用四個元素畫作回應——不是按讚，是見證。</p>
-    </div>
-    <div class="flow-step">
-      <div class="flow-dot"></div>
-      <p class="flow-title">帶著清晰的振頻，回到真實生活</p>
-      <p class="flow-body">你離開的時候，某個地方鬆了。不是因為你想通了，是因為你讓整個系統說了話。那個鬆，是真實的——它會繼續在你的生活裡工作。</p>
+      <p class="flow-title">靜默貼上，留下你的足跡</p>
+      <p class="flow-body">沒有分享環節，不需要開口說話。二十個人同步在場，各自在那個場裡創作。拼貼貼上 Padlet，被其他成員用四個元素畫作回應——不是按讚，是見證。</p>
     </div>
   </div>
 
-  <p style="margin-top:28px; font-size:13px; color:var(--c-ter); letter-spacing:0.02em;">不需要任何靈性背景、塔羅知識或拼貼經驗。你只需要願意覺察自己此刻的狀態。</p>
-</div>
-
-<hr class="divider">
-
-<!-- ═══ SECTION 4: 帶走 ═══ -->
-<div class="light-section">
-  <p class="section-label">你真正帶走的</p>
-  <h2>有振頻，就有安全感</h2>
-
-  <p class="takeaway-anchor">不是技巧，不是方法，不是一套工具。是你知道自己的振頻長什麼感覺了。</p>
-
-  <p>那個感覺，是你在任何情況下都可以回去的內在座標。不依附在任何工作、任何角色、任何外在的穩定上。世界怎麼變，它還在。</p>
+  <p style="margin-top:36px; margin-bottom:20px; font-size:14px; font-weight:300; color:var(--c-sub); line-height:1.9;">你帶走的，是你知道自己的振頻長什麼感覺了。那個感覺，是你在任何情況下都可以回去的內在座標。有振頻，就有安全感。</p>
 
   <ul class="takeaway-list">
     <li>
       <span class="ti-label">呼吸</span>
-      <span>20分鐘引導音檔，活動後繼續用。每一次，都是在為你的98%創造新的空間。</span>
+      <span>20分鐘引導音檔，活動後繼續用。每一次，都是在為你的98%創造新的空隙。</span>
     </li>
     <li>
       <span class="ti-label">牌</span>
-      <span>一張屬於這個時刻的牌。帶著它去生活幾天，讓生活主動回應它。那個回應，就是你的振頻在說話。</span>
+      <span>一張屬於這個時刻的牌。帶著它去生活，讓生活主動回應它。那個回應，就是悅在說話。</span>
     </li>
     <li>
       <span class="ti-label">拼貼</span>
-      <span>不是美術作品。是你的整個系統同時說話之後，結晶成形的東西。</span>
+      <span>你的整個系統同時說話之後，結晶成形的東西。</span>
     </li>
     <li>
       <span class="ti-label">命名</span>
-      <span>用你自己的語言，說清楚此刻在哪裡、往哪裡走。不是道理，是方向。</span>
+      <span>用你自己的語言，說清楚此刻的振頻在哪裡、往哪裡走。不是道理，是方向。</span>
     </li>
     <li>
       <span class="ti-label">足跡</span>
-      <span>拼貼保留在 iamfeeling™ 的 Padlet 空間，被其他成員見證。那個見證，讓它更真實。</span>
+      <span>拼貼保留在 iamfeeling™ 的 Padlet，被其他成員見證。振頻才是足跡。</span>
     </li>
   </ul>
+
+  <p style="margin-top:28px; font-size:13px; color:var(--c-ter); letter-spacing:0.02em;">不需要任何靈性背景、塔羅知識或拼貼經驗。你只需要願意覺察自己此刻的狀態。</p>
 </div>
 
-<!-- ═══ SESSIONS — dark ═══ -->
+<!-- ── SESSIONS dark ── -->
 <div class="sessions-wrap" id="sessions">
   <div class="light-section">
     <p class="section-label">場次</p>
@@ -877,9 +951,25 @@
       </div>
     </div>
 
-    <div class="price-tag">
-      <div class="price-num">NT$500</div>
-      <div class="price-detail">每人每場　·　名額 20 人　·　額滿列入候補</div>
+    <div class="price-field">
+      <div class="price-field-top">
+        <div class="price-num">NT$500</div>
+        <div class="price-specs">
+          <span class="price-spec-item">每人每場</span>
+          <span class="price-spec-item">名額 20 人 · 額滿列入候補</span>
+          <span class="price-spec-item">Google Meet · 一小時</span>
+        </div>
+      </div>
+      <p class="price-field-body">
+        NT$500，二十個人，一個場，一個小時。<br>
+        這個場<em>沒有邊界</em>——它從你決定進來的那個瞬間就存在了，在你生活裡繼續工作。<br><br>
+        確認信寄出的那一刻，你的場就已經開始。<br>
+        音檔、呼吸、一張牌——那個啟動不會等到週四才發生。
+      </p>
+      <div class="price-field-policy">
+        報名後恕無法退費。<br>
+        如週四無法出席，48 小時前來信，振頻帶到下一場繼續。
+      </div>
     </div>
 
     <div class="register-block">
@@ -904,13 +994,13 @@
       </div>
     </div>
 
-    <p class="note">24 小時內寄出確認信、呼吸引導音檔與一張牌的邀請。<br>報名後音檔即刻寄出，恕不退費。如無法出席，可於活動前 48 小時內來信申請轉換至下一場次。</p>
+    <p class="sessions-note">24 小時內寄出確認信、呼吸引導音檔與一張牌的邀請。</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- ═══ TOOLS ═══ -->
+<!-- ── TOOLS ── -->
 <div class="light-section">
   <p class="section-label">先感受一下</p>
   <h2>讓你的98%先說一次話</h2>
@@ -919,7 +1009,7 @@
   <div class="tools-grid">
     <a href="https://iamfeeling.com/light" class="tool-card" target="_blank" rel="noopener">
       <p class="tool-name">用光找記憶</p>
-      <p class="tool-desc">上傳一張照片，讓你的98%帶著光去找那個還在振動的瞬間。</p>
+      <p class="tool-desc">上傳一張照片，讓你的98%帶著光去找那個還在振動的瞬間。悅升起的地方，就是你的訊號。</p>
       <span class="tool-url">iamfeeling.com/light →</span>
     </a>
     <a href="https://iamfeeling.com/experiment" class="tool-card" target="_blank" rel="noopener">
@@ -930,8 +1020,24 @@
   </div>
 </div>
 
-<!-- ═══ FOOTER — from homepage ═══ -->
+<!-- ── NEWSLETTER ── -->
+<div class="newsletter-wrap">
+  <div class="newsletter-inner">
+    <span class="section-label">電子報</span>
+    <h2>在雜訊裡，<br>持續感知自己的振頻</h2>
+    <p>不只是電子報。每一封，都是一次讓98%說話的邀請。</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="輸入您的 Email">
+      <button type="button">完整意識甦醒</button>
+    </div>
+    <p class="newsletter-archive">或者，<a href="https://bedo.beehiiv.com/archive" target="_blank">先閱讀過去的文章 →</a></p>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
 <footer>
+  <p class="footer-tagline">外在座標不再可靠。振頻，是唯一帶得走的內在座標。</p>
+  <p class="footer-copy">振頻，從這裡發出 &nbsp;·&nbsp; © 2026 iamfeeling™ &nbsp;·&nbsp; BeDo LLC &nbsp;·&nbsp; 影響顧問有限公司</p>
   <div class="footer-social">
     <a href="https://www.linkedin.com/in/iamfeeling/" target="_blank" class="social-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -942,7 +1048,6 @@
       Threads
     </a>
   </div>
-  <p>iamfeeling™ &nbsp;·&nbsp; BeDo LLC &nbsp;·&nbsp; 影響顧問有限公司</p>
 </footer>
 
 <script>
