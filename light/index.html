@@ -23,15 +23,15 @@ body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;c
 }
 .nav-inner{
   max-width:900px;margin:0 auto;
-  padding:0 1.25rem;height:52px;
+  padding:0 1.25rem;height:48px;
   display:flex;align-items:center;justify-content:space-between;
 }
-.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
-.nav-logo img{width:36px;height:36px;object-fit:contain;}
+.nav-logo{display:flex;align-items:center;gap:6px;text-decoration:none;}
+.nav-logo img{width:24px;height:24px;object-fit:contain;}
 .nav-logo-text{
   font-family:'Noto Sans TC',sans-serif;
-  font-size:13px;font-weight:600;
-  color:#1a1a18;letter-spacing:0.04em;
+  font-size:12px;font-weight:600;
+  color:#1a1a18;letter-spacing:0.06em;
 }
 .nav-links{display:flex;align-items:center;gap:0;}
 .nav-links a{
@@ -52,22 +52,31 @@ body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;c
 }
 .nav-cta:hover{opacity:.88;background:#1D9E75 !important;}
 .nav-divider{width:0.5px;height:16px;background:#e0e0d8;margin:0 8px;}
-.nav-right{display:flex;align-items:center;gap:8px;}
-.nav-cta-fixed{
-  display:none;
-  font-family:'Noto Sans TC',sans-serif;
-  font-size:13px;font-weight:400;
-  background:#1D9E75;color:#fff;
-  text-decoration:none;padding:7px 14px;
-  border-radius:8px;white-space:nowrap;
-  transition:opacity .15s;
-}
-.nav-cta-fixed:hover{opacity:.88;}
+.nav-right{display:flex;align-items:center;}
 .nav-toggle{
   display:none;flex-direction:column;gap:5px;
-  background:none;border:none;cursor:pointer;padding:4px;
+  background:none;border:none;cursor:pointer;padding:6px;
 }
-.nav-toggle span{display:block;width:20px;height:1px;background:#1a1a18;}
+.nav-toggle span{display:block;width:20px;height:1.5px;background:#1a1a18;border-radius:1px;}
+
+/* ── CTA BANNER ── */
+.nav-banner{
+  display:none;
+  background:rgba(200,169,110,0.1);
+  border-bottom:0.5px solid rgba(200,169,110,0.22);
+  text-align:center;
+  padding:9px 1.25rem;
+  position:sticky;top:48px;z-index:99;
+}
+.nav-banner a{
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:12px;font-weight:400;
+  color:#8A6F3E;
+  text-decoration:none;
+  letter-spacing:0.1em;
+  transition:color .15s;
+}
+.nav-banner a:hover{color:#C8A96E;}
 
 /* ── APP ── */
 #app{max-width:500px;margin:0 auto;padding:0 1.25rem 5rem}
@@ -157,17 +166,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 /* ── MOBILE NAV ── */
 @media(max-width:600px){
   .nav-links{
-    display:none;position:absolute;top:52px;left:0;right:0;
+    display:none;position:absolute;top:48px;left:0;right:0;
     background:#fafaf8;border-bottom:0.5px solid #e0e0d8;
     flex-direction:column;align-items:flex-start;
     padding:.75rem 1.25rem 1rem;gap:2px;
+    z-index:98;
   }
   .nav-links.open{display:flex;}
   .nav-links a{width:100%;padding:10px 12px;}
   .nav-cta{display:none;}
   .nav-divider{display:none;}
-  .nav-cta-fixed{display:inline-block;}
   .nav-toggle{display:flex;}
+  .nav-banner{display:block;}
 }
 </style>
 </head>
@@ -185,7 +195,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <span class="nav-logo-text">iamfeeling™</span>
     </a>
     <div class="nav-right">
-      <a href="/tune-in/" class="nav-cta-fixed">加入對頻</a>
       <button class="nav-toggle" id="navToggle" aria-label="選單">
         <span></span><span></span><span></span>
       </button>
@@ -201,6 +210,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     </div>
   </div>
 </nav>
+
+<!-- ── CTA BANNER（手機專用）── -->
+<div class="nav-banner">
+  <a href="/tune-in/">加入對頻 →</a>
+</div>
 
 <div id="app">
   <div class="hd">
