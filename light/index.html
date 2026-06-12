@@ -52,6 +52,17 @@ body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;c
 }
 .nav-cta:hover{opacity:.88;background:#1D9E75 !important;}
 .nav-divider{width:0.5px;height:16px;background:#e0e0d8;margin:0 8px;}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.nav-cta-fixed{
+  display:none;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:13px;font-weight:400;
+  background:#1D9E75;color:#fff;
+  text-decoration:none;padding:7px 14px;
+  border-radius:8px;white-space:nowrap;
+  transition:opacity .15s;
+}
+.nav-cta-fixed:hover{opacity:.88;}
 .nav-toggle{
   display:none;flex-direction:column;gap:5px;
   background:none;border:none;cursor:pointer;padding:4px;
@@ -153,8 +164,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   }
   .nav-links.open{display:flex;}
   .nav-links a{width:100%;padding:10px 12px;}
-  .nav-cta{margin-left:0 !important;margin-top:6px;text-align:center;}
+  .nav-cta{display:none;}
   .nav-divider{display:none;}
+  .nav-cta-fixed{display:inline-block;}
   .nav-toggle{display:flex;}
 }
 </style>
@@ -172,9 +184,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <img src="/logo.png" alt="iamfeeling™">
       <span class="nav-logo-text">iamfeeling™</span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="選單">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <a href="/tune-in/" class="nav-cta-fixed">加入對頻</a>
+      <button class="nav-toggle" id="navToggle" aria-label="選單">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
     <div class="nav-links" id="navLinks">
       <a href="/experiment">空隙實驗</a>
       <a href="/light" class="active">還在振動的片刻</a>
