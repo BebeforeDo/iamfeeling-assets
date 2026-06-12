@@ -8,17 +8,58 @@
 <meta property="og:title" content="還在振動的片刻 — iamfeeling™">
 <meta property="og:description" content="讓你的98%帶著光，去找那個還在振動的瞬間。">
 <meta property="og:url" content="https://iamfeeling.com/light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+TC:wght@300;400&display=swap');
-
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;color:#e8e4dc;min-height:100vh}
-#app{max-width:500px;margin:0 auto;padding:0 1.25rem 5rem}
 
-.nav{position:sticky;top:0;z-index:100;background:#0c0c0a;border-bottom:.5px solid rgba(255,255,255,.07);padding:.9rem 1.25rem}
-.nav-inner{max-width:500px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-size:.7rem;letter-spacing:.25em;color:rgba(232,228,220,.45);text-decoration:none;text-transform:none}
-.nav-back{font-size:.75rem;color:rgba(232,228,220,.35);text-decoration:none;font-style:italic}
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:#fafaf8;
+  border-bottom:0.5px solid #e0e0d8;
+}
+.nav-inner{
+  max-width:900px;margin:0 auto;
+  padding:0 1.25rem;height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nav-logo img{width:36px;height:36px;object-fit:contain;}
+.nav-logo-text{
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:13px;font-weight:600;
+  color:#1a1a18;letter-spacing:0.04em;
+}
+.nav-links{display:flex;align-items:center;gap:0;}
+.nav-links a{
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:13px;color:#666660;
+  text-decoration:none;padding:6px 14px;
+  border-radius:8px;
+  transition:color .15s,background .15s;
+  white-space:nowrap;
+}
+.nav-links a:hover{color:#1a1a18;background:#f0f0ec;}
+.nav-links a.active{color:#1a1a18;}
+.nav-cta{
+  background:#1D9E75 !important;
+  color:#fff !important;
+  border-radius:8px !important;
+  margin-left:2px;
+}
+.nav-cta:hover{opacity:.88;background:#1D9E75 !important;}
+.nav-divider{width:0.5px;height:16px;background:#e0e0d8;margin:0 8px;}
+.nav-toggle{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;
+}
+.nav-toggle span{display:block;width:20px;height:1px;background:#1a1a18;}
+
+/* ── APP ── */
+#app{max-width:500px;margin:0 auto;padding:0 1.25rem 5rem}
 
 .hd{text-align:center;padding:2rem 0 1.5rem;border-bottom:.5px solid rgba(255,255,255,.09);margin-bottom:1.75rem}
 .hd h1{font-size:2rem;font-weight:300;font-style:italic;margin-bottom:.5rem}
@@ -95,32 +136,27 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .c-item img{width:100%;height:100%;object-fit:cover;display:block}
 .c-rm{position:absolute;top:4px;right:4px;width:18px;height:18px;background:rgba(0,0,0,.72);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:rgba(255,255,255,.8);cursor:pointer;font-family:sans-serif}
 
-/* ── CLOSING: stripped back ── */
-.closing{
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  padding-top:2rem;
-  border-top:.5px solid rgba(255,255,255,.08);
-}
-.closing-reset{
-  font-family:inherit;
-  font-size:.82rem;
-  background:none;
-  border:none;
-  color:rgba(232,228,220,.28);
-  cursor:pointer;
-  text-align:center;
-  padding:.25rem 0;
-  letter-spacing:.04em;
-  text-decoration:underline;
-  text-decoration-color:rgba(232,228,220,.15);
-  text-underline-offset:3px;
-}
+.closing{display:flex;flex-direction:column;gap:1rem;padding-top:2rem;border-top:.5px solid rgba(255,255,255,.08);}
+.closing-reset{font-family:inherit;font-size:.82rem;background:none;border:none;color:rgba(232,228,220,.28);cursor:pointer;text-align:center;padding:.25rem 0;letter-spacing:.04em;text-decoration:underline;text-decoration-color:rgba(232,228,220,.15);text-underline-offset:3px;}
 .closing-reset:hover{color:rgba(232,228,220,.5);}
 
 .footer{text-align:center;padding:2rem 0 1rem;border-top:.5px solid rgba(255,255,255,.06);margin-top:2rem}
 .footer a{font-size:.7rem;letter-spacing:.2em;color:rgba(232,228,220,.25);text-decoration:none;text-transform:uppercase}
+
+/* ── MOBILE NAV ── */
+@media(max-width:600px){
+  .nav-links{
+    display:none;position:absolute;top:52px;left:0;right:0;
+    background:#fafaf8;border-bottom:0.5px solid #e0e0d8;
+    flex-direction:column;align-items:flex-start;
+    padding:.75rem 1.25rem 1rem;gap:2px;
+  }
+  .nav-links.open{display:flex;}
+  .nav-links a{width:100%;padding:10px 12px;}
+  .nav-cta{margin-left:0 !important;margin-top:6px;text-align:center;}
+  .nav-divider{display:none;}
+  .nav-toggle{display:flex;}
+}
 </style>
 </head>
 <body>
@@ -129,10 +165,25 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   <source src="https://raw.githubusercontent.com/BebeforeDo/iamfeeling-assets/main/436095__glen_hoban__himalayan-singing-bowl-1a.mp3" type="audio/mpeg">
 </audio>
 
+<!-- ── NAV ── -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">iamfeeling™</a>
-    <a href="/" class="nav-back">← 回首頁</a>
+    <a href="/" class="nav-logo">
+      <img src="/logo.png" alt="iamfeeling™">
+      <span class="nav-logo-text">iamfeeling™</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="/experiment">空隙實驗</a>
+      <a href="/light" class="active">還在振動的片刻</a>
+      <a href="/tune-in/" class="nav-cta">加入對頻</a>
+      <div class="nav-divider"></div>
+      <a href="https://bedo.beehiiv.com/p/about" target="_blank">關於我</a>
+      <a href="https://bedo.beehiiv.com/p/the-system" target="_blank">關於這個系統</a>
+      <a href="https://bedo.beehiiv.com/p/freedom" target="_blank">關於這個時代</a>
+    </div>
   </div>
 </nav>
 
@@ -224,7 +275,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <div id="coll-strip"></div>
     </div>
 
-    <!-- CLOSING: one primary action, one quiet reset -->
     <div class="closing">
       <a class="btn-amber" href="https://bedo.beehiiv.com/p/98" target="_blank">了解更多這裡發生的事 →</a>
       <button class="closing-reset" onclick="resetAll()">換一張照片</button>
@@ -235,6 +285,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </div>
 
 <script>
+document.getElementById('navToggle').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
 const COLORS=[
   {hex:'#ffd840',stops:['rgba(255,216,64,.7)','rgba(255,170,30,.22)','rgba(255,120,0,0)']},
   {hex:'#6ab4e8',stops:['rgba(106,180,232,.7)','rgba(80,150,220,.22)','rgba(50,120,200,0)']},
@@ -258,9 +312,7 @@ function playBowl(){
   }
 }
 
-function triggerUpload(){
-  document.getElementById('file-input').click();
-}
+function triggerUpload(){document.getElementById('file-input').click();}
 
 document.getElementById('file-input').onchange=e=>{
   const f=e.target.files[0];if(!f)return;
@@ -295,25 +347,20 @@ function goStep(n){
 }
 
 function startBreath(btn){
-  btn.disabled=true;
-  btn.textContent='呼吸中⋯';
+  btn.disabled=true;btn.textContent='呼吸中⋯';
   playBowl();
-
   const ring=document.getElementById('ring');
   const orb=document.getElementById('orb');
   const label=document.getElementById('b-label');
   const count=document.getElementById('b-count');
   let round=0,phase=0;
   const DUR=5000;
-
   function runPhase(){
     if(round>=3){
       label.textContent='完成';count.textContent='';
-      ring.style.transform='rotate(-90deg)';
-      orb.style.transform='scale(.5)';
+      ring.style.transform='rotate(-90deg)';orb.style.transform='scale(.5)';
       btn.style.display='none';
-      const nx=document.getElementById('btn-s1');
-      nx.style.display='block';
+      document.getElementById('btn-s1').style.display='block';
       return;
     }
     const inh=phase===0;
@@ -338,9 +385,7 @@ function startDraw(){
   const img=document.getElementById('base-img');
   const c=document.getElementById('light-canvas');
   const wrap=document.getElementById('canvas-wrap');
-  c.width=img.offsetWidth||400;
-  c.height=img.offsetHeight||300;
-
+  c.width=img.offsetWidth||400;c.height=img.offsetHeight||300;
   wrap.onclick=e=>{
     if(e.target===c||e.target===img||e.target===wrap){
       locked=!locked;
@@ -355,14 +400,9 @@ function startDraw(){
       }
     }
   };
-
   wrap.onmousemove=e=>{if(!locked)getPos(e);};
-  wrap.ontouchmove=e=>{
-    e.preventDefault();
-    if(!locked)getPos(e);
-  };
+  wrap.ontouchmove=e=>{e.preventDefault();if(!locked)getPos(e);};
   wrap.onmouseleave=()=>{if(!locked){mx=-999;my=-999;}};
-
   if(raf)cancelAnimationFrame(raf);
   loop();
 }
@@ -372,10 +412,8 @@ function getPos(e){
   const r=c.getBoundingClientRect();
   const sx=c.width/r.width,sy=c.height/r.height;
   const src=e.touches?e.touches[0]:e;
-  mx=(src.clientX-r.left)*sx;
-  my=(src.clientY-r.top)*sy;
-  capX=mx/c.width*100;
-  capY=my/c.height*100;
+  mx=(src.clientX-r.left)*sx;my=(src.clientY-r.top)*sy;
+  capX=mx/c.width*100;capY=my/c.height*100;
 }
 
 function loop(){
@@ -386,9 +424,7 @@ function loop(){
   if(mx>0&&my>0){
     const el=COLORS[activeC],r=lightSize;
     const g1=ctx.createRadialGradient(mx,my,0,mx,my,r*2.8);
-    g1.addColorStop(0,el.stops[0]);
-    g1.addColorStop(.4,el.stops[1]);
-    g1.addColorStop(1,el.stops[2]);
+    g1.addColorStop(0,el.stops[0]);g1.addColorStop(.4,el.stops[1]);g1.addColorStop(1,el.stops[2]);
     ctx.fillStyle=g1;ctx.beginPath();ctx.arc(mx,my,r*2.8,0,Math.PI*2);ctx.fill();
     const g2=ctx.createRadialGradient(mx,my,0,mx,my,r*.45);
     g2.addColorStop(0,el.stops[0].replace(/[\d.]+\)$/,'.92)'));
@@ -421,8 +457,7 @@ function updateCrop(){
   const sw=iw/zoom,sh=ih/zoom;
   const cx=(capX/100)*iw,cy=(capY/100)*ih;
   let sx=cx-sw/2,sy=cy-sh/2;
-  sx=Math.max(0,Math.min(sx,iw-sw));
-  sy=Math.max(0,Math.min(sy,ih-sh));
+  sx=Math.max(0,Math.min(sx,iw-sw));sy=Math.max(0,Math.min(sy,ih-sh));
   ctx.drawImage(composite,sx,sy,sw,sh,0,0,out,out);
 }
 
@@ -432,8 +467,7 @@ function saveCrop(){
   try{
     const a=document.createElement('a');
     a.download='iamfeeling-'+Date.now()+'.jpg';
-    a.href=dataUrl;
-    document.body.appendChild(a);a.click();document.body.removeChild(a);
+    a.href=dataUrl;document.body.appendChild(a);a.click();document.body.removeChild(a);
   }catch(e){}
   const w=window.open('','_blank');
   if(w){
@@ -443,8 +477,7 @@ function saveCrop(){
       '<img src="'+dataUrl+'" style="max-width:100%;max-height:78vh;border-radius:4px">'+
       '<p style="color:rgba(232,228,220,.45);font-size:15px;font-family:sans-serif;text-align:center;line-height:1.75">長按圖片，選擇「儲存圖片」</p>'+
       '</body></html>'
-    );
-    w.document.close();
+    );w.document.close();
   }
   addToStrip(dataUrl);
 }
@@ -474,8 +507,7 @@ function addToStrip(url){
         '<img src="'+url+'" style="max-width:100%;max-height:78vh;border-radius:4px">'+
         '<p style="color:rgba(232,228,220,.45);font-size:15px;font-family:sans-serif;text-align:center;line-height:1.75">長按圖片，選擇「儲存圖片」</p>'+
         '</body></html>'
-      );
-      w.document.close();
+      );w.document.close();
     }
   };
   item.appendChild(img);item.appendChild(rm);strip.appendChild(item);
