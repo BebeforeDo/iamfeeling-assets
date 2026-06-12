@@ -203,9 +203,9 @@
 
   .hero-title {
     font-family: var(--serif);
-    font-size: clamp(2rem, 8vw, 3.2rem);
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.6;
     letter-spacing: 0.04em;
     color: var(--t-text);
     margin-bottom: 20px;
@@ -216,7 +216,7 @@
 
   .hero-sub {
     font-family: var(--serif);
-    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     font-weight: 300;
     color: var(--smoke);
     letter-spacing: 0.06em;
@@ -300,10 +300,10 @@
 
   .light-section h2 {
     font-family: var(--serif);
-    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(1.3rem, 4vw, 1.7rem);
     font-weight: 400;
     font-style: italic;
-    line-height: 1.45;
+    line-height: 1.5;
     color: var(--c-text);
     margin-bottom: 24px;
     letter-spacing: 0.01em;
@@ -330,6 +330,96 @@
     border-top: 0.5px solid var(--c-border);
     max-width: 600px;
     margin: 0 auto;
+  }
+
+  /* ── NARRATIVE SECTIONS ── */
+  .narrative-block {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 28px 56px;
+  }
+
+  .narrative-block + .narrative-block {
+    padding-top: 0;
+  }
+
+  .narrative-heading {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--c-text);
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+  }
+
+  .narrative-block p {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--c-sub);
+    margin-bottom: 14px;
+    line-height: 1.95;
+    letter-spacing: 0.01em;
+  }
+
+  .narrative-block p:last-child { margin-bottom: 0; }
+
+  .narrative-divider {
+    border: none;
+    border-top: 0.5px solid var(--c-border);
+    max-width: 600px;
+    margin: 0 auto 56px;
+  }
+
+  /* ── OFFERING BLOCK ── */
+  .offering-block {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 56px 28px;
+    text-align: center;
+  }
+
+  .offering-text {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--c-text);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+  }
+
+  .offering-text em {
+    font-style: normal;
+    color: var(--c-green);
+  }
+
+  /* ── TOOLS SECTION ── */
+  .tools-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 28px 72px;
+  }
+
+  .tools-heading {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--c-text);
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+  }
+
+  .tools-section p {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--c-sub);
+    margin-bottom: 14px;
+    line-height: 1.95;
   }
 
   /* ── FLOW STEPS ── */
@@ -369,7 +459,7 @@
     margin: 0;
   }
 
-  /* ── TAKEAWAY LIST (merged into flow section) ── */
+  /* ── TAKEAWAY LIST ── */
   .takeaway-list {
     list-style: none;
     display: flex;
@@ -503,7 +593,7 @@
     font-weight: 300;
     font-style: italic;
     color: var(--t-dim);
-    line-height: 1.9;
+    line-height: 2;
     letter-spacing: 0.02em;
     margin-bottom: 20px;
   }
@@ -686,7 +776,6 @@
   }
 
   .newsletter-form input:focus { border-color: var(--c-green); }
-
   .newsletter-form input::placeholder { color: var(--c-ter); }
 
   .newsletter-form button {
@@ -790,6 +879,9 @@
     .tools-grid { grid-template-columns: 1fr; }
     .hero-meta span { display: block; margin: 4px 0; }
     .light-section { padding: 56px 22px; }
+    .narrative-block { padding: 0 22px 48px; }
+    .offering-block { padding: 48px 22px; }
+    .tools-section { padding: 0 22px 56px; }
 
     .price-field { padding: 28px 20px; }
     .price-field-top { flex-direction: column; gap: 12px; align-items: flex-start; }
@@ -836,9 +928,8 @@
   <p class="hero-brand">iamfeeling™</p>
 
   <h1 class="hero-title">
-    對頻<br>
-    <em>讓你的振頻浮現</em><br>
-    讓世界開始聽到你
+    生命不該是應付問題的總長。<br>
+    <em>是悅，一直振動。</em>
   </h1>
 
   <p class="hero-sub">每週四晚上 8:00　線上　一小時</p>
@@ -858,74 +949,99 @@
 
 <hr class="divider">
 
-<!-- ── SECTION 1: 振頻 ── -->
-<div class="light-section">
+<!-- ── 主文案：六段 ── -->
+<div class="light-section" style="padding-bottom: 40px;">
   <p class="section-label">為什麼是對頻</p>
-  <h2>你感覺資訊很多，<br>但方向很模糊</h2>
-  <p>這兩件事同時成立。因為那些真正屬於你的訊號——那個讓你在某個瞬間停住的畫面，那個說不清楚但身體知道的方向——<span class="highlight">不熟悉，不緊急，它們在抵達你的意識之前，就已經被過濾掉了。</span></p>
-  <p>腦袋的過濾標準是熟悉的和緊急的。通知熟悉。演算法緊急。你越忙，那些真正屬於你的訊號離你越遠。</p>
-  <p>出口不在那個窄巷裡。出口在你的98%——那個比意識更大、一直在運作的系統。它說話的方式，就是<span class="highlight">悅</span>。那個讓你停住的感覺。那個讀到某句話身體有一瞬間認出感的東西。</p>
-  <p>悅升起的地方，就是屬於你的振頻。對頻，就是創造空隙，讓它浮現的一個小時。</p>
+</div>
+
+<!-- 第一段 -->
+<div class="narrative-block">
+  <h2 class="narrative-heading">生命不是行事曆。</h2>
+  <p>你每天都在處理、回應、想辦法。處理完一個，下一個已經在等了。</p>
+  <p>因為問題的設定就是獨立的——像行事曆裡需要被刪除的項目，這個解決了，下一個再說。但生活從來不是這樣運作的。童年滲透現在，身體滲透工作，關係滲透每一個你以為只是「工作上的決定」的瞬間。</p>
+  <p>解決方案在格子裡有效。但你的生命，從來不是格子。</p>
+</div>
+
+<hr class="narrative-divider">
+
+<!-- 第二段 -->
+<div class="narrative-block">
+  <h2 class="narrative-heading">它來過。你沒認出。</h2>
+  <p>你有過那種時刻。突然清楚了，或者突然輕了，或者突然知道——這個是對的。</p>
+  <p>那就是振頻湧起來的樣子。</p>
+  <p>但行事曆太滿的時候，那個時刻來了，你沒收到。收到了，認出了——但雜訊太強，下一刻即淹沒。甚至有時候，你根本不知道它來過。</p>
+  <p>你的識別系統，長期被別的東西佔據了。</p>
+</div>
+
+<hr class="narrative-divider">
+
+<!-- 第三段 -->
+<div class="narrative-block">
+  <h2 class="narrative-heading">你認出的，是繼承。</h2>
+  <p>你意識到的那一層——分析、判斷、計劃、應付——我們叫它2%。腳本就住在這裡。</p>
+  <p>腳本是繼承來的。每一次用同樣的方式回應，那條路就深一點。久了，2%以為自己在選擇。其實是腳本在帶路。</p>
+  <p>熟悉的，不一定是你的。只是太熟悉了，你以為那就是你。</p>
+</div>
+
+<hr class="narrative-divider">
+
+<!-- 第四段 -->
+<div class="narrative-block">
+  <h2 class="narrative-heading">98% 一直在。是 2% 太響了。</h2>
+  <p>你的身體一直在感知。那個還沒有變成語言的直覺，那個在某個房間裡突然緊繃的感覺，那個不知道為什麼就是不對的瞬間——那是98%在運作。它從來沒有停過。</p>
+  <p>悅，就是你認出它的那一刻的振頻。</p>
+  <p>但2%太響的時候——分析、判斷、計劃、應付——98%的信號就進不來。腳本清晰，振頻就模糊。</p>
+  <p>它沒有消失。只是被蓋住了。</p>
+</div>
+
+<hr class="narrative-divider">
+
+<!-- 第五段 -->
+<div class="narrative-block">
+  <h2 class="narrative-heading">生活裡長出來的悅，才能留在生活裡。</h2>
+  <p>一個需要特定條件才能發生的狀態，條件一消失就消失。那是另一個格子，不是振頻。</p>
+  <p>悅從生活裡長出來。但生活不是工作以外的地方——生活是你存在的整個現場。一個眼神、一句突然聽進去的話、一個不知道為什麼就鬆開了的瞬間——這些沒有場合，不屬於任何一個格子。悅就從這裡長出來。</p>
+  <p>工作和生活的界線，是另一種應付的邏輯。撐過工作，才能回到生活。但如果振頻只在某個條件下才出現，它就留不住。</p>
+  <p>悅不挑場合。腳本才挑。</p>
+</div>
+
+<hr class="narrative-divider">
+
+<!-- 第六段 -->
+<div class="narrative-block">
+  <h2 class="narrative-heading">接住悅。讓它連下去。</h2>
+  <p>悅就是振頻湧起來的樣子。一個接一個，這才是生命本來的節奏。</p>
+  <p>應付是切片的。處理完一個，下一個在等，沒有累積，只有消耗。悅不一樣——一個悅還在振動的時候，下一個已經被召喚出來了。</p>
+  <p>「對頻」做的不是製造悅。是讓你有能力在悅出現的當下接住它——讓它連到下一個悅，讓振動持續，讓每一個當下成為真正的足跡。</p>
+  <p>足跡的方向是向前的。</p>
 </div>
 
 <hr class="divider">
 
-<!-- ── SECTION 2: 流程 + 帶走 ── -->
-<div class="light-section">
-  <p class="section-label">這一個小時</p>
-  <h2>從你的真實生活開始，<br>回到你的真實生活</h2>
-  <p>你帶著真實生活裡的材料進來，讓整個系統接觸它，帶著一個清晰的振頻回去。</p>
+<!-- ── OFFERING ── -->
+<div class="offering-block">
+  <p class="offering-text">你已經有振頻。我們只是給它一個可以被認出來的場 · Field——<br>以及讓它連續的方法。</p>
+</div>
 
+<hr class="divider">
+
+<!-- ── 呼吸 + 牌 ── -->
+<div class="tools-section" style="padding-top: 72px;">
   <div class="flow">
     <div class="flow-step">
       <div class="flow-dot"></div>
-      <p class="flow-title">報名後，收到一張牌的邀請</p>
-      <p class="flow-body">帶著它去生活幾天——你自己決定幾天。讓生活裡讓你停下來的東西，自然浮現。一杯茶、一個顏色、一句話——那些，都是你的98%在說話，是悅在升起。</p>
+      <p class="flow-title">呼吸</p>
+      <p class="flow-body">不是放鬆練習。不是讓你平靜下來。<br><br>呼吸做的是這件事：讓2%暫時安靜。腳本需要噪音才能運作——分析、判斷、應付、計劃。呼吸打斷這個迴路，不是用力打斷，是讓它沒有執行的條件。<br><br>2%安靜了，98%就有空間浮出來。那個一直在感知、一直在運作、一直沒有被聽見的部分——它就在那裡。</p>
     </div>
     <div class="flow-step">
       <div class="flow-dot"></div>
-      <p class="flow-title">週四晚上八點，帶著這些進來</p>
-      <p class="flow-body">先一起呼吸——讓2%暫時退後，讓98%有空間說話。將生活裡讓你停下來的東西，變成拼貼素材，重新組合、變成新的振頻，回到生活。</p>
-    </div>
-    <div class="flow-step">
-      <div class="flow-dot"></div>
-      <p class="flow-title">讓它們相遇，命名此刻的振頻</p>
-      <p class="flow-body">把讓你停下來的圖放在同一個桌面。讓98%決定什麼放在哪裡。它們相遇之後，說出一個任何單獨說不出來的東西——用你自己的語言，說清楚此刻在哪裡、往哪裡走。</p>
-    </div>
-    <div class="flow-step">
-      <div class="flow-dot"></div>
-      <p class="flow-title">靜默貼上，留下你的足跡</p>
-      <p class="flow-body">沒有分享環節，不需要開口說話。二十個人同步在場，各自在那個場裡創作。拼貼貼上 Padlet，被其他成員用四個元素畫作回應——不是按讚，是見證。</p>
+      <p class="flow-title">牌</p>
+      <p class="flow-body">牌不預測。不解讀。不告訴你答案。<br><br>牌做的是：給振頻一個可以被看見的形狀。<br><br>當98%浮出來，那個感受還沒有語言——牌給它一個落點。不是把你帶離生活去解讀什麼，是把振頻帶回生活裡的一個具體範疇。這個振頻和你的哪個現場有關？從那裡，它可以長出去。</p>
     </div>
   </div>
-
-  <p style="margin-top:36px; margin-bottom:20px; font-size:14px; font-weight:300; color:var(--c-sub); line-height:1.9;">你帶走的，是你知道自己的振頻長什麼感覺了。那個感覺，是你在任何情況下都可以回去的內在座標。有振頻，就有安全感。</p>
-
-  <ul class="takeaway-list">
-    <li>
-      <span class="ti-label">呼吸</span>
-      <span>20分鐘引導音檔，活動後繼續用。每一次，都是在為你的98%創造新的空隙。</span>
-    </li>
-    <li>
-      <span class="ti-label">牌</span>
-      <span>一張屬於這個時刻的牌。帶著它去生活，讓生活主動回應它。那個回應，就是悅在說話。</span>
-    </li>
-    <li>
-      <span class="ti-label">拼貼</span>
-      <span>你的整個系統同時說話之後，結晶成形的東西。</span>
-    </li>
-    <li>
-      <span class="ti-label">命名</span>
-      <span>用你自己的語言，說清楚此刻的振頻在哪裡、往哪裡走。不是道理，是方向。</span>
-    </li>
-    <li>
-      <span class="ti-label">足跡</span>
-      <span>拼貼保留在 iamfeeling™ 的 Padlet，被其他成員見證。振頻才是足跡。</span>
-    </li>
-  </ul>
-
-  <p style="margin-top:28px; font-size:13px; color:var(--c-ter); letter-spacing:0.02em;">不需要任何靈性背景、塔羅知識或拼貼經驗。你只需要願意覺察自己此刻的狀態。</p>
 </div>
+
+<hr class="divider">
 
 <!-- ── SESSIONS dark ── -->
 <div class="sessions-wrap" id="sessions">
@@ -961,10 +1077,11 @@
         </div>
       </div>
       <p class="price-field-body">
-        NT$500，二十個人，一個場，一個小時。<br>
-        這個場<em>沒有邊界</em>——它從你決定進來的那個瞬間就存在了，在你生活裡繼續工作。<br><br>
-        確認信寄出的那一刻，你的場就已經開始。<br>
-        音檔、呼吸、一張牌——那個啟動不會等到週四才發生。
+        NT$500，二十個人，一個場 · Field，一個小時。<br><br>
+        這個場 · Field<em>沒有邊界</em>——它從你決定進來的那個瞬間就存在了，在你生活裡繼續工作。<br><br>
+        確認信寄出的那一刻，你的場 · Field就已經開始了。<br>
+        呼吸讓腳本安靜。一張牌打開一個內在的靜默——在那個靜默裡，98%的振頻開始運作，找到它在你生活裡的落點。那個啟動不會等到週四才發生。<br><br>
+        那一個小時是靜默的。你在自己的場 · Field裡運作。有問題可以透過對話框提問——不打斷場 · Field，只是讓它更深。
       </p>
       <div class="price-field-policy">
         報名後恕無法退費。<br>
