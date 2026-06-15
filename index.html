@@ -125,6 +125,7 @@
 
     /* ── STICKY BANNER ── */
     .sticky-banner {
+      display: none; /* 電腦版隱藏 */
       position: sticky;
       top: 52px;
       z-index: 99;
@@ -413,6 +414,7 @@
       .nav-cta { margin-left: 0 !important; margin-top: 6px; text-align: center; }
       .nav-divider { display: none; }
       .nav-toggle { display: flex; }
+      .sticky-banner { display: block; } /* 手機版顯示 */
       .entries { grid-template-columns: 1fr; }
       .hero { padding: 3.5rem 1.25rem 2.5rem; }
     }
@@ -443,7 +445,7 @@
 
   <!-- ── STICKY BANNER ── -->
   <div class="sticky-banner">
-    <a href="/tune-in">加入對頻 →</a>
+    <a href="/tune-in">用振頻改變問題的場 →</a>
   </div>
 
   <!-- ── HERO ── -->
