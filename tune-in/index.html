@@ -74,19 +74,10 @@
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 8px;
     text-decoration: none;
   }
 
-  .nav-logo img { width: 36px; height: 36px; object-fit: contain; }
-
-  .nav-logo-text {
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--c-text);
-    letter-spacing: 0.04em;
-  }
+  .nav-logo img { width: 44px; height: 44px; object-fit: contain; }
 
   .nav-links {
     display: flex;
@@ -138,7 +129,7 @@
   .nav-toggle span {
     display: block;
     width: 20px;
-    height: 1px;
+    height: 1.5px;
     background: var(--c-text);
     transition: all 0.2s;
   }
@@ -339,9 +330,7 @@
     padding: 0 28px 56px;
   }
 
-  .narrative-block + .narrative-block {
-    padding-top: 0;
-  }
+  .narrative-block + .narrative-block { padding-top: 0; }
 
   .narrative-heading {
     font-family: var(--serif);
@@ -391,10 +380,7 @@
     letter-spacing: 0.02em;
   }
 
-  .offering-text em {
-    font-style: normal;
-    color: var(--c-green);
-  }
+  .offering-text em { font-style: normal; color: var(--c-green); }
 
   /* ── TOOLS SECTION ── */
   .tools-section {
@@ -403,26 +389,6 @@
     padding: 0 28px 72px;
   }
 
-  .tools-heading {
-    font-family: var(--serif);
-    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--c-text);
-    margin-bottom: 18px;
-    letter-spacing: 0.01em;
-  }
-
-  .tools-section p {
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--c-sub);
-    margin-bottom: 14px;
-    line-height: 1.95;
-  }
-
-  /* ── FLOW STEPS ── */
   .flow { display: flex; flex-direction: column; margin-top: 8px; }
 
   .flow-step {
@@ -459,37 +425,6 @@
     margin: 0;
   }
 
-  /* ── TAKEAWAY LIST ── */
-  .takeaway-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    margin-top: 8px;
-  }
-
-  .takeaway-list li {
-    padding: 18px 0;
-    border-bottom: 0.5px solid var(--c-border);
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--c-sub);
-    line-height: 1.8;
-    display: grid;
-    grid-template-columns: 3em 1fr;
-    gap: 16px;
-    align-items: start;
-  }
-
-  .takeaway-list li:last-child { border-bottom: none; }
-
-  .ti-label {
-    font-family: var(--serif);
-    font-size: 12px;
-    color: var(--c-green);
-    padding-top: 2px;
-    font-style: italic;
-  }
-
   /* ── SESSIONS dark block ── */
   .sessions-wrap {
     background: var(--bg);
@@ -523,28 +458,9 @@
 
   .session-item:last-child { border-bottom: none; }
 
-  .session-num {
-    font-size: 10px;
-    color: var(--amber);
-    letter-spacing: 0.2em;
-    flex-shrink: 0;
-  }
-
-  .session-date {
-    font-family: var(--serif);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--t-text);
-    flex: 1;
-    letter-spacing: 0.03em;
-  }
-
-  .session-time {
-    font-size: 12px;
-    color: var(--smoke);
-    letter-spacing: 0.08em;
-    flex-shrink: 0;
-  }
+  .session-num { font-size: 10px; color: var(--amber); letter-spacing: 0.2em; flex-shrink: 0; }
+  .session-date { font-family: var(--serif); font-size: 15px; font-weight: 300; color: var(--t-text); flex: 1; letter-spacing: 0.03em; }
+  .session-time { font-size: 12px; color: var(--smoke); letter-spacing: 0.08em; flex-shrink: 0; }
 
   /* ── PRICING FIELD ── */
   .price-field {
@@ -564,28 +480,9 @@
     margin-bottom: 24px;
   }
 
-  .price-num {
-    font-family: var(--serif);
-    font-size: 2.4rem;
-    font-weight: 300;
-    color: var(--amber);
-    letter-spacing: 0.04em;
-    flex-shrink: 0;
-  }
-
-  .price-specs {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .price-spec-item {
-    font-size: 12px;
-    color: var(--smoke);
-    letter-spacing: 0.1em;
-    line-height: 1.7;
-  }
+  .price-num { font-family: var(--serif); font-size: 2.4rem; font-weight: 300; color: var(--amber); letter-spacing: 0.04em; flex-shrink: 0; }
+  .price-specs { text-align: right; display: flex; flex-direction: column; gap: 4px; }
+  .price-spec-item { font-size: 12px; color: var(--smoke); letter-spacing: 0.1em; line-height: 1.7; }
 
   .price-field-body {
     font-family: var(--serif);
@@ -598,10 +495,7 @@
     margin-bottom: 20px;
   }
 
-  .price-field-body em {
-    font-style: normal;
-    color: var(--t-text);
-  }
+  .price-field-body em { font-style: normal; color: var(--t-text); }
 
   .price-field-policy {
     font-size: 12px;
@@ -613,11 +507,7 @@
   }
 
   /* ── REGISTER BLOCK ── */
-  .register-block {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
+  .register-block { display: flex; flex-direction: column; gap: 24px; }
 
   .reg-method {
     padding: 24px 28px;
@@ -625,61 +515,19 @@
     background: var(--bg-mid);
   }
 
-  .reg-method-label {
-    font-family: var(--sans);
-    font-size: 10px;
-    letter-spacing: 0.24em;
-    color: var(--amber);
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
+  .reg-method-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.24em; color: var(--amber); text-transform: uppercase; margin-bottom: 14px; }
   .reg-method p { font-size: 14px; color: var(--t-dim); margin-bottom: 10px; }
   .reg-method a { color: var(--amber); text-decoration: none; }
 
-  .line-id {
-    font-family: var(--serif);
-    font-size: 1.2rem;
-    color: var(--t-text);
-    letter-spacing: 0.06em;
-    display: block;
-    margin: 10px 0 6px;
-  }
-
+  .line-id { font-family: var(--serif); font-size: 1.2rem; color: var(--t-text); letter-spacing: 0.06em; display: block; margin: 10px 0 6px; }
   .bank-table { font-size: 13px; color: var(--t-dim); line-height: 2.2; }
+  .bank-table span { color: var(--smoke); font-size: 11px; letter-spacing: 0.12em; display: inline-block; width: 4.5em; }
+  .email-subject { font-size: 12px; color: var(--smoke); margin-top: 10px; line-height: 1.9; }
 
-  .bank-table span {
-    color: var(--smoke);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    display: inline-block;
-    width: 4.5em;
-  }
-
-  .email-subject {
-    font-size: 12px;
-    color: var(--smoke);
-    margin-top: 10px;
-    line-height: 1.9;
-  }
-
-  .sessions-note {
-    font-size: 12px;
-    color: var(--smoke);
-    letter-spacing: 0.04em;
-    margin-top: 28px;
-    padding-top: 24px;
-    border-top: 1px solid var(--line);
-    line-height: 1.9;
-  }
+  .sessions-note { font-size: 12px; color: var(--smoke); letter-spacing: 0.04em; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); line-height: 1.9; }
 
   /* ── TOOLS GRID ── */
-  .tools-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 8px;
-  }
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
 
   .tool-card {
     background: #fff;
@@ -691,167 +539,35 @@
     transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-  .tool-card:hover {
-    border-color: var(--c-green);
-    box-shadow: 0 2px 16px rgba(29,158,117,0.08);
-  }
-
-  .tool-name {
-    font-family: var(--serif);
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--c-text);
-    margin-bottom: 8px;
-  }
-
+  .tool-card:hover { border-color: var(--c-green); box-shadow: 0 2px 16px rgba(29,158,117,0.08); }
+  .tool-name { font-family: var(--serif); font-size: 1rem; font-weight: 400; font-style: italic; color: var(--c-text); margin-bottom: 8px; }
   .tool-desc { font-size: 13px; color: var(--c-sub); line-height: 1.8; margin: 0; }
+  .tool-url { font-size: 11px; color: var(--c-green); letter-spacing: 0.06em; margin-top: 14px; display: block; }
 
-  .tool-url {
-    font-size: 11px;
-    color: var(--c-green);
-    letter-spacing: 0.06em;
-    margin-top: 14px;
-    display: block;
-  }
+  /* ── NEWSLETTER ── */
+  .newsletter-wrap { background: var(--c-bg); border-top: 0.5px solid var(--c-border); }
 
-  /* ── NEWSLETTER SECTION ── */
-  .newsletter-wrap {
-    background: var(--c-bg);
-    border-top: 0.5px solid var(--c-border);
-  }
+  .newsletter-inner { max-width: 600px; margin: 0 auto; padding: 72px 28px; text-align: center; }
+  .newsletter-inner .section-label { display: block; text-align: center; margin-bottom: 20px; }
+  .newsletter-inner h2 { font-family: var(--serif); font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 400; font-style: italic; line-height: 1.5; color: var(--c-text); margin-bottom: 14px; letter-spacing: 0.01em; }
+  .newsletter-inner p { font-family: var(--sans); font-size: 14px; font-weight: 300; color: var(--c-sub); line-height: 1.9; margin-bottom: 32px; }
 
-  .newsletter-inner {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 72px 28px;
-    text-align: center;
-  }
-
-  .newsletter-inner .section-label {
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .newsletter-inner h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.5;
-    color: var(--c-text);
-    margin-bottom: 14px;
-    letter-spacing: 0.01em;
-  }
-
-  .newsletter-inner p {
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--c-sub);
-    line-height: 1.9;
-    margin-bottom: 32px;
-  }
-
-  .newsletter-form {
-    display: flex;
-    gap: 0;
-    max-width: 420px;
-    margin: 0 auto 14px;
-  }
-
-  .newsletter-form input {
-    flex: 1;
-    padding: 13px 16px;
-    font-family: var(--sans);
-    font-size: 14px;
-    border: 1px solid var(--c-border);
-    border-right: none;
-    border-radius: var(--r-sm) 0 0 var(--r-sm);
-    background: #fff;
-    color: var(--c-text);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
+  .newsletter-form { display: flex; gap: 0; max-width: 420px; margin: 0 auto 14px; }
+  .newsletter-form input { flex: 1; padding: 13px 16px; font-family: var(--sans); font-size: 14px; border: 1px solid var(--c-border); border-right: none; border-radius: var(--r-sm) 0 0 var(--r-sm); background: #fff; color: var(--c-text); outline: none; transition: border-color 0.2s; }
   .newsletter-form input:focus { border-color: var(--c-green); }
   .newsletter-form input::placeholder { color: var(--c-ter); }
-
-  .newsletter-form button {
-    padding: 13px 20px;
-    background: var(--c-green);
-    color: #fff;
-    border: none;
-    border-radius: 0 var(--r-sm) var(--r-sm) 0;
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: opacity 0.2s;
-  }
-
+  .newsletter-form button { padding: 13px 20px; background: var(--c-green); color: #fff; border: none; border-radius: 0 var(--r-sm) var(--r-sm) 0; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; cursor: pointer; white-space: nowrap; transition: opacity 0.2s; }
   .newsletter-form button:hover { opacity: 0.88; }
-
-  .newsletter-archive {
-    font-size: 13px;
-    color: var(--c-ter);
-    margin-top: 16px;
-  }
-
-  .newsletter-archive a {
-    color: var(--c-green);
-    text-decoration: none;
-  }
-
+  .newsletter-archive { font-size: 13px; color: var(--c-ter); margin-top: 16px; }
+  .newsletter-archive a { color: var(--c-green); text-decoration: none; }
   .newsletter-archive a:hover { text-decoration: underline; }
 
   /* ── FOOTER ── */
-  footer {
-    background: var(--c-bg);
-    border-top: 0.5px solid var(--c-border);
-    padding: 2rem 1.25rem;
-    text-align: center;
-  }
-
-  .footer-tagline {
-    font-family: var(--serif);
-    font-size: 13px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--c-sub);
-    letter-spacing: 0.04em;
-    line-height: 1.9;
-    margin-bottom: 6px;
-  }
-
-  .footer-copy {
-    font-size: 12px;
-    color: var(--c-ter);
-    font-family: var(--sans);
-    letter-spacing: 0.04em;
-    margin-bottom: 16px;
-  }
-
-  .footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--c-sub);
-    text-decoration: none;
-    transition: color 0.15s;
-    font-family: var(--sans);
-  }
-
+  footer { background: var(--c-bg); border-top: 0.5px solid var(--c-border); padding: 2rem 1.25rem; text-align: center; }
+  .footer-tagline { font-family: var(--serif); font-size: 13px; font-weight: 300; font-style: italic; color: var(--c-sub); letter-spacing: 0.04em; line-height: 1.9; margin-bottom: 6px; }
+  .footer-copy { font-size: 12px; color: var(--c-ter); font-family: var(--sans); letter-spacing: 0.04em; margin-bottom: 16px; }
+  .footer-social { display: flex; justify-content: center; gap: 1.5rem; }
+  .social-link { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--c-sub); text-decoration: none; transition: color 0.15s; font-family: var(--sans); }
   .social-link:hover { color: var(--c-text); }
 
   /* ── MOBILE ── */
@@ -869,24 +585,20 @@
       padding: 0.75rem 1.25rem 1rem;
       gap: 2px;
     }
-
     .nav-links.open { display: flex; }
     .nav-links a { width: 100%; padding: 10px 12px; }
     .nav-cta { margin-left: 0 !important; margin-top: 6px; text-align: center; }
     .nav-divider { display: none; }
     .nav-toggle { display: flex; }
-
     .tools-grid { grid-template-columns: 1fr; }
     .hero-meta span { display: block; margin: 4px 0; }
     .light-section { padding: 56px 22px; }
     .narrative-block { padding: 0 22px 48px; }
     .offering-block { padding: 48px 22px; }
     .tools-section { padding: 0 22px 56px; }
-
     .price-field { padding: 28px 20px; }
     .price-field-top { flex-direction: column; gap: 12px; align-items: flex-start; }
     .price-specs { text-align: left; }
-
     .newsletter-form { flex-direction: column; }
     .newsletter-form input { border-right: 1px solid var(--c-border); border-bottom: none; border-radius: var(--r-sm) var(--r-sm) 0 0; }
     .newsletter-form button { border-radius: 0 0 var(--r-sm) var(--r-sm); }
@@ -900,7 +612,6 @@
   <div class="nav-inner">
     <a href="/" class="nav-logo">
       <img src="/logo.png" alt="iamfeeling™">
-      <span class="nav-logo-text">iamfeeling™</span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="選單">
       <span></span><span></span><span></span>
@@ -908,7 +619,7 @@
     <div class="nav-links" id="navLinks">
       <a href="/experiment">空隙實驗</a>
       <a href="/light">還在振動的片刻</a>
-      <a href="#sessions" class="nav-cta">用振頻改變問題的場</a>
+      <a href="#sessions" class="nav-cta active">用振頻改變問題的場</a>
       <div class="nav-divider"></div>
       <a href="https://bedo.beehiiv.com/p/about" target="_blank">關於我</a>
       <a href="https://bedo.beehiiv.com/p/the-system" target="_blank">關於這個系統</a>
@@ -954,7 +665,6 @@
   <p class="section-label">為什麼是對頻</p>
 </div>
 
-<!-- 第一段 -->
 <div class="narrative-block">
   <h2 class="narrative-heading">生命不是行事曆。</h2>
   <p>你每天都在處理、回應、想辦法。處理完一個，下一個已經在等了。</p>
@@ -964,7 +674,6 @@
 
 <hr class="narrative-divider">
 
-<!-- 第二段 -->
 <div class="narrative-block">
   <h2 class="narrative-heading">它來過。你沒認出。</h2>
   <p>你有過那種時刻。突然清楚了，或者突然輕了，或者突然知道——這個是對的。</p>
@@ -975,7 +684,6 @@
 
 <hr class="narrative-divider">
 
-<!-- 第三段 -->
 <div class="narrative-block">
   <h2 class="narrative-heading">你認出的，是繼承。</h2>
   <p>你意識到的那一層——分析、判斷、計劃、應付——我們叫它2%。腳本就住在這裡。</p>
@@ -985,7 +693,6 @@
 
 <hr class="narrative-divider">
 
-<!-- 第四段 -->
 <div class="narrative-block">
   <h2 class="narrative-heading">98% 一直在。是 2% 太響了。</h2>
   <p>你的身體一直在感知。那個還沒有變成語言的直覺，那個在某個房間裡突然緊繃的感覺，那個不知道為什麼就是不對的瞬間——那是98%在運作。它從來沒有停過。</p>
@@ -996,7 +703,6 @@
 
 <hr class="narrative-divider">
 
-<!-- 第五段 -->
 <div class="narrative-block">
   <h2 class="narrative-heading">生活裡長出來的悅，才能留在生活裡。</h2>
   <p>一個需要特定條件才能發生的狀態，條件一消失就消失。那是另一個格子，不是振頻。</p>
@@ -1007,7 +713,6 @@
 
 <hr class="narrative-divider">
 
-<!-- 第六段 -->
 <div class="narrative-block">
   <h2 class="narrative-heading">接住悅。讓它連下去。</h2>
   <p>悅就是振頻湧起來的樣子。一個接一個，這才是生命本來的節奏，這就是場. Field。</p>
@@ -1018,14 +723,12 @@
 
 <hr class="divider">
 
-<!-- ── OFFERING ── -->
 <div class="offering-block">
   <p class="offering-text">你已經有振頻。我們只是給它一個可以被認出來的場 · Field——<br>以及讓它連續的方法。</p>
 </div>
 
 <hr class="divider">
 
-<!-- ── 呼吸 + 牌 ── -->
 <div class="tools-section" style="padding-top: 72px;">
   <div class="flow">
     <div class="flow-step">
@@ -1122,7 +825,6 @@
   <p class="section-label">先感受一下</p>
   <h2>讓你的98%先說一次話</h2>
   <p>不需要先懂什麼。進去，讓身體先走過一次。</p>
-
   <div class="tools-grid">
     <a href="https://iamfeeling.com/light" class="tool-card" target="_blank" rel="noopener">
       <p class="tool-name">還在振動的片刻</p>
@@ -1154,7 +856,7 @@
 <!-- ── FOOTER ── -->
 <footer>
   <p class="footer-tagline">外在座標不再可靠。振頻，是唯一帶得走的內在座標。</p>
-  <p class="footer-copy">振頻，從這裡發出 &nbsp;·&nbsp; © 2026 iamfeeling™ &nbsp;·&nbsp; BeDo LLC &nbsp;</p>
+  <p class="footer-copy">振頻，從這裡發出 &nbsp;·&nbsp; © 2026 iamfeeling™ &nbsp;·&nbsp; BeDo LLC</p>
   <div class="footer-social">
     <a href="https://www.linkedin.com/in/iamfeeling/" target="_blank" class="social-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
