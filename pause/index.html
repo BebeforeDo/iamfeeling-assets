@@ -143,6 +143,7 @@ body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;c
       <div class="card-poet" id="cardPoet"></div>
       <div class="card-note">把這個頻率帶進今天。<br>生活裡，凡是和它共振的，會自己浮現出來。</div>
     </div>
+    <button class="btn-go" id="downloadBtn" onclick="downloadCard()">下載今天的畫面</button>
     <button class="btn-ghost" onclick="reveal(true)">再停駐一次</button>
     <a class="btn-amber" href="/tune-in/">用振頻改變問題的場 →</a>
   </div>
@@ -273,6 +274,93 @@ function reveal(forceNew){
   const wrap = document.getElementById("cardWrap");
   wrap.style.animation = "none";
   requestAnimationFrame(()=>{ wrap.style.animation = "rise .7s ease forwards"; });
+}
+
+/* ── 下載：把圖＋詩句合成一張可以存到手機的畫面 ── */
+function drawCover(ctx, img, x, y, w, h){
+  const ir = img.naturalWidth / img.naturalHeight;
+  const r = w / h;
+  let sx, sy, sw, sh;
+  if(ir > r){ sh = img.naturalHeight; sw = sh * r; sx = (img.naturalWidth - sw)/2; sy = 0; }
+  else { sw = img.naturalWidth; sh = sw / r; sx = 0; sy = (img.naturalHeight - sh)/2; }
+  ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+}
+
+function wrapLines(ctx, text, maxWidth){
+  const words = text.split(" ");
+  let line = "", lines = [];
+  for(let n=0;n<words.length;n++){
+    const test = line + words[n] + " ";
+    if(ctx.measureText(test).width > maxWidth && n > 0){ lines.push(line.trim()); line = words[n] + " "; }
+    else line = test;
+  }
+  lines.push(line.trim());
+  return lines;
+}
+
+function openLoadingTab(){
+  const w = window.open("", "_blank");
+  if(w){
+    w.document.write('<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.5);display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;font-size:14px">正在準備圖片…</body></html>');
+    w.document.close();
+  }
+  return w;
+}
+
+function writeToTab(w, html){
+  if(!w || w.closed) return;
+  w.document.open(); w.document.write(html); w.document.close();
+}
+
+function downloadCard(){
+  const win = openLoadingTab(); // 必須在點擊當下同步打開，避免被瀏覽器擋彈出視窗
+  const card = sessionOverride || seededCard("");
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+
+  img.onload = ()=>{
+    document.fonts.ready.then(()=>{
+      try{
+        const canvas = document.createElement("canvas");
+        canvas.width = 1080; canvas.height = 1350;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#0c0c0a";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        drawCover(ctx, img, 0, 0, 1080, 860);
+
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#e8e4dc";
+        ctx.font = "italic 300 46px 'Cormorant Garamond', serif";
+        const lines = wrapLines(ctx, "\u201C"+card.quote[0]+"\u201D", 880);
+        const lineH = 60;
+        let y = 1000 - ((lines.length-1)*lineH)/2;
+        lines.forEach(l=>{ ctx.fillText(l, 540, y); y += lineH; });
+
+        ctx.font = "400 26px 'Noto Sans TC', sans-serif";
+        ctx.fillStyle = "rgba(232,228,220,0.5)";
+        ctx.fillText("— "+card.quote[1], 540, y + 28);
+
+        ctx.font = "300 22px 'Noto Sans TC', sans-serif";
+        ctx.fillStyle = "rgba(232,228,220,0.25)";
+        ctx.fillText("停駐 · iamfeeling™", 540, 1300);
+
+        const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
+        writeToTab(win,
+          '<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head>'+
+          '<body style="margin:0;background:#0c0c0a;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:1.25rem;padding:1.5rem">'+
+          '<img src="'+dataUrl+'" style="max-width:100%;max-height:80vh;border-radius:6px">'+
+          '<p style="color:rgba(232,228,220,.5);font-size:14px;font-family:sans-serif;text-align:center;line-height:1.85">手機：長按圖片，選擇「儲存圖片」<br>電腦：在圖片上按右鍵，選擇「另存圖片」</p>'+
+          "</body></html>"
+        );
+      }catch(e){
+        writeToTab(win, '<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">這張圖目前無法直接合成下載，<br>請直接截圖保存剛剛的畫面。</body></html>');
+      }
+    });
+  };
+  img.onerror = ()=>{
+    writeToTab(win, '<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">圖片讀取失敗，<br>請直接截圖保存剛剛的畫面。</body></html>');
+  };
+  img.src = card.img;
 }
 
 document.getElementById("navToggle").addEventListener("click", ()=>{
