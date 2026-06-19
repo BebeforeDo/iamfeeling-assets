@@ -1,54 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<title>停駐 — iamfeeling™</title>
-<meta name="description" content="按下去，讓一張畫面、一行詩句，成為今天的搜尋頻率。">
-<meta property="og:title" content="停駐 — iamfeeling™">
-<meta property="og:description" content="按下去，讓一張畫面、一行詩句，成為今天的搜尋頻率。">
-<meta property="og:url" content="https://iamfeeling.com/pause">
+<title>Pause — iamfeeling™</title>
+<meta name="description" content="Press it. Let one image, one line of poetry, become today's frequency.">
+<meta property="og:title" content="Pause — iamfeeling™">
+<meta property="og:description" content="Press it. Let one image, one line of poetry, become today's frequency.">
+<meta property="og:url" content="https://iamfeeling.com/en/pause">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;color:#e8e4dc;min-height:100vh}
+body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min-height:100vh}
 
-/* ── NAV（與站內其他工具頁一致） ── */
 .nav{position:sticky;top:0;z-index:100;background:#fafaf8;border-bottom:0.5px solid #e0e0d8;}
 .nav-inner{max-width:900px;margin:0 auto;padding:0 1.25rem;height:52px;display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{display:flex;align-items:center;text-decoration:none;}
 .nav-logo img{width:44px;height:44px;object-fit:contain;}
-.nav-links{display:flex;align-items:center;gap:0;}
-.nav-links a{font-family:'Noto Sans TC',sans-serif;font-size:13px;color:#666660;text-decoration:none;padding:6px 14px;border-radius:8px;transition:color .15s,background .15s;white-space:nowrap;}
-.nav-links a:hover{color:#1a1a18;background:#f0f0ec;}
-.nav-links a.active{color:#1a1a18;}
-.nav-cta{background:#1D9E75 !important;color:#fff !important;border-radius:8px !important;margin-left:2px;}
-.nav-cta:hover{opacity:.88;background:#1D9E75 !important;}
-.nav-divider{width:0.5px;height:16px;background:#e0e0d8;margin:0 8px;}
-.nav-right{display:flex;align-items:center;}
-.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
-.nav-toggle span{display:block;width:20px;height:1.5px;background:#1a1a18;border-radius:1px;}
+.nav-right a{font-family:'Noto Sans',sans-serif;font-size:13px;color:#666660;text-decoration:none;padding:6px 14px;border-radius:8px;}
 
-.nav-banner{display:none;background:#1a1a18;border-bottom:0.5px solid rgba(200,169,110,0.18);text-align:center;padding:9px 1.25rem;position:sticky;top:52px;z-index:99;}
-.nav-banner a{font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:400;color:#C8A96E;text-decoration:none;letter-spacing:0.1em;transition:opacity .2s;}
-.nav-banner a:hover{opacity:.75;}
-
-/* ── APP ── */
 #app{max-width:460px;margin:0 auto;padding:0 1.25rem 5rem}
 
 .hd{text-align:center;padding:2.5rem 0 1rem}
-.hd-eyebrow{font-family:'Noto Sans TC',sans-serif;font-size:.65rem;letter-spacing:.24em;color:rgba(232,228,220,.4);margin-bottom:1.1rem}
+.hd-eyebrow{font-family:'Noto Sans',sans-serif;font-size:.65rem;letter-spacing:.24em;color:rgba(232,228,220,.4);margin-bottom:1.1rem;text-transform:uppercase}
 .hd-date{font-size:2.6rem;font-weight:300;line-height:1;color:#e8e4dc}
-.hd-weekday{font-family:'Noto Sans TC',sans-serif;font-size:.7rem;letter-spacing:.18em;color:rgba(232,228,220,.35);margin-top:.6rem}
+.hd-weekday{font-family:'Noto Sans',sans-serif;font-size:.7rem;letter-spacing:.18em;color:rgba(232,228,220,.35);margin-top:.6rem;text-transform:uppercase}
 
 .screen{display:none}
 .screen.active{display:block}
 
-/* ── START ── */
 .prompt{font-size:1.35rem;font-weight:300;font-style:italic;line-height:1.7;color:#e8e4dc;text-align:center;margin:2.25rem 0 1rem}
-.prompt-sub{font-family:'Noto Sans TC',sans-serif;font-size:.85rem;color:rgba(232,228,220,.5);line-height:1.95;text-align:center;margin-bottom:2.75rem}
+.prompt-sub{font-family:'Noto Sans',sans-serif;font-size:.85rem;color:rgba(232,228,220,.5);line-height:1.95;text-align:center;margin-bottom:2.75rem}
 
 .breath-zone{display:flex;justify-content:center;margin-bottom:2.5rem}
 .breath-orb{width:108px;height:108px;border-radius:50%;background:radial-gradient(circle at 38% 36%,rgba(29,158,117,.5),rgba(29,158,117,.07) 65%,transparent);animation:breathe 10s ease-in-out infinite}
@@ -62,77 +46,48 @@ body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;c
 .btn-amber{font-family:inherit;font-size:.9rem;width:100%;padding:.95rem;border:.5px solid rgba(255,220,100,.35);background:rgba(255,220,100,.06);color:rgba(255,220,100,.85);cursor:pointer;border-radius:4px;text-decoration:none;display:block;text-align:center;-webkit-appearance:none;appearance:none;margin-top:.85rem}
 .btn-amber:active{background:rgba(255,220,100,.12)}
 
-/* ── CARD ── */
 .card-wrap{opacity:0;transform:translateY(8px);animation:rise .7s ease forwards}
 @keyframes rise{to{opacity:1;transform:translateY(0)}}
 
 .card-frame{position:relative;width:100%;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#111;border:.5px solid rgba(255,255,255,.08)}
 .card-frame img{width:100%;height:100%;object-fit:cover;display:block}
 
-.card-quote{font-size:1.3rem;font-weight:300;font-style:italic;line-height:1.7;color:#e8e4dc;text-align:center;margin:1.85rem 0 .65rem}
-.card-poet{font-family:'Noto Sans TC',sans-serif;font-size:.72rem;letter-spacing:.14em;color:rgba(232,228,220,.4);text-align:center;text-transform:uppercase}
+.card-quote{font-size:1.3rem;font-weight:300;font-style:italic;line-height:1.7;color:#e8e4dc;text-align:center;margin:1.85rem 0 .5rem}
+.card-poet{font-family:'Noto Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;color:rgba(232,228,220,.4);text-align:center;text-transform:uppercase}
+.card-artist{font-family:'Noto Sans',sans-serif;font-size:.68rem;letter-spacing:.06em;color:rgba(232,228,220,.28);text-align:center;margin-top:.6rem;font-style:italic}
 
-.card-note{font-family:'Noto Sans TC',sans-serif;font-size:.85rem;color:rgba(232,228,220,.55);line-height:2;text-align:center;margin:2rem 0 .25rem}
+.card-note{font-family:'Noto Sans',sans-serif;font-size:.85rem;color:rgba(232,228,220,.55);line-height:2;text-align:center;margin:2rem 0 .25rem}
 
 .footer{text-align:center;padding:2.5rem 0 1rem;border-top:.5px solid rgba(255,255,255,.06);margin-top:2.5rem}
-.footer-line{font-family:'Noto Sans TC',sans-serif;font-size:.7rem;letter-spacing:.08em;color:rgba(232,228,220,.3);line-height:1.9}
+.footer-line{font-family:'Noto Sans',sans-serif;font-size:.7rem;letter-spacing:.05em;color:rgba(232,228,220,.3);line-height:1.9}
 .footer a{color:rgba(200,169,110,.55);text-decoration:none}
-
-@media(max-width:600px){
-  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#fafaf8;border-bottom:0.5px solid #e0e0d8;flex-direction:column;align-items:flex-start;padding:.75rem 1.25rem 1rem;gap:2px;z-index:98;}
-  .nav-links.open{display:flex;}
-  .nav-links a{width:100%;padding:10px 12px;}
-  .nav-cta{display:none;}
-  .nav-divider{display:none;}
-  .nav-toggle{display:flex;}
-  .nav-banner{display:block;}
-}
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="/logo.png" alt="iamfeeling™">
+    <a href="https://iamfeeling.com" class="nav-logo">
+      <img src="https://iamfeeling.com/logo.png" alt="iamfeeling™">
     </a>
-    <div class="nav-right">
-      <button class="nav-toggle" id="navToggle" aria-label="選單">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-links" id="navLinks">
-      <a href="/experiment">空隙實驗</a>
-      <a href="/light">還在振動的片刻</a>
-      <a href="/pause" class="active">停駐</a>
-      <a href="/tune-in/" class="nav-cta">用振頻改變問題的場</a>
-      <div class="nav-divider"></div>
-      <a href="https://bedo.beehiiv.com/p/about" target="_blank">關於我</a>
-      <a href="https://bedo.beehiiv.com/p/the-system" target="_blank">關於這個系統</a>
-      <a href="https://bedo.beehiiv.com/p/freedom" target="_blank">關於這個時代</a>
-    </div>
+    <div class="nav-right"><a href="https://iamfeeling.beehiiv.com">Newsletter</a></div>
   </div>
 </nav>
-
-<div class="nav-banner">
-  <a href="/tune-in/">用振頻改變問題的場 →</a>
-</div>
 
 <div id="app">
 
   <div class="hd">
-    <div class="hd-eyebrow">意向弧日記 · 停駐</div>
+    <div class="hd-eyebrow">The Intentional Arc · Pause</div>
     <div class="hd-date" id="hdDate">—</div>
     <div class="hd-weekday" id="hdWeekday"></div>
   </div>
 
   <!-- S0: START -->
   <div class="screen active" id="s0">
-    <div class="prompt">今天，<br>讓什麼成為你接收世界的頻率？</div>
-    <div class="prompt-sub">不是答案，是濾鏡。<br>停駐之後，帶著它去生活——看見什麼讓你停住，<br>那就是今天的振頻在說話。</div>
+    <div class="prompt">Today,<br>what will you let tune your frequency?</div>
+    <div class="prompt-sub">Not an answer. A filter.<br>After you pause, carry it into your day — whatever stops you,<br>that's your vibration speaking.</div>
     <div class="breath-zone"><div class="breath-orb"></div></div>
-    <button class="btn-go" onclick="reveal(false)">停駐</button>
+    <button class="btn-go" onclick="reveal(false)">Pause</button>
   </div>
 
   <!-- S1: CARD -->
@@ -141,97 +96,109 @@ body{font-family:'Cormorant Garamond','Noto Serif TC',serif;background:#0c0c0a;c
       <div class="card-frame"><img id="cardImg" src="" alt="" loading="lazy"></div>
       <div class="card-quote" id="cardQuote"></div>
       <div class="card-poet" id="cardPoet"></div>
-      <div class="card-note">把這個頻率帶進今天。<br>生活裡，凡是和它共振的，會自己浮現出來。</div>
+      <div class="card-artist" id="cardArtist" style="display:none"></div>
+      <div class="card-note">It crossed centuries for this encounter.<br>Notice where it lands in you. Carry that into today.</div>
     </div>
-    <button class="btn-go" id="downloadBtn" onclick="downloadCard()">下載今天的畫面</button>
-    <button class="btn-ghost" onclick="reveal(true)">再停駐一次</button>
-    <a class="btn-amber" href="/tune-in/">用振頻改變問題的場 →</a>
+    <button class="btn-go" id="downloadBtn" onclick="downloadCard()">Save today's image</button>
+    <button class="btn-ghost" onclick="reveal(true)">Pause again</button>
+    <a class="btn-amber" href="https://iamfeeling.com">More from iamfeeling™ →</a>
   </div>
 
   <div class="footer">
-    <div class="footer-line">你已經有振頻。這只是一個讓它被認出來的場 · Field。<br>振頻，從這裡發出 · © 2026 iamfeeling™ · BeDo LLC<br><a href="https://www.linkedin.com/in/iamfeeling/" target="_blank">LinkedIn</a> ・ <a href="https://www.threads.com/@lichihsiao" target="_blank">Threads</a></div>
+    <div class="footer-line">You already have a vibration. This is just a field where it gets recognized.<br>Vibration, starting here · © 2026 iamfeeling™ · BeDo LLC</div>
   </div>
 
 </div>
 
 <script>
-/* ── 素材庫：圖像（公共領域畫作） ── */
-const IMAGES = [
-"https://commons.wikimedia.org/wiki/Special:FilePath/The_Town,_1903.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Ad_Parnassum_(originaler,_gefasster_Holzrahmen),_Paul_Klee_(1932).jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg",
-"https://upload.wikimedia.org/wikipedia/commons/c/cd/FRANZ-MARC_FRAU-IM-WIND-AM-MEER_CC-BY-SA_BSTGS_14972.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Cha%C3%AFm_Soutine_-_Vue_de_C%C3%A9ret.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Colors_from_a_Distance,_1932_-_Paul_Klee.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Garden_at_Arles_-_Google_Art_Project.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/John_Constable_Nuvens.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Procesi%C3%B3n_de_los_muertos_-_Gustav_Klimt_-_destruido_en_1945.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Fritz_Thaulow_Watermill_1892.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/La_Danse_II,_par_Henri_Matisse.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Town_among_Greenery_(The_Old_City_III)_by_Egon_Schiele,_1917.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet_-_Flowering_Plum_Trees_-_Google_Art_Project.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg",
-"https://images.rawpixel.com/image_social_square/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTExL3BkbWlzY3Byb2plY3QyNS1wZGZhbW91c3BhaW50aW5nZXRjMDgwMDUxLWltYWdlLmpwZw.jpg",
-"https://images.rawpixel.com/image_social_portrait/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA3L3BkbWlzYzEzLXdrMTIyODg4LWltYWdlLmpwZw.jpg",
-"https://images.rawpixel.com/image_social_square/cHJpdmF0ZS9zdGF0aWMvaW1hZ2VzL3dlYnNpdGUvMjAyMi0wNS9wZDIxMi0wNDZfMS5qcGc.jpg",
-"https://images.rawpixel.com/image_social_square/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BkMjEyLTA1OC5qcGc.jpg",
-"https://images.rawpixel.com/image_social_portrait/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQyMTYtMzkuanBn.jpg",
-"https://images.rawpixel.com/image_social_landscape/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQxODYtMDU1LW5hcC5qcGc.jpg",
-"https://images.rawpixel.com/image_social_square/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQxOTItMDA2LW5hcF8xLmpwZw.jpg",
-"https://images.rawpixel.com/image_social_landscape/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQyMjYtcGRiZWxsb3dzMDAwMjktaW1hZ2UuanBn.jpg",
-"https://images.rawpixel.com/image_social_square/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BkMjA0LTUwLmpwZw.jpg",
-"https://images.rawpixel.com/image_social_square/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTEwL3BkbWlzYzUtd2s2Mzk2NTkxNy1pbWFnZV8yLmpwZw.jpg",
-"https://images.rawpixel.com/image_social_square/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGRmYW1vdXNhcnRpc3RzMi0wMDQtbmFwXzEuanBn.jpg",
-"https://images.rawpixel.com/image_social_portrait/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BkcHJvamVjdDU5YmF0Y2g3MS00NC1rd2FuXzEuanBn.jpg",
-"https://images.rawpixel.com/image_social_square/cHJpdmF0ZS9zdGF0aWMvaW1hZ2VzL3dlYnNpdGUvMjAyMi0wNS9wZDE5MS0wMDYtZ2xveS5qcGc.jpg",
-"https://images.rawpixel.com/image_social_portrait/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQyMTUtMjZfMi5qcGc.jpg",
-"https://images.rawpixel.com/image_social_landscape/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGRmYW1vdXNhcnRpc3RzOC1wZGZhbW91c3BhaW50aW5nZXRjMTAxMDAwNS1pbWFnZV8yLmpwZw.jpg",
-"https://images.rawpixel.com/image_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3ljYmF0bXMxMDk1LWltYWdlLmpwZw.jpg",
-"https://images.rawpixel.com/image_social_square/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L2xyL3drMjM1OTQyMTItaW1hZ2UuanBn.jpg",
-"https://images.rawpixel.com/image_social_portrait/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQyNDQtcGRmYW1vdXNwYWludGluZ2V0YzA2ODAyNi0yLWltYWdlXzMuanBn.jpg"
+/* Each entry: image URL + known artist/title (null when unverified — never invent attribution) */
+const ARTWORKS = [
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/The_Town,_1903.jpg", credit:"The Town, 1903 — August Strindberg"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Ad_Parnassum_(originaler,_gefasster_Holzrahmen),_Paul_Klee_(1932).jpg", credit:"Ad Parnassum, 1932 — Paul Klee"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg", credit:"Norham Castle, Sunrise — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/c/cd/FRANZ-MARC_FRAU-IM-WIND-AM-MEER_CC-BY-SA_BSTGS_14972.jpg", credit:"Frau im Wind am Meer — Franz Marc"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Cha%C3%AFm_Soutine_-_Vue_de_C%C3%A9ret.jpg", credit:"Vue de Céret — Chaïm Soutine"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Colors_from_a_Distance,_1932_-_Paul_Klee.jpg", credit:"Colors from a Distance, 1932 — Paul Klee"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Garden_at_Arles_-_Google_Art_Project.jpg", credit:"Garden at Arles — Vincent van Gogh"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/John_Constable_Nuvens.jpg", credit:"Clouds — John Constable"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Procesi%C3%B3n_de_los_muertos_-_Gustav_Klimt_-_destruido_en_1945.jpg", credit:"Procession of the Dead — Gustav Klimt"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Fritz_Thaulow_Watermill_1892.jpg", credit:"Watermill, 1892 — Fritz Thaulow"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/e/e2/Reverie_%28Study_for_the_Portrait_of_Frank_Burty_Haviland%29_by_Amedeo_Modigliani%2C_1914.jpg", credit:"Reverie, 1914 — Amedeo Modigliani"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/2/22/William_Blake_-_Christ_in_the_Sepulchre%2C_Guarded_by_Angels.jpg", credit:"Christ in the Sepulchre, Guarded by Angels — William Blake"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Pierre_Bonnard_Garden_at_Cannet.jpg", credit:"Garden at Cannet — Pierre Bonnard"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/12/The_dining_room_in_the_country_by_Pierre_Bonnard_%281913%29.jpg", credit:"The Dining Room in the Country, 1913 — Pierre Bonnard"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Stevenson_Memorial_1903_Abbott_Thayer.jpg", credit:"Stevenson Memorial, 1903 — Abbott Handerson Thayer"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/The_Harbinger_of_Autumn_(1922)_by_Paul_Klee_-_Yale_University_Art_Gallery.jpg", credit:"The Harbinger of Autumn, 1922 — Paul Klee"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/George_Bellows_-_A_Fresh_Breeze_(1913).jpg", credit:"A Fresh Breeze, 1913 — George Bellows"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Samuel_Colman_-_The_Rock_of_Salvation_-_Google_Art_Project.jpg", credit:"The Rock of Salvation — Samuel Colman"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Couple_Riding_by_Wassily_Kandinsky.jpg", credit:"Couple Riding — Wassily Kandinsky"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Composition_VII_-_Wassily_Kandinsky,_GAC.jpg", credit:"Composition VII — Wassily Kandinsky"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/4/41/WLA_metmuseum_Edgar_Degas_Young_Woman_with_Ibis_2.jpg", credit:"Young Woman with Ibis — Edgar Degas"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/17/Ernst_Ludwig_Kirchner_-_Wintermondnacht_%28Kunstmuseum_Basel%29.jpg", credit:"Wintermondnacht — Ernst Ludwig Kirchner"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Piet_Mondrian_-_Red_Gladioli_-_91.148.4_-_Minneapolis_Institute_of_Arts.jpg", credit:"Red Gladioli — Piet Mondrian"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Dune_III,_by_Piet_Mondriaan.jpg", credit:"Dune III — Piet Mondrian"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Joseph_Mallord_William_Turner_-_Stormy_Sea_Breaking_on_a_Shore_-_Google_Art_Project.jpg", credit:"Stormy Sea Breaking on a Shore — J.M.W. Turner"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/La_Danse_II,_par_Henri_Matisse.jpg", credit:"La Danse II — Henri Matisse"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg", credit:"Self-Portrait — Rembrandt"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Road_with_Cypress_and_Star_-_c._12-15_May_1890.jpg", credit:"Road with Cypress and Star, 1890 — Vincent van Gogh"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Town_among_Greenery_(The_Old_City_III)_by_Egon_Schiele,_1917.jpg", credit:"Town among Greenery, 1917 — Egon Schiele"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Chaim_soutine_paysage103859).jpg", credit:"Paysage — Chaïm Soutine"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet_-_Flowering_Plum_Trees_-_Google_Art_Project.jpg", credit:"Flowering Plum Trees — Claude Monet"},
+{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg", credit:"Wheatfield with Crows — Vincent van Gogh"}
 ];
 
-/* ── 素材庫：詩句（公共領域／廣泛流通譯本） ── */
 const QUOTES = [
-["I am nobody! Who are you? Are you nobody, too? Then there's a pair of us — don't tell!","Emily Dickinson"],
-["The world is full of magical things, patiently waiting for our senses to grow sharper.","W.B. Yeats"],
-["To me the convergence of the stars is the traditional standard of beauty.","Paul Klee"],
+["And since then I have bathed in the Poem of the Sea, steeped in stars, and milk-white.","Arthur Rimbaud"],
+["Sweeter than sour apples to children, the green water penetrated my hull of fir.","Arthur Rimbaud"],
+["Through blue summer evenings, I will walk the paths, pricked by the wheat, treading the fine grass.","Arthur Rimbaud"],
+["Like long echoes that merge from far away into a deep and shadowy unity.","Charles Baudelaire"],
+["The Poet is like the prince of clouds, who haunts the storm and laughs at the archer.","Charles Baudelaire"],
+["The sun has drowned in its own thickening blood.","Charles Baudelaire"],
+["Green, how I want you green. Green wind. Green branches.","Federico García Lorca"],
+["The moon came to the forge in her bustle of spikenard flowers.","Federico García Lorca"],
+["The river Guadalquivir flows between orange and olive trees.","Federico García Lorca"],
 ["Let everything happen to you: beauty and terror. Just keep going. No feeling is final.","Rilke"],
 ["I love the dark hours of my being, for they deepen my senses.","Rilke"],
-["Be patient toward all that is unsolved in your heart, and try to love the questions themselves.","Rilke"],
+["You are not too old, and it is not too late, to dive into your increasing depths.","Rilke"],
+["If the doors of perception were cleansed, everything would appear to man as it is, infinite.","William Blake"],
+["Every thing that lives is holy.","William Blake"],
+["Man has no Body distinct from his Soul.","William Blake"],
+["And Love, the human form divine.","William Blake"],
+["I am large, I contain multitudes.","Walt Whitman"],
+["For every atom belonging to me as good belongs to you.","Walt Whitman"],
+["I am the doubter and the doubt, and I the hymn the Brahmin sings.","Ralph Waldo Emerson"],
+["Shadow and sunlight are the same; the vanished gods to me appear.","Ralph Waldo Emerson"],
 ["To see a world in a grain of sand, and a heaven in a wild flower.","William Blake"],
 ["The tyger burning bright, in the forests of the night.","William Blake"],
-["Exuberance is beauty.","William Blake"],
 ["The wound is the place where the light enters you.","Rumi"],
 ["Stop acting so small. You are the universe in ecstatic motion.","Rumi"],
-["It is the time you have wasted for your rose that makes your rose so important.","Antoine de Saint-Exupéry"],
-["It is only with the heart that one can see rightly; what is essential is invisible to the eye.","Antoine de Saint-Exupéry"],
-["The stars are beautiful, because of a flower that cannot be seen.","Antoine de Saint-Exupéry"],
 ["No coward soul is mine, no trembler in the world's storm-troubled sphere.","Emily Brontë"],
-["I'll walk where my own nature would be leading; it vexes me to choose another guide.","Emily Brontë"],
-["Every leaf speaks bliss to me, fluttering from the autumn tree.","Emily Brontë"],
 ["And visions rise, and change, that kill the world with a delirious joy.","Emily Brontë"],
-["As you set out for Ithaka, hope your road is a long one.","Cavafy"],
-["We choose our joys and our sorrows long before we experience them.","Kahlil Gibran"],
-["Trust the dream, for in it is hidden the gate to eternity.","Kahlil Gibran"],
-["He who has a why to live for can bear almost any how.","Nietzsche"],
 ["You must have chaos within you to give birth to a dancing star.","Nietzsche"],
+["Season of mists and mellow fruitfulness, close bosom-friend of the maturing sun.","John Keats"],
+["The dews come down like rain at night, the fog and clouds at dawn arise.","John Clare"],
+["I guess the grass is itself a child, the produced babe of the vegetation.","Walt Whitman"],
+["Every leaf speaks bliss to me, fluttering from the autumn tree.","Emily Brontë"],
 ["Glory be to God for dappled things.","Gerard Manley Hopkins"],
-["What you seek is seeking you.","Rumi"],
-["Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.","Rumi"],
-["Don't be satisfied with stories, how things have gone with others. Unfold your own myth.","Rumi"],
 ["Listen to the beehive — have you ever seen a bee in despair?","Rumi"],
+["As you set out for Ithaka, hope your road is a long one.","Cavafy"],
+["May not the space between heaven and earth be compared to a bellows? 'Tis emptied, yet it loses not its power; 'tis moved again, and sends forth air the more.","Laozi"],
+["The highest excellence is like that of water. The excellence of water appears in its benefiting all things, and in its occupying, without striving, the low place which all men dislike.","Laozi"],
+["The valley spirit dies not, aye the same; the female mystery thus do we name.","Laozi"],
+["Where dost thou seek Me? Lo! I am beside thee. I am neither in temple nor in mosque.","Kabir"],
+["Nothing himself, beholds nothing that is not there and the nothing that is.","Wallace Stevens"],
+["Tell all the Truth but tell it slant — Success in Circuit lies.","Emily Dickinson"],
+["Be patient toward all that is unsolved in your heart, and try to love the questions themselves.","Rilke"],
+["I am nobody! Who are you? Are you nobody, too? Then there's a pair of us — don't tell!","Emily Dickinson"],
+["The stars are beautiful, because of a flower that cannot be seen.","Antoine de Saint-Exupéry"],
+["Trust the dream, for in it is hidden the gate to eternity.","Kahlil Gibran"],
+["What you seek is seeking you.","Rumi"],
 ["The future enters into us, in order to transform itself in us, long before it happens.","Rilke"],
 ["The more they give, the more they possess.","Rilke"],
-["You are not too old, and it is not too late, to dive into your increasing depths.","Rilke"],
-["A single cell of courage is enough to spark a whole revolution of the soul.","Rilke"],
-["Letting each other go — holding on comes easily; we do not need to learn it.","Rilke"],
-["The imagination is the power of the mind over the possibilities of things.","Wallace Stevens"],
 ["Things as they are, are changed upon the blue guitar.","Wallace Stevens"],
 ["I was the world in which I walked.","Wallace Stevens"]
 ];
 
-/* ── 以日期為種子，讓「今天」穩定出現同一組，直到主動再停駐 ── */
 function hash(str){
   let h = 5381;
   for(let i=0;i<str.length;i++){ h = ((h<<5)+h) + str.charCodeAt(i); h = h & 0xffffffff; }
@@ -243,9 +210,9 @@ function todayStr(){
 }
 function seededCard(seedExtra){
   const t = todayStr()+seedExtra;
-  const img = IMAGES[hash(t+"i") % IMAGES.length];
+  const art = ARTWORKS[hash(t+"i") % ARTWORKS.length];
   const quote = QUOTES[hash(t+"q") % QUOTES.length];
-  return {img, quote};
+  return {img: art.img, credit: art.credit, quote};
 }
 
 let sessionOverride = null;
@@ -253,21 +220,21 @@ let sessionOverride = null;
 function renderHeader(){
   const d = new Date();
   document.getElementById("hdDate").textContent = (d.getMonth()+1)+" / "+d.getDate();
-  const wk = ["週日","週一","週二","週三","週四","週五","週六"][d.getDay()];
+  const wk = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()];
   document.getElementById("hdWeekday").textContent = wk;
 }
 
 function reveal(forceNew){
   let card;
-  if(forceNew){
-    card = seededCard("-"+Math.random());
-    sessionOverride = card;
-  } else {
-    card = sessionOverride || seededCard("");
-  }
+  if(forceNew){ card = seededCard("-"+Math.random()); sessionOverride = card; }
+  else { card = sessionOverride || seededCard(""); }
+
   document.getElementById("cardImg").src = card.img;
   document.getElementById("cardQuote").textContent = "\u201C"+card.quote[0]+"\u201D";
   document.getElementById("cardPoet").textContent = "— "+card.quote[1];
+  const artistEl = document.getElementById("cardArtist");
+  if(card.credit){ artistEl.textContent = card.credit; artistEl.style.display = "block"; }
+  else { artistEl.style.display = "none"; }
 
   document.getElementById("s0").classList.remove("active");
   document.getElementById("s1").classList.add("active");
@@ -276,7 +243,6 @@ function reveal(forceNew){
   requestAnimationFrame(()=>{ wrap.style.animation = "rise .7s ease forwards"; });
 }
 
-/* ── 下載：把圖＋詩句合成一張可以存到手機的畫面 ── */
 function drawCover(ctx, img, x, y, w, h){
   const ir = img.naturalWidth / img.naturalHeight;
   const r = w / h;
@@ -301,19 +267,22 @@ function wrapLines(ctx, text, maxWidth){
 function openLoadingTab(){
   const w = window.open("", "_blank");
   if(w){
-    w.document.write('<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.5);display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;font-size:14px">正在準備圖片…</body></html>');
+    w.document.write('<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.5);display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;font-size:14px">Preparing your image…</body></html>');
     w.document.close();
   }
   return w;
 }
-
 function writeToTab(w, html){
   if(!w || w.closed) return;
   w.document.open(); w.document.write(html); w.document.close();
 }
 
+/* ── Adaptive composition: tall/portrait artworks get a side-by-side layout
+   so the image keeps its full height instead of being squeezed and cropped
+   from top and bottom. Wide/landscape and square artworks keep the original
+   top-image / bottom-text layout, which already shows them with minimal crop. ── */
 function downloadCard(){
-  const win = openLoadingTab(); // 必須在點擊當下同步打開，避免被瀏覽器擋彈出視窗
+  const win = openLoadingTab();
   const card = sessionOverride || seededCard("");
   const img = new Image();
   img.crossOrigin = "anonymous";
@@ -326,46 +295,92 @@ function downloadCard(){
         const ctx = canvas.getContext("2d");
         ctx.fillStyle = "#0c0c0a";
         ctx.fillRect(0,0,canvas.width,canvas.height);
-        drawCover(ctx, img, 0, 0, 1080, 860);
 
-        ctx.textAlign = "center";
-        ctx.fillStyle = "#e8e4dc";
-        ctx.font = "italic 300 46px 'Cormorant Garamond', serif";
-        const lines = wrapLines(ctx, "\u201C"+card.quote[0]+"\u201D", 880);
-        const lineH = 60;
-        let y = 1000 - ((lines.length-1)*lineH)/2;
-        lines.forEach(l=>{ ctx.fillText(l, 540, y); y += lineH; });
+        const ir = img.naturalWidth / img.naturalHeight;
+        const isPortrait = ir < 0.85;
 
-        ctx.font = "400 26px 'Noto Sans TC', sans-serif";
-        ctx.fillStyle = "rgba(232,228,220,0.5)";
-        ctx.fillText("— "+card.quote[1], 540, y + 28);
+        if(isPortrait){
+          const imgW = 620;
+          drawCover(ctx, img, 0, 0, imgW, canvas.height);
 
-        ctx.font = "300 22px 'Noto Sans TC', sans-serif";
-        ctx.fillStyle = "rgba(232,228,220,0.25)";
-        ctx.fillText("停駐 · iamfeeling™", 540, 1300);
+          const textX = imgW + 64;
+          const textW = canvas.width - imgW - 110;
+          ctx.textAlign = "left";
+
+          ctx.font = "italic 300 33px 'Cormorant Garamond', serif";
+          const lines = wrapLines(ctx, "\u201C"+card.quote[0]+"\u201D", textW);
+          const lineH = 44;
+          const poetH = 34;
+          const artistH = card.credit ? 32 : 0;
+          const blockH = lines.length*lineH + poetH + artistH;
+          let y = (canvas.height - blockH)/2;
+
+          ctx.fillStyle = "#e8e4dc";
+          lines.forEach(l=>{ ctx.fillText(l, textX, y); y += lineH; });
+
+          y += 8;
+          ctx.font = "400 20px 'Noto Sans', sans-serif";
+          ctx.fillStyle = "rgba(232,228,220,0.5)";
+          ctx.fillText("— "+card.quote[1], textX, y);
+
+          if(card.credit){
+            y += artistH;
+            ctx.font = "italic 300 16px 'Noto Sans', sans-serif";
+            ctx.fillStyle = "rgba(232,228,220,0.3)";
+            const creditLines = wrapLines(ctx, card.credit, textW);
+            creditLines.forEach(l=>{ ctx.fillText(l, textX, y); y += 22; });
+          }
+
+          ctx.font = "300 16px 'Noto Sans', sans-serif";
+          ctx.fillStyle = "rgba(232,228,220,0.22)";
+          ctx.fillText("Pause · iamfeeling™", textX, canvas.height - 50);
+
+        } else {
+          drawCover(ctx, img, 0, 0, canvas.width, 820);
+
+          ctx.textAlign = "center";
+          ctx.fillStyle = "#e8e4dc";
+          ctx.font = "italic 300 44px 'Cormorant Garamond', serif";
+          const lines = wrapLines(ctx, "\u201C"+card.quote[0]+"\u201D", 880);
+          const lineH = 58;
+          let y = 950 - ((lines.length-1)*lineH)/2;
+          lines.forEach(l=>{ ctx.fillText(l, 540, y); y += lineH; });
+
+          y += 26;
+          ctx.font = "400 24px 'Noto Sans', sans-serif";
+          ctx.fillStyle = "rgba(232,228,220,0.5)";
+          ctx.fillText("— "+card.quote[1], 540, y);
+
+          if(card.credit){
+            y += 38;
+            ctx.font = "italic 300 18px 'Noto Sans', sans-serif";
+            ctx.fillStyle = "rgba(232,228,220,0.3)";
+            ctx.fillText(card.credit, 540, y);
+          }
+
+          ctx.font = "300 20px 'Noto Sans', sans-serif";
+          ctx.fillStyle = "rgba(232,228,220,0.22)";
+          ctx.fillText("Pause · iamfeeling™", 540, 1300);
+        }
 
         const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
         writeToTab(win,
           '<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head>'+
           '<body style="margin:0;background:#0c0c0a;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:1.25rem;padding:1.5rem">'+
           '<img src="'+dataUrl+'" style="max-width:100%;max-height:80vh;border-radius:6px">'+
-          '<p style="color:rgba(232,228,220,.5);font-size:14px;font-family:sans-serif;text-align:center;line-height:1.85">手機：長按圖片，選擇「儲存圖片」<br>電腦：在圖片上按右鍵，選擇「另存圖片」</p>'+
+          '<p style="color:rgba(232,228,220,.5);font-size:14px;font-family:sans-serif;text-align:center;line-height:1.85">On phone: press and hold the image, then "Save image"<br>On desktop: right-click the image, then "Save image as…"</p>'+
           "</body></html>"
         );
       }catch(e){
-        writeToTab(win, '<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">這張圖目前無法直接合成下載，<br>請直接截圖保存剛剛的畫面。</body></html>');
+        writeToTab(win, '<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">This image can\'t be composed for download right now.<br>Please take a screenshot of the card instead.</body></html>');
       }
     });
   };
   img.onerror = ()=>{
-    writeToTab(win, '<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">圖片讀取失敗，<br>請直接截圖保存剛剛的畫面。</body></html>');
+    writeToTab(win, '<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">The image couldn\'t load.<br>Please take a screenshot of the card instead.</body></html>');
   };
   img.src = card.img;
 }
-
-document.getElementById("navToggle").addEventListener("click", ()=>{
-  document.getElementById("navLinks").classList.toggle("open");
-});
 
 renderHeader();
 </script>
