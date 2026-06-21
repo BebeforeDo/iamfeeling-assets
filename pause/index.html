@@ -97,7 +97,7 @@ body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min
       <div class="card-quote" id="cardQuote"></div>
       <div class="card-poet" id="cardPoet"></div>
       <div class="card-artist" id="cardArtist" style="display:none"></div>
-      <div class="card-note">It crossed centuries for this encounter.<br>Notice where it lands in you. Carry that into today.</div>
+      <div class="card-note">It crossed centuries for this encounter.<br>Feel where it lands — that's your vibration. Carry it into today.</div>
     </div>
     <button class="btn-go" id="downloadBtn" onclick="downloadCard()">Save today's image</button>
     <button class="btn-ghost" onclick="reveal(true)">Pause again</button>
@@ -113,38 +113,38 @@ body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min
 <script>
 /* Each entry: image URL + known artist/title (null when unverified — never invent attribution) */
 const ARTWORKS = [
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/The_Town,_1903.jpg", credit:"The Town, 1903 — August Strindberg"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Ad_Parnassum_(originaler,_gefasster_Holzrahmen),_Paul_Klee_(1932).jpg", credit:"Ad Parnassum, 1932 — Paul Klee"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg", credit:"Norham Castle, Sunrise — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/3/35/The_Town,_1903.jpg", credit:"The Town, 1903 — August Strindberg"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/6/6c/Ad_Parnassum_(originaler,_gefasster_Holzrahmen),_Paul_Klee_(1932).jpg", credit:"Ad Parnassum, 1932 — Paul Klee"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/3/33/Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg", credit:"Norham Castle, Sunrise — J.M.W. Turner"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/c/cd/FRANZ-MARC_FRAU-IM-WIND-AM-MEER_CC-BY-SA_BSTGS_14972.jpg", credit:"Frau im Wind am Meer — Franz Marc"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Cha%C3%AFm_Soutine_-_Vue_de_C%C3%A9ret.jpg", credit:"Vue de Céret — Chaïm Soutine"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Colors_from_a_Distance,_1932_-_Paul_Klee.jpg", credit:"Colors from a Distance, 1932 — Paul Klee"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Garden_at_Arles_-_Google_Art_Project.jpg", credit:"Garden at Arles — Vincent van Gogh"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/John_Constable_Nuvens.jpg", credit:"Clouds — John Constable"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Procesi%C3%B3n_de_los_muertos_-_Gustav_Klimt_-_destruido_en_1945.jpg", credit:"Procession of the Dead — Gustav Klimt"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Fritz_Thaulow_Watermill_1892.jpg", credit:"Watermill, 1892 — Fritz Thaulow"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/6/6d/Cha%C3%AFm_Soutine_-_Vue_de_C%C3%A9ret.jpg", credit:"Vue de Céret — Chaïm Soutine"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/e/ee/Colors_from_a_Distance,_1932_-_Paul_Klee.jpg", credit:"Colors from a Distance, 1932 — Paul Klee"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/16/Vincent_van_Gogh_-_Garden_at_Arles_-_Google_Art_Project.jpg", credit:"Garden at Arles — Vincent van Gogh"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/14/John_Constable_Nuvens.jpg", credit:"Clouds — John Constable"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/8/81/Procesi%C3%B3n_de_los_muertos_-_Gustav_Klimt_-_destruido_en_1945.jpg", credit:"Procession of the Dead — Gustav Klimt"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/9b/Fritz_Thaulow_Watermill_1892.jpg", credit:"Watermill, 1892 — Fritz Thaulow"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/e/e2/Reverie_%28Study_for_the_Portrait_of_Frank_Burty_Haviland%29_by_Amedeo_Modigliani%2C_1914.jpg", credit:"Reverie, 1914 — Amedeo Modigliani"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/2/22/William_Blake_-_Christ_in_the_Sepulchre%2C_Guarded_by_Angels.jpg", credit:"Christ in the Sepulchre, Guarded by Angels — William Blake"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Pierre_Bonnard_Garden_at_Cannet.jpg", credit:"Garden at Cannet — Pierre Bonnard"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/2/20/Pierre_Bonnard_Garden_at_Cannet.jpg", credit:"Garden at Cannet — Pierre Bonnard"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/1/12/The_dining_room_in_the_country_by_Pierre_Bonnard_%281913%29.jpg", credit:"The Dining Room in the Country, 1913 — Pierre Bonnard"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Stevenson_Memorial_1903_Abbott_Thayer.jpg", credit:"Stevenson Memorial, 1903 — Abbott Handerson Thayer"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/The_Harbinger_of_Autumn_(1922)_by_Paul_Klee_-_Yale_University_Art_Gallery.jpg", credit:"The Harbinger of Autumn, 1922 — Paul Klee"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/George_Bellows_-_A_Fresh_Breeze_(1913).jpg", credit:"A Fresh Breeze, 1913 — George Bellows"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Samuel_Colman_-_The_Rock_of_Salvation_-_Google_Art_Project.jpg", credit:"The Rock of Salvation — Samuel Colman"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Couple_Riding_by_Wassily_Kandinsky.jpg", credit:"Couple Riding — Wassily Kandinsky"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Composition_VII_-_Wassily_Kandinsky,_GAC.jpg", credit:"Composition VII — Wassily Kandinsky"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/3/37/Stevenson_Memorial_1903_Abbott_Thayer.jpg", credit:"Stevenson Memorial, 1903 — Abbott Handerson Thayer"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/9e/The_Harbinger_of_Autumn_(1922)_by_Paul_Klee_-_Yale_University_Art_Gallery.jpg", credit:"The Harbinger of Autumn, 1922 — Paul Klee"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/8/8f/George_Bellows_-_A_Fresh_Breeze_(1913).jpg", credit:"A Fresh Breeze, 1913 — George Bellows"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/8/8d/Samuel_Colman_-_The_Rock_of_Salvation_-_Google_Art_Project.jpg", credit:"The Rock of Salvation — Samuel Colman"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/c/c7/Couple_Riding_by_Wassily_Kandinsky.jpg", credit:"Couple Riding — Wassily Kandinsky"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/0/01/Composition_VII_-_Wassily_Kandinsky,_GAC.jpg", credit:"Composition VII — Wassily Kandinsky"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/4/41/WLA_metmuseum_Edgar_Degas_Young_Woman_with_Ibis_2.jpg", credit:"Young Woman with Ibis — Edgar Degas"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/1/17/Ernst_Ludwig_Kirchner_-_Wintermondnacht_%28Kunstmuseum_Basel%29.jpg", credit:"Wintermondnacht — Ernst Ludwig Kirchner"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Piet_Mondrian_-_Red_Gladioli_-_91.148.4_-_Minneapolis_Institute_of_Arts.jpg", credit:"Red Gladioli — Piet Mondrian"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Dune_III,_by_Piet_Mondriaan.jpg", credit:"Dune III — Piet Mondrian"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Joseph_Mallord_William_Turner_-_Stormy_Sea_Breaking_on_a_Shore_-_Google_Art_Project.jpg", credit:"Stormy Sea Breaking on a Shore — J.M.W. Turner"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/La_Danse_II,_par_Henri_Matisse.jpg", credit:"La Danse II — Henri Matisse"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg", credit:"Self-Portrait — Rembrandt"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Road_with_Cypress_and_Star_-_c._12-15_May_1890.jpg", credit:"Road with Cypress and Star, 1890 — Vincent van Gogh"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Town_among_Greenery_(The_Old_City_III)_by_Egon_Schiele,_1917.jpg", credit:"Town among Greenery, 1917 — Egon Schiele"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/6/60/Piet_Mondrian_-_Red_Gladioli_-_91.148.4_-_Minneapolis_Institute_of_Arts.jpg", credit:"Red Gladioli — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/0/09/Dune_III,_by_Piet_Mondriaan.jpg", credit:"Dune III — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Joseph_Mallord_William_Turner_-_Stormy_Sea_Breaking_on_a_Shore_-_Google_Art_Project.jpg", credit:"Stormy Sea Breaking on a Shore — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/8/8a/La_Danse_II,_par_Henri_Matisse.jpg", credit:"La Danse II — Henri Matisse"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/b/bd/Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg", credit:"Self-Portrait — Rembrandt"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/7/75/Vincent_van_Gogh_-_Road_with_Cypress_and_Star_-_c._12-15_May_1890.jpg", credit:"Road with Cypress and Star, 1890 — Vincent van Gogh"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/2/26/Town_among_Greenery_(The_Old_City_III)_by_Egon_Schiele,_1917.jpg", credit:"Town among Greenery, 1917 — Egon Schiele"},
 {img:"https://commons.wikimedia.org/wiki/Special:FilePath/Chaim_soutine_paysage103859).jpg", credit:"Paysage — Chaïm Soutine"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet_-_Flowering_Plum_Trees_-_Google_Art_Project.jpg", credit:"Flowering Plum Trees — Claude Monet"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg", credit:"Wheatfield with Crows — Vincent van Gogh"}
+{img:"https://upload.wikimedia.org/wikipedia/commons/d/db/Claude_Monet_-_Flowering_Plum_Trees_-_Google_Art_Project.jpg", credit:"Flowering Plum Trees — Claude Monet"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/b/ba/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg", credit:"Wheatfield with Crows — Vincent van Gogh"}
 ];
 
 const QUOTES = [
