@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>對頻 — iamfeeling™</title>
-<meta name="description" content="讓你的振頻浮現。讓世界開始聽到你。每週四晚上 8:00，線上，NT$500。">
+<meta name="description" content="這一輪的牌，是愚者。讓你的振頻浮現。每週四晚上 8:00，線上，NT$500。">
 <meta property="og:title" content="對頻 — iamfeeling™">
-<meta property="og:description" content="讓你的振頻浮現。讓世界開始聽到你。">
+<meta property="og:description" content="這一輪的牌，是愚者。讓你的振頻浮現。">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -441,6 +441,85 @@
   .sessions-wrap .section-label { color: var(--amber); }
   .sessions-wrap p { color: var(--t-dim); }
 
+  /* ── CARD FEATURE (this round's card) ── */
+  .card-feature {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 72px 28px 0;
+    text-align: center;
+  }
+
+  .card-feature .section-label { text-align: center; }
+
+  .card-feature h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+    font-weight: 300;
+    color: var(--t-text);
+    letter-spacing: 0.06em;
+    margin-bottom: 36px;
+  }
+
+  .card-feature img {
+    max-width: 320px;
+    width: 100%;
+    border-radius: var(--r-md);
+    margin: 0 auto 40px;
+    display: block;
+    box-shadow: 0 18px 60px rgba(0,0,0,0.5);
+  }
+
+  .card-feature-body {
+    text-align: left;
+  }
+
+  .card-feature-body p {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--t-dim);
+    line-height: 1.95;
+    letter-spacing: 0.01em;
+    margin-bottom: 14px;
+  }
+
+  .aspects-list {
+    margin: 28px 0 0;
+    padding: 24px 0 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .aspects-intro {
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+  }
+
+  .aspect-item {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--t-dim);
+    line-height: 1.9;
+    margin-bottom: 12px;
+  }
+
+  .aspect-item b {
+    color: var(--t-text);
+    font-weight: 500;
+  }
+
+  .card-feature-cta {
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--t-text);
+    line-height: 1.9;
+  }
+
   .session-list {
     display: flex;
     flex-direction: column;
@@ -596,6 +675,7 @@
     .narrative-block { padding: 0 22px 48px; }
     .offering-block { padding: 48px 22px; }
     .tools-section { padding: 0 22px 56px; }
+    .card-feature { padding: 56px 22px 0; }
     .price-field { padding: 28px 20px; }
     .price-field-top { flex-direction: column; gap: 12px; align-items: flex-start; }
     .price-specs { text-align: left; }
@@ -748,6 +828,29 @@
 
 <!-- ── SESSIONS dark ── -->
 <div class="sessions-wrap" id="sessions">
+
+  <!-- ── 這一輪的牌：愚者 ── -->
+  <div class="card-feature">
+    <p class="section-label">這一輪的牌</p>
+    <h2>愚者</h2>
+
+    <img src="/assets/fool-embryogenesis.jpg" alt="愚者，以胚胎發生與細胞膜的方式重新詮釋">
+
+    <div class="card-feature-body">
+      <p>在塔羅的神秘學傳統裡，愚者常被解讀為希臘酒神戴歐尼修斯（Dionysus）——宙斯為了保護他，把他藏進自己的大腿裡，讓他重新出生一次。</p>
+      <p>愚者的行囊，是一層細胞膜——隨時可以把什麼放進去，也可以把什麼拿出來。他跨出去的那隻腳，是臍帶。呼吸，是這層膜，最核心的工具——新陳代謝，舊的去，新的進來。</p>
+
+      <div class="aspects-list">
+        <p class="aspects-intro">帶著愚者生活的這幾天，你可能會留意到三個面向，不需要解讀，只是留意：</p>
+        <p class="aspect-item"><b>行囊（細胞膜）</b>——這幾天，你的生活裡，有什麼正在被你放進去，又有什麼正在被拿出來？</p>
+        <p class="aspect-item"><b>那隻腳（臍帶）</b>——有沒有一個瞬間，你還不知道結果，但還是跨出去了？</p>
+        <p class="aspect-item"><b>呼吸（核心工具）</b>——當你跨出去的那一刻，呼吸正在做什麼？</p>
+      </div>
+
+      <p class="card-feature-cta">歡迎你帶著這個重新認識，走進日常生活：放下行囊裡舊的慣性，帶著好奇心，把新的可能性，放進去。天數由你決定。</p>
+    </div>
+  </div>
+
   <div class="light-section">
     <p class="section-label">場次</p>
     <h2>你的振頻會幫你改變問題的場. Field。</h2>
