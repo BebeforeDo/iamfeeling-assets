@@ -14,57 +14,44 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min-height:100vh}
-
 .nav{position:sticky;top:0;z-index:100;background:#fafaf8;border-bottom:0.5px solid #e0e0d8;}
 .nav-inner{max-width:900px;margin:0 auto;padding:0 1.25rem;height:52px;display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{display:flex;align-items:center;text-decoration:none;}
 .nav-logo img{width:44px;height:44px;object-fit:contain;}
 .nav-right a{font-family:'Noto Sans',sans-serif;font-size:13px;color:#666660;text-decoration:none;padding:6px 14px;border-radius:8px;}
-
 #app{max-width:460px;margin:0 auto;padding:0 1.25rem 5rem}
-
 .hd{text-align:center;padding:2.5rem 0 1rem}
 .hd-eyebrow{font-family:'Noto Sans',sans-serif;font-size:.65rem;letter-spacing:.24em;color:rgba(232,228,220,.4);margin-bottom:1.1rem;text-transform:uppercase}
 .hd-date{font-size:2.6rem;font-weight:300;line-height:1;color:#e8e4dc}
 .hd-weekday{font-family:'Noto Sans',sans-serif;font-size:.7rem;letter-spacing:.18em;color:rgba(232,228,220,.35);margin-top:.6rem;text-transform:uppercase}
-
 .screen{display:none}
 .screen.active{display:block}
-
 .prompt{font-size:1.35rem;font-weight:300;font-style:italic;line-height:1.7;color:#e8e4dc;text-align:center;margin:2.25rem 0 1rem}
 .prompt-sub{font-family:'Noto Sans',sans-serif;font-size:.85rem;color:rgba(232,228,220,.5);line-height:1.95;text-align:center;margin-bottom:2.75rem}
-
 .breath-zone{display:flex;justify-content:center;margin-bottom:2.5rem}
 .breath-orb{width:108px;height:108px;border-radius:50%;background:radial-gradient(circle at 38% 36%,rgba(29,158,117,.5),rgba(29,158,117,.07) 65%,transparent);animation:breathe 10s ease-in-out infinite}
 @keyframes breathe{0%,100%{transform:scale(.62);opacity:.45}50%{transform:scale(1);opacity:.9}}
 @media(prefers-reduced-motion:reduce){.breath-orb{animation:none;transform:scale(.85)}}
-
 .btn-go{font-family:inherit;font-size:1.05rem;width:100%;padding:1.1rem;border:none;background:#1D9E75;color:#fff;cursor:pointer;border-radius:4px;-webkit-appearance:none;appearance:none;transition:opacity .15s}
 .btn-go:active{opacity:.82}
 .btn-ghost{font-family:inherit;font-size:.9rem;width:100%;padding:.95rem;border:.5px solid rgba(255,255,255,.22);background:transparent;color:rgba(232,228,220,.65);cursor:pointer;border-radius:4px;-webkit-appearance:none;appearance:none;margin-top:.85rem}
 .btn-ghost:active{border-color:rgba(255,255,255,.45)}
 .btn-amber{font-family:inherit;font-size:.9rem;width:100%;padding:.95rem;border:.5px solid rgba(255,220,100,.35);background:rgba(255,220,100,.06);color:rgba(255,220,100,.85);cursor:pointer;border-radius:4px;text-decoration:none;display:block;text-align:center;-webkit-appearance:none;appearance:none;margin-top:.85rem}
 .btn-amber:active{background:rgba(255,220,100,.12)}
-
 .card-wrap{opacity:0;transform:translateY(8px);animation:rise .7s ease forwards}
 @keyframes rise{to{opacity:1;transform:translateY(0)}}
-
 .card-frame{position:relative;width:100%;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#111;border:.5px solid rgba(255,255,255,.08)}
 .card-frame img{width:100%;height:100%;object-fit:cover;display:block}
-
 .card-quote{font-size:1.3rem;font-weight:300;font-style:italic;line-height:1.7;color:#e8e4dc;text-align:center;margin:1.85rem 0 .5rem}
 .card-poet{font-family:'Noto Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;color:rgba(232,228,220,.4);text-align:center;text-transform:uppercase}
 .card-artist{font-family:'Noto Sans',sans-serif;font-size:.68rem;letter-spacing:.06em;color:rgba(232,228,220,.28);text-align:center;margin-top:.6rem;font-style:italic}
-
 .card-note{font-family:'Noto Sans',sans-serif;font-size:.85rem;color:rgba(232,228,220,.55);line-height:2;text-align:center;margin:2rem 0 .25rem}
-
 .footer{text-align:center;padding:2.5rem 0 1rem;border-top:.5px solid rgba(255,255,255,.06);margin-top:2.5rem}
 .footer-line{font-family:'Noto Sans',sans-serif;font-size:.7rem;letter-spacing:.05em;color:rgba(232,228,220,.3);line-height:1.9}
 .footer a{color:rgba(200,169,110,.55);text-decoration:none}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="https://iamfeeling.com" class="nav-logo">
@@ -73,15 +60,12 @@ body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min
     <div class="nav-right"><a href="https://iamfeeling.beehiiv.com">Newsletter</a></div>
   </div>
 </nav>
-
 <div id="app">
-
   <div class="hd">
     <div class="hd-eyebrow">The Intentional Arc · Pause</div>
     <div class="hd-date" id="hdDate">—</div>
     <div class="hd-weekday" id="hdWeekday"></div>
   </div>
-
   <!-- S0: START -->
   <div class="screen active" id="s0">
     <div class="prompt">Today,<br>what will you let tune your frequency?</div>
@@ -89,7 +73,6 @@ body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min
     <div class="breath-zone"><div class="breath-orb"></div></div>
     <button class="btn-go" onclick="reveal(false)">Pause</button>
   </div>
-
   <!-- S1: CARD -->
   <div class="screen" id="s1">
     <div class="card-wrap" id="cardWrap">
@@ -103,50 +86,18 @@ body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min
     <button class="btn-ghost" onclick="reveal(true)">Pause again</button>
     <a class="btn-amber" href="https://iamfeeling.com">More from iamfeeling™ →</a>
   </div>
-
   <div class="footer">
     <div class="footer-line">You already have a vibration. This is just a field where it gets recognized.<br>Vibration, starting here · © 2026 iamfeeling™ · BeDo LLC</div>
   </div>
-
 </div>
-
 <script>
-/* Each entry: image URL + known artist/title (null when unverified — never invent attribution) */
 const ARTWORKS = [
+/* ── Strindberg ── */
 {img:"https://upload.wikimedia.org/wikipedia/commons/3/35/The_Town,_1903.jpg", credit:"The Town, 1903 — August Strindberg"},
+/* ── Paul Klee ── */
 {img:"https://upload.wikimedia.org/wikipedia/commons/6/6c/Ad_Parnassum_(originaler,_gefasst_Holzrahmen),_Paul_Klee_(1932).jpg", credit:"Ad Parnassum, 1932 — Paul Klee"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/3/33/Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg", credit:"Norham Castle, Sunrise — J.M.W. Turner"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/c/cd/FRANZ-MARC_FRAU-IM-WIND-AM-MEER_CC-BY-SA_BSTGS_14972.jpg", credit:"Frau im Wind am Meer — Franz Marc"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/6/6d/Cha%C3%AFm_Soutine_-_Vue_de_C%C3%A9ret.jpg", credit:"Vue de Céret — Chaïm Soutine"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/e/ee/Colors_from_a_Distance,_1932_-_Paul_Klee.jpg", credit:"Colors from a Distance, 1932 — Paul Klee"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/1/16/Vincent_van_Gogh_-_Garden_at_Arles_-_Google_Art_Project.jpg", credit:"Garden at Arles — Vincent van Gogh"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/1/14/John_Constable_Nuvens.jpg", credit:"Clouds — John Constable"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/8/81/Procesi%C3%B3n_de_los_muertos_-_Gustav_Klimt_-_destruido_en_1945.jpg", credit:"Procession of the Dead — Gustav Klimt"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/9/9b/Fritz_Thaulow_Watermill_1892.jpg", credit:"Watermill, 1892 — Fritz Thaulow"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/e/e2/Reverie_%28Study_for_the_Portrait_of_Frank_Burty_Haviland%29_by_Amedeo_Modigliani%2C_1914.jpg", credit:"Reverie, 1914 — Amedeo Modigliani"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/2/22/William_Blake_-_Christ_in_the_Sepulchre%2C_Guarded_by_Angels.jpg", credit:"Christ in the Sepulchre, Guarded by Angels — William Blake"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/2/20/Pierre_Bonnard_Garden_at_Cannet.jpg", credit:"Garden at Cannet — Pierre Bonnard"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/1/12/The_dining_room_in_the_country_by_Pierre_Bonnard_%281913%29.jpg", credit:"The Dining Room in the Country, 1913 — Pierre Bonnard"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/3/37/Stevenson_Memorial_1903_Abbott_Thayer.jpg", credit:"Stevenson Memorial, 1903 — Abbott Handerson Thayer"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/9/9e/The_Harbinger_of_Autumn_(1922)_by_Paul_Klee_-_Yale_University_Art_Gallery.jpg", credit:"The Harbinger of Autumn, 1922 — Paul Klee"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/8/8f/George_Bellows_-_A_Fresh_Breeze_(1913).jpg", credit:"A Fresh Breeze, 1913 — George Bellows"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/8/8d/Samuel_Colman_-_The_Rock_of_Salvation_-_Google_Art_Project.jpg", credit:"The Rock of Salvation — Samuel Colman"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/c/c7/Couple_Riding_by_Wassily_Kandinsky.jpg", credit:"Couple Riding — Wassily Kandinsky"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/0/01/Composition_VII_-_Wassily_Kandinsky,_GAC.jpg", credit:"Composition VII — Wassily Kandinsky"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/4/41/WLA_metmuseum_Edgar_Degas_Young_Woman_with_Ibis_2.jpg", credit:"Young Woman with Ibis — Edgar Degas"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/1/17/Ernst_Ludwig_Kirchner_-_Wintermondnacht_%28Kunstmuseum_Basel%29.jpg", credit:"Wintermondnacht — Ernst Ludwig Kirchner"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/6/60/Piet_Mondrian_-_Red_Gladioli_-_91.148.4_-_Minneapolis_Institute_of_Arts.jpg", credit:"Red Gladioli — Piet Mondrian"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/0/09/Dune_III,_by_Piet_Mondriaan.jpg", credit:"Dune III — Piet Mondrian"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Joseph_Mallord_William_Turner_-_Stormy_Sea_Breaking_on_a_Shore_-_Google_Art_Project.jpg", credit:"Stormy Sea Breaking on a Shore — J.M.W. Turner"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/8/8a/La_Danse_II,_par_Henri_Matisse.jpg", credit:"La Danse II — Henri Matisse"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/b/bd/Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg", credit:"Self-Portrait — Rembrandt"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/7/75/Vincent_van_Gogh_-_Road_with_Cypress_and_Star_-_c._12-15_May_1890.jpg", credit:"Road with Cypress and Star, 1890 — Vincent van Gogh"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/2/26/Town_among_Greenery_(The_Old_City_III)_by_Egon_Schiele,_1917.jpg", credit:"Town among Greenery, 1917 — Egon Schiele"},
-{img:"https://commons.wikimedia.org/wiki/Special:FilePath/Chaim_soutine_paysage103859).jpg", credit:"Paysage — Chaïm Soutine"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/d/db/Claude_Monet_-_Flowering_Plum_Trees_-_Google_Art_Project.jpg", credit:"Flowering Plum Trees — Claude Monet"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/b/ba/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg", credit:"Wheatfield with Crows — Vincent van Gogh"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/d/de/Hiroshige%2C_Sudden_shower_over_Shin-Ohashi_bridge_and_Atake%2C_1857_expanded.jpg", credit:"Sudden Shower over Shin-Ōhashi Bridge and Atake, 1857 — Utagawa Hiroshige"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/4/41/Boccioni_-_La_signora_Virginia.jpg", credit:"La Signora Virginia — Umberto Boccioni"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/5/52/%27The_Fruit%27_by_Paul_Klee%2C_1932%2C_oil_on_jute%2C_LACMA.JPG", credit:"The Fruit, 1932 — Paul Klee"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/d/df/Paul-klee-flora-on-sand.jpg", credit:"Flora on Sand, 1927 — Paul Klee"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/f/f3/May_Picture%2C_1925_-_Paul_Klee%2C_MET_DP-824-001.jpg", credit:"May Picture, 1925 — Paul Klee"},
@@ -154,25 +105,101 @@ const ARTWORKS = [
 {img:"https://upload.wikimedia.org/wikipedia/commons/7/7a/Winterlandschaft%2C_1923_-_Paul_Klee.jpg", credit:"Winterlandschaft, 1923 — Paul Klee"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/d/d7/At_the_Core%2C_1935_-_Paul_Klee.jpg", credit:"At the Core, 1935 — Paul Klee"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/6/6d/L%C3%A4ufer_am_Ziel%2C_Paul_Klee_%281921%29.jpg", credit:"Läufer am Ziel, 1921 — Paul Klee"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/7/73/Paul_Gauguin_056.jpg", credit:"Tahitian Women on the Beach, 1891 — Paul Gauguin"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/5/5a/Paul_Gauguin_-_Breton_Girls_Dancing%2C_Pont-Aven_-_Google_Art_Project.jpg", credit:"Breton Girls Dancing, Pont-Aven — Paul Gauguin"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/c/c4/The_Call_by_Paul_Gauguin.jpg", credit:"The Call — Paul Gauguin"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/e/e2/Gustav_klimt_birch_forest100550%29.jpg", credit:"Birch Forest, 1903 — Gustav Klimt"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/3/33/Wald_Bau%2C_1919_-_Paul_Klee.jpg", credit:"Wald Bau, 1919 — Paul Klee"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/6/64/Berthe_Morisot_-_Paysage_%28watercolour%29.jpg", credit:"Paysage — Berthe Morisot"},
-{img:"https://media.artmuseum.princeton.edu/iiif/3/collection/x1986-92_SL/full/!1024,1024/0/default.jpg", credit:"Freies, streng gefasst (Free Forms, Rigidly Mounted), 1930 — Paul Klee"},
+{img:"https://media.artmuseum.princeton.edu/iiif/3/collection/x1986-92_SL/full/!1024,1024/0/default.jpg", credit:"Freies, streng gefasst, 1930 — Paul Klee"},
+/* ── J.M.W. Turner ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/3/33/Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg", credit:"Norham Castle, Sunrise — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Joseph_Mallord_William_Turner_-_Stormy_Sea_Breaking_on_a_Shore_-_Google_Art_Project.jpg", credit:"Stormy Sea Breaking on a Shore — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/4/43/Morning_amongst_the_Coniston_Fells,_Cumberland_-_William_Turner_-_Tate_Britain.jpg", credit:"Morning amongst the Coniston Fells, 1798 — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/97/Joseph_Mallord_William_Turner_-_Flint_Castle.jpg", credit:"Flint Castle — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/6/60/JMW_Turner_-_The_Fighting_Temeraire_-_1839.jpg", credit:"The Fighting Temeraire, 1839 — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/e/e5/Joseph_Mallord_William_Turner_-_The_Burning_of_the_Houses_of_Lords_and_Commons,_16_October_1834_-_1942.647_-_Cleveland_Museum_of_Art.jpg", credit:"The Burning of the Houses of Lords and Commons, 1834 — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/b/b4/(Barcelona)_A_Rainbow,_with_Cattle_-_William_Turner_-_Tate_Britain.jpg", credit:"A Rainbow, with Cattle — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/e/e1/(Barcelona)_Stromy_Sea_with_Blazing_Wreck_-_William_Turner_-_Tate_Britain.jpg", credit:"Stormy Sea with Blazing Wreck — J.M.W. Turner"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/c/c9/(Barcelona)_The_Dark_Rigi_Sample_Study_-_William_Turner_-_Tate_Britain.jpg", credit:"The Dark Rigi, Sample Study — J.M.W. Turner"},
+/* ── Vincent van Gogh ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/16/Vincent_van_Gogh_-_Garden_at_Arles_-_Google_Art_Project.jpg", credit:"Garden at Arles — Vincent van Gogh"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/7/75/Vincent_van_Gogh_-_Road_with_Cypress_and_Star_-_c._12-15_May_1890.jpg", credit:"Road with Cypress and Star, 1890 — Vincent van Gogh"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/b/ba/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg", credit:"Wheatfield with Crows — Vincent van Gogh"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/4/4e/Wheat_Field_with_Cypresses_MET_LC-EP_1993_132_suppl_CH-001.jpg", credit:"Wheat Field with Cypresses — Vincent van Gogh"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/9d/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg", credit:"Sunflowers — Vincent van Gogh"},
+/* ── Claude Monet ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/d/db/Claude_Monet_-_Flowering_Plum_Trees_-_Google_Art_Project.jpg", credit:"Flowering Plum Trees — Claude Monet"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/5/59/Monet_-_Impression,_Sunrise.jpg", credit:"Impression, Sunrise, 1872 — Claude Monet"},
+/* ── John Constable ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/14/John_Constable_Nuvens.jpg", credit:"Clouds — John Constable"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/d/d7/Constable_-_Weymouth_Bay%2C_1816%2C_330-1888.jpg", credit:"Weymouth Bay, 1816 — John Constable"},
+/* ── Pierre Bonnard ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/2/20/Pierre_Bonnard_Garden_at_Cannet.jpg", credit:"Garden at Le Cannet, c. 1943 — Pierre Bonnard"},
+/* ── Franz Marc ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/c/cd/FRANZ-MARC_FRAU-IM-WIND-AM-MEER_CC-BY-SA_BSTGS_14972.jpg", credit:"Frau im Wind am Meer — Franz Marc"},
+/* ── Chaïm Soutine ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/6/6d/Cha%C3%AFm_Soutine_-_Vue_de_C%C3%A9ret.jpg", credit:"Vue de Céret — Chaïm Soutine"},
+/* ── Fritz Thaulow ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/9b/Fritz_Thaulow_Watermill_1892.jpg", credit:"Watermill, 1892 — Fritz Thaulow"},
+/* ── George Bellows ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/8/8f/George_Bellows_-_A_Fresh_Breeze_(1913).jpg", credit:"A Fresh Breeze, 1913 — George Bellows"},
+/* ── Samuel Colman ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/8/8d/Samuel_Colman_-_The_Rock_of_Salvation_-_Google_Art_Project.jpg", credit:"The Rock of Salvation — Samuel Colman"},
+/* ── Wassily Kandinsky ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/0/01/Composition_VII_-_Wassily_Kandinsky,_GAC.jpg", credit:"Composition VII — Wassily Kandinsky"},
+/* ── Ernst Ludwig Kirchner ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/17/Ernst_Ludwig_Kirchner_-_Wintermondnacht_%28Kunstmuseum_Basel%29.jpg", credit:"Wintermondnacht — Ernst Ludwig Kirchner"},
+/* ── Piet Mondrian — existing ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/6/60/Piet_Mondrian_-_Red_Gladioli_-_91.148.4_-_Minneapolis_Institute_of_Arts.jpg", credit:"Red Gladioli — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/0/09/Dune_III,_by_Piet_Mondriaan.jpg", credit:"Dune III — Piet Mondrian"},
+/* ── Piet Mondrian — new landscape/early ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/d/db/Forest_by_Piet_Mondrian_1898-1899.jpg", credit:"Forest, 1898–1899 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/8/87/Piet_Mondriaan_-_Mountain_forest_with_cottage_c._1888_black_chalk_-_paper,_540_x_400_mm_Amsterdam_(Christie%27s),_1991-05-22,_no._486_A2.jpg", credit:"Mountain Forest with Cottage, c. 1888 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/98/Barberini_August_2023-Piet_Mondrian_-_Pointillistische_Studie._D%C3%BCnen_und_Meer,_1909_-_Kunstmuseum_Den_Haag_(cropped).jpg", credit:"Pointillistische Studie, Dünen und Meer, 1909 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/2/22/Farm_at_Duivendrecht_by_Piet_Mondrian,_1905.jpg", credit:"Farm at Duivendrecht, 1905 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/95/Barberini_August_2023-Piet_Mondrian_-_Reihe_von_elf_Pappeln_in_Rot,_Gelb,_Blau_und_Gr%C3%BCn,_1908_-_Museum_de_Fundatie,_Zwolle.jpg", credit:"Reihe von elf Pappeln, 1908 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/0/08/Piet_Mondriaan_-_Geinrust_farm_with_truncated_tall_trees_and_saplings_-_A445_-_Piet_Mondrian,_catalogue_raisonn%C3%A9.jpg", credit:"Geinrust Farm with Truncated Tall Trees — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/d/db/Piet_Mondriaan_-_Isolated_tree_on_the_Gein_with_yellow-orange_sky_-_A456_-_Piet_Mondrian,_catalogue_raisonn%C3%A9.jpg", credit:"Isolated Tree on the Gein with Yellow-Orange Sky — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/6/65/Piet_Mondriaan_-_Apple_tree_in_blue_with_wavy_lines_I_-_A666_-_Piet_Mondrian,_catalogue_raisonn%C3%A9.jpg", credit:"Apple Tree in Blue with Wavy Lines — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/3/3a/Anemones_in_a_Vase_-_Piet_Mondriaan_-_1906.jpg", credit:"Anemones in a Vase, 1906 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/98/Piet_Mondriaan_-_Fields_with_stacked_sheaves_of_rye_-_A86_-_Piet_Mondrian,_catalogue_raisonn%C3%A9.jpg", credit:"Fields with Stacked Sheaves of Rye — Piet Mondrian"},
+/* ── Piet Mondrian — abstract/late ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/f/fa/Amsterdam_-_Stedelijk_Museum_-_Piet_Mondrian_(1872-1944)_-_Tableau_III,_Composition_in_Oval_(A_24589)_1914.jpg", credit:"Tableau III, Composition in Oval, 1914 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/d/d9/Piet_Mondriaan_-_Tableau_-_B150_-_Piet_Mondrian,_catalogue_raisonn%C3%A9.jpg", credit:"Tableau B150 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/a/a7/Piet_Mondriaan_-_Tableau_II_-_B129_-_Piet_Mondrian,_catalogue_raisonn%C3%A9.jpg", credit:"Tableau II B129 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/91/Piet_Mondriaan_-_Composition_II_-_B109_-_Piet_Mondrian,_catalogue_raisonn%C3%A9.jpg", credit:"Composition II — Piet Mondrian"},
+/* ── Piet Mondrian — drawing/sketch ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/15/Piet_Mondriaan_-_The_weavers%27_house,_drawing_1899_pencil_-_paper,_115_x_166_mm_art_dealer_or_private_collection_J.P._Smid,_Amsterdam_A71.jpg", credit:"The Weavers' House, 1899 — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/3/35/%22Farm_near_Duivendrecht%22_by_Piet_Mondrian.jpg", credit:"Farm near Duivendrecht — Piet Mondrian"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/c/c7/Piet_Mondrian-Kleines_Haus_in_der_Sonne-04093_(detail).jpg", credit:"Kleines Haus in der Sonne — Piet Mondrian"},
+/* ── Félix Vallotton ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/5/55/F%C3%A9lix_Vallotton,_1917_-_Effet_de_brume,_Honfleur.jpg", credit:"Effet de brume, Honfleur, 1917 — Félix Vallotton"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/9f/F%C3%A9lix_Vallotton,_1913_-_La_mar%C3%A9e_montante_pr%C3%A8s_de_Houlgate.jpg", credit:"La Marée montante près de Houlgate, 1913 — Félix Vallotton"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/5/58/F%C3%A9lix_Vallotton,_1904_-_Cr%C3%A9puscule.jpg", credit:"Crépuscule, 1904 — Félix Vallotton"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/1c/F%C3%A9lix_Vallotton,_1913_-_Sunset.jpg", credit:"Sunset, 1913 — Félix Vallotton"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/5/55/F%C3%A9lix_Vallotton,_1922_-_The_Family_of_Trees.jpg", credit:"The Family of Trees, 1922 — Félix Vallotton"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/b/ba/F%C3%A9lix_Vallotton,_1922_-_Pont_sur_le_B%C3%A9al.jpg", credit:"Pont sur le Béal, 1922 — Félix Vallotton"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/f/fa/F%C3%A9lix_Vallotton,_1909_-_La_Mare.jpg", credit:"La Mare, 1909 — Félix Vallotton"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/b/bd/F%C3%A9lix_Vallotton_-_Sonnenuntergang,_orangefarbener_Himmel.jpeg", credit:"Sonnenuntergang, orangefarbener Himmel — Félix Vallotton"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/0/0e/F%C3%A9lix_Vallotton,_1900_-_Soir_sur_le_lac_L%C3%A9man.jpg", credit:"Soir sur le lac Léman, 1900 — Félix Vallotton"},
+/* ── Utagawa Hiroshige ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/d/de/Hiroshige%2C_Sudden_shower_over_Shin-Ohashi_bridge_and_Atake%2C_1857_expanded.jpg", credit:"Sudden Shower over Shin-Ōhashi Bridge and Atake, 1857 — Utagawa Hiroshige"},
+/* ── Gustav Klimt ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/e/e2/Gustav_klimt_birch_forest100550%29.jpg", credit:"Birch Forest, 1903 — Gustav Klimt"},
+{img:"https://upload.wikimedia.org/wikipedia/commons/8/81/Procesi%C3%B3n_de_los_muertos_-_Gustav_Klimt_-_destruido_en_1945.jpg", credit:"Procession of the Dead — Gustav Klimt"},
+/* ── Egon Schiele ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/2/26/Town_among_Greenery_(The_Old_City_III)_by_Egon_Schiele,_1917.jpg", credit:"Town among Greenery, 1917 — Egon Schiele"},
+/* ── Berthe Morisot ── */
+{img:"https://upload.wikimedia.org/wikipedia/commons/6/64/Berthe_Morisot_-_Paysage_%28watercolour%29.jpg", credit:"Paysage — Berthe Morisot"},
+/* ── Hilma af Klint ── */
 {img:"https://upload.wikimedia.org/wikipedia/commons/c/c6/Hilma_af_Klint_-_1907_-_The_Large_Figure_Paintings_-_nr_5_-_The_Key_to_All_Works_to_Date_-_Group_III_-_The_WU-Rosen_Series.jpg", credit:"The Key to All Works to Date, Group III, No. 5, 1907 — Hilma af Klint"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/4/40/Hilma_af_Klint_-_Group_VI%2C_Evolution_No._13_%2813949%29.jpg", credit:"Evolution, Group VI, No. 13 — Hilma af Klint"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/7/78/Hilma_af_Klint_1907_-_The_key_to_the_work_up_to_this_point.jpg", credit:"The Key to the Work up to This Point, 1907 — Hilma af Klint"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/4/42/Hilma_af_Klint%2C_The_Five._No_title_%281908%29.jpg", credit:"The Five, No title, 1908 — Hilma af Klint"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/0/0f/Tree_of_Knowledge_No._1%2C_Hilma_af_Klint%2C_1913-1915%2C_Glenstone_2023.jpg", credit:"Tree of Knowledge No. 1, 1913–1915 — Hilma af Klint"},
+/* ── Christian Rohlfs ── */
 {img:"https://upload.wikimedia.org/wikipedia/commons/f/f9/Christian_Rohlfs_Der_Wilde_Graben_bei_Weimar_1888.jpg", credit:"Der Wilde Graben bei Weimar, 1888 — Christian Rohlfs"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/d/d2/Christian_Rohlfs_Gelbe_Tulpen_in_heller_Vase.jpg", credit:"Gelbe Tulpen in heller Vase — Christian Rohlfs"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/4/43/Berlin%2C_Alte_Nationalgalerie%2C_Christian_Rohlfs%2C_the_road_to_Gelmeroda.JPG", credit:"The Road to Gelmeroda — Christian Rohlfs"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/0/06/Berlin%2C_Alte_Nationalgalerie%2C_Christian_Rohlfs%2C_Sommerlandschaft_bei_Weimar.JPG", credit:"Sommerlandschaft bei Weimar — Christian Rohlfs"},
 {img:"https://upload.wikimedia.org/wikipedia/commons/8/8c/1903_Rohlfs_Kiefernst%C3%A4mme_im_Sonnenlicht_anagoria.jpg", credit:"Kiefernstämme im Sonnenlicht, 1903 — Christian Rohlfs"},
-{img:"https://upload.wikimedia.org/wikipedia/commons/a/a5/Weimar%2C_Schlossmuseum%2C_Christian_Rohlfs%2C_Baumgruppe.JPG", credit:"Baumgruppe — Christian Rohlfs"}
+{img:"https://upload.wikimedia.org/wikipedia/commons/a/a5/Weimar%2C_Schlossmuseum%2C_Christian_Rohlfs%2C_Baumgruppe.JPG", credit:"Baumgruppe — Christian Rohlfs"},
 ];
 
 const QUOTES = [
@@ -180,35 +207,23 @@ const QUOTES = [
 ["Sweeter than sour apples to children, the green water penetrated my hull of fir.","Arthur Rimbaud"],
 ["Through blue summer evenings, I will walk the paths, pricked by the wheat, treading the fine grass.","Arthur Rimbaud"],
 ["Like long echoes that merge from far away into a deep and shadowy unity.","Charles Baudelaire"],
-["The Poet is like the prince of clouds, who haunts the storm and laughs at the archer.","Charles Baudelaire"],
 ["The sun has drowned in its own thickening blood.","Charles Baudelaire"],
 ["Green, how I want you green. Green wind. Green branches.","Federico García Lorca"],
 ["The moon came to the forge in her bustle of spikenard flowers.","Federico García Lorca"],
 ["The river Guadalquivir flows between orange and olive trees.","Federico García Lorca"],
-["Let everything happen to you: beauty and terror. Just keep going. No feeling is final.","Rilke"],
 ["I love the dark hours of my being, for they deepen my senses.","Rilke"],
-["You are not too old, and it is not too late, to dive into your increasing depths.","Rilke"],
 ["If the doors of perception were cleansed, everything would appear to man as it is, infinite.","William Blake"],
 ["Every thing that lives is holy.","William Blake"],
 ["Man has no Body distinct from his Soul.","William Blake"],
-["And Love, the human form divine.","William Blake"],
-["I am large, I contain multitudes.","Walt Whitman"],
 ["For every atom belonging to me as good belongs to you.","Walt Whitman"],
-["I am the doubter and the doubt, and I the hymn the Brahmin sings.","Ralph Waldo Emerson"],
 ["Shadow and sunlight are the same; the vanished gods to me appear.","Ralph Waldo Emerson"],
 ["To see a world in a grain of sand, and a heaven in a wild flower.","William Blake"],
 ["The tyger burning bright, in the forests of the night.","William Blake"],
-["The wound is the place where the light enters you.","Rumi"],
-["Stop acting so small. You are the universe in ecstatic motion.","Rumi"],
-["No coward soul is mine, no trembler in the world's storm-troubled sphere.","Emily Brontë"],
-["And visions rise, and change, that kill the world with a delirious joy.","Emily Brontë"],
-["You must have chaos within you to give birth to a dancing star.","Nietzsche"],
 ["Season of mists and mellow fruitfulness, close bosom-friend of the maturing sun.","John Keats"],
 ["The dews come down like rain at night, the fog and clouds at dawn arise.","John Clare"],
 ["I guess the grass is itself a child, the produced babe of the vegetation.","Walt Whitman"],
 ["Every leaf speaks bliss to me, fluttering from the autumn tree.","Emily Brontë"],
 ["Glory be to God for dappled things.","Gerard Manley Hopkins"],
-["Listen to the beehive — have you ever seen a bee in despair?","Rumi"],
 ["As you set out for Ithaka, hope your road is a long one.","Cavafy"],
 ["May not the space between heaven and earth be compared to a bellows? 'Tis emptied, yet it loses not its power; 'tis moved again, and sends forth air the more.","Laozi"],
 ["The highest excellence is like that of water. The excellence of water appears in its benefiting all things, and in its occupying, without striving, the low place which all men dislike.","Laozi"],
@@ -217,286 +232,200 @@ const QUOTES = [
 ["Nothing himself, beholds nothing that is not there and the nothing that is.","Wallace Stevens"],
 ["Tell all the Truth but tell it slant — Success in Circuit lies.","Emily Dickinson"],
 ["Be patient toward all that is unsolved in your heart, and try to love the questions themselves.","Rilke"],
-["I am nobody! Who are you? Are you nobody, too? Then there's a pair of us — don't tell!","Emily Dickinson"],
 ["The stars are beautiful, because of a flower that cannot be seen.","Antoine de Saint-Exupéry"],
-["Trust the dream, for in it is hidden the gate to eternity.","Kahlil Gibran"],
-["What you seek is seeking you.","Rumi"],
 ["The future enters into us, in order to transform itself in us, long before it happens.","Rilke"],
-["The more they give, the more they possess.","Rilke"],
 ["Things as they are, are changed upon the blue guitar.","Wallace Stevens"],
-["I was the world in which I walked.","Wallace Stevens"],
-["Two roads diverged in a wood, and I—I took the one less travelled by.", "Robert Frost"],
-["The woods are lovely, dark and deep, but I have promises to keep.", "Robert Frost"],
-["Nature's first green is gold, her hardest hue to hold. Nothing gold can stay.", "Robert Frost"],
-["I shan't be gone long.—You come too.", "Robert Frost"],
-["To me the sea is a continual miracle.", "Walt Whitman"],
-["And from time to time, look'd up in perfect silence at the stars.", "Walt Whitman"],
-["Let your soul stand cool and composed before a million universes.", "Walt Whitman"],
-["I celebrate myself, and sing myself.", "Walt Whitman"],
-["I stop somewhere waiting for you.", "Walt Whitman"],
-["Some say the world will end in fire, some say in ice.", "Robert Frost"],
-["Not at Home to Callers — says the Naked Tree — Bonnet due in April.", "Emily Dickinson"],
-["“Hope” is the thing with feathers — that perches in the soul.", "Emily Dickinson"],
-["Success is counted sweetest by those who ne'er succeed.", "Emily Dickinson"],
-["The words the happy say are paltry melody — but those the silent feel are beautiful.", "Emily Dickinson"],
-["No Romance sold unto could so enthrall a Man as the perusal of His Individual One.", "Emily Dickinson"],
-["When Memory is full, put on the perfect Lid.", "Emily Dickinson"],
-["“Faith” is a fine invention when Gentlemen can see — but Microscopes are prudent in an Emergency.", "Emily Dickinson"],
-["In this short Life that only lasts an hour — how much, how little, is within our power.", "Emily Dickinson"],
-["Estranged from Beauty — none can be — for Beauty is Infinity.", "Emily Dickinson"],
-["Winter under cultivation is as arable as Spring.", "Emily Dickinson"],
-["My Garden — like the Beach — denotes there be — a Sea.", "Emily Dickinson"],
-["Not One by Heaven defrauded stay — although he seem to steal.", "Emily Dickinson"],
-["Lest this be Heaven indeed, an Obstacle is given.", "Emily Dickinson"],
-["Time does go on — I tell it gay to those who suffer now.", "Emily Dickinson"],
-["Beauty crowds me till I die — Beauty mercy have on me.", "Emily Dickinson"],
-["By homely gift and hindered Words the human heart is told.", "Emily Dickinson"],
-["Nature assigns the Sun — that is Astronomy.", "Emily Dickinson"],
-["His Heart was darker than the starless night — for that there is a morn.", "Emily Dickinson"],
-["Water, is taught by thirst — Land, by the Oceans passed.", "Emily Dickinson"],
-["Where Roses would not dare to go, what Heart would risk the way.", "Emily Dickinson"],
-["Touch lightly Nature's sweet Guitar, unless thou know'st the Tune.", "Emily Dickinson"],
-["I hide myself within my flower, that fading from your Vase.", "Emily Dickinson"],
-["Fame's Boys and Girls, who never die, and are too seldom born.", "Emily Dickinson"],
-["Could that sweet Darkness where they dwell be once disclosed to us.", "Emily Dickinson"],
-["Of Nature I shall have enough, when I have entered these.", "Emily Dickinson"],
-["A Death blow is a Life blow to Some, who till they died, did not alive become.", "Emily Dickinson"],
-["The Life we have is very great. The Life that we shall see surpasses it.", "Emily Dickinson"],
-["Pain — has an Element of Blank — it cannot recollect when it begun.", "Emily Dickinson"],
-["The Butterfly upon the Sky, that doesn't know its Name, is just as high as you and I.", "Emily Dickinson"],
-["A Door just opened on a street — I, lost, was passing by.", "Emily Dickinson"],
-["Nature rarer uses Yellow than another Hue — saves she all of that for Sunsets.", "Emily Dickinson"],
-["When I hoped I feared — since I hoped I dared.", "Emily Dickinson"],
-["Beauty — be not caused — It Is — chase it, and it ceases.", "Emily Dickinson"],
-["Is Heaven a Physician? They say that He can heal.", "Emily Dickinson"],
-["Go not too near a House of Rose — the depredation of a Breeze.", "Emily Dickinson"],
-["Nature and God — I neither knew — yet Both so well knew me.", "Emily Dickinson"],
-["How happy I was if I could forget to remember how sad I am.", "Emily Dickinson"],
-["The Bird her punctual music brings, and lays it in its place.", "Emily Dickinson"],
-["All but Death, can be Adjusted — Dynasties repaired.", "Emily Dickinson"],
-["Hope is a subtle Glutton — he feeds upon the Fair.", "Emily Dickinson"],
-["They say that “Time assuages” — Time never did assuage.", "Emily Dickinson"],
-["It is the Past's supreme italic — makes this Present mean.", "Emily Dickinson"],
-["The corkless is superior — I know for I have tried.", "Emily Dickinson"],
-["I lost a World — the other day! Has Anybody found?", "Emily Dickinson"],
-["Hope is a strange invention — a Patent of the Heart.", "Emily Dickinson"],
-["To lose one's faith — surpass the loss of an Estate.", "Emily Dickinson"],
-["He who binds to himself a joy does the winged life destroy.", "William Blake"],
-["O rose, thou art sick! The invisible worm, that flies in the night.", "William Blake"],
-["Such hope, as is the sick despair of good, such fear, as is the certainty of ill.", "Percy Bysshe Shelley"],
-["O mighty mind, in whose deep stream this age shakes like a reed in the unheeding storm.", "Percy Bysshe Shelley"],
-["I have desired to go where springs not fail, to fields where flies no sharp and sided hail.", "Gerard Manley Hopkins"],
-["I would not wish the burning blaze of fame around a restless world.", "John Clare"],
-["Keep desire alive in thy heart, lest thy little dust become a tomb.", "Muhammad Iqbal"],
-["When a drop of water gets the Self's lesson by heart, it makes its worthless existence a pearl.", "Muhammad Iqbal"],
-["The luminous point whose name is the Self is the life-spark beneath our dust.", "Muhammad Iqbal"],
-["If thou wouldst pass away, become free of Self; if thou wouldst live, become full of Self!", "Muhammad Iqbal"],
-["I will arise and go now, for always night and day I hear lake water lapping with low sounds by the shore.", "W.B. Yeats"],
-["Though leaves are many, the root is one.", "W.B. Yeats"],
-["Red Rose, proud Rose, sad Rose of all my days!", "W.B. Yeats"],
-["I see my life go dripping like a stream from change to change; I have been many things.", "W.B. Yeats"],
-["The dooms of men are in God's hidden hoard.", "W.B. Yeats"],
-["Who dreamed that beauty passes like a dream?", "W.B. Yeats"],
-["He would go weave out of the stars a chaplet for your head.", "W.B. Yeats"],
-["Rose of all Roses, Rose of all the World!", "W.B. Yeats"],
-["We who are old, old and gay, O so old! Thousands of years, thousands of years, if all were told.", "W.B. Yeats"],
-["The angels are stooping above your bed; they weary of trooping with the whimpering dead.", "W.B. Yeats"],
-["A pity beyond all telling is hid in the heart of love.", "W.B. Yeats"],
-["And then you came with those red mournful lips, and with you came the whole of the world's tears.", "W.B. Yeats"],
-["But one man loved the pilgrim soul in you, and loved the sorrows of your changing face.", "W.B. Yeats"],
-["I would that we were, my beloved, white birds on the foam of the sea!", "W.B. Yeats"],
-["Who will go drive with Fergus now, and pierce the deep wood's woven shade?", "W.B. Yeats"],
-["Old Silence bids a lonely folk rejoice, and chaplet their calm brows with leafage cool.", "W.B. Yeats"],
-["There was a green branch hung with many a bell when her own people ruled in wave-worn Eire.", "W.B. Yeats"],
-["And therefore do I wander now, and the fret lies on me.", "W.B. Yeats"],
-["Had pity on the least of things asleep upon a chair.", "W.B. Yeats"],
-["Beloved, gaze in thine own heart, the holy tree is growing there.", "W.B. Yeats"],
-["From our birthday, until we die, is but the winking of an eye.", "W.B. Yeats"]
+["I shan't be gone long.—You come too.","Robert Frost"],
+["To me the sea is a continual miracle.","Walt Whitman"],
+["And from time to time, look'd up in perfect silence at the stars.","Walt Whitman"],
+["Some say the world will end in fire, some say in ice.","Robert Frost"],
+["Not at Home to Callers — says the Naked Tree — Bonnet due in April.","Emily Dickinson"],
+["Estranged from Beauty — none can be — for Beauty is Infinity.","Emily Dickinson"],
+["Winter under cultivation is as arable as Spring.","Emily Dickinson"],
+["My Garden — like the Beach — denotes there be — a Sea.","Emily Dickinson"],
+["Time does go on — I tell it gay to those who suffer now.","Emily Dickinson"],
+["Beauty crowds me till I die — Beauty mercy have on me.","Emily Dickinson"],
+["Nature assigns the Sun — that is Astronomy.","Emily Dickinson"],
+["His Heart was darker than the starless night — for that there is a morn.","Emily Dickinson"],
+["Water, is taught by thirst — Land, by the Oceans passed.","Emily Dickinson"],
+["Touch lightly Nature's sweet Guitar, unless thou know'st the Tune.","Emily Dickinson"],
+["Could that sweet Darkness where they dwell be once disclosed to us.","Emily Dickinson"],
+["Of Nature I shall have enough, when I have entered these.","Emily Dickinson"],
+["Pain — has an Element of Blank — it cannot recollect when it begun.","Emily Dickinson"],
+["The Butterfly upon the Sky, that doesn't know its Name, is just as high as you and I.","Emily Dickinson"],
+["A Door just opened on a street — I, lost, was passing by.","Emily Dickinson"],
+["Nature rarer uses Yellow than another Hue — saves she all of that for Sunsets.","Emily Dickinson"],
+["Beauty — be not caused — It Is — chase it, and it ceases.","Emily Dickinson"],
+["Go not too near a House of Rose — the depredation of a Breeze.","Emily Dickinson"],
+["Nature and God — I neither knew — yet Both so well knew me.","Emily Dickinson"],
+["The Bird her punctual music brings, and lays it in its place.","Emily Dickinson"],
+["He who binds to himself a joy does the winged life destroy.","William Blake"],
+["O rose, thou art sick! The invisible worm, that flies in the night.","William Blake"],
+["I have desired to go where springs not fail, to fields where flies no sharp and sided hail.","Gerard Manley Hopkins"],
+["Keep desire alive in thy heart, lest thy little dust become a tomb.","Muhammad Iqbal"],
+["When a drop of water gets the Self's lesson by heart, it makes its worthless existence a pearl.","Muhammad Iqbal"],
+["The luminous point whose name is the Self is the life-spark beneath our dust.","Muhammad Iqbal"],
+["I will arise and go now, for always night and day I hear lake water lapping with low sounds by the shore.","W.B. Yeats"],
+["Though leaves are many, the root is one.","W.B. Yeats"],
+["Who dreamed that beauty passes like a dream?","W.B. Yeats"],
+["Who will go drive with Fergus now, and pierce the deep wood's woven shade?","W.B. Yeats"],
+["Beloved, gaze in thine own heart, the holy tree is growing there.","W.B. Yeats"],
+["From our birthday, until we die, is but the winking of an eye.","W.B. Yeats"],
+["Thy centuries follow each other perfecting a small wild flower.","Tagore"],
+["His weary glance, from passing by the bars, has grown into a dazed and vacant stare.","Rilke"],
+["The pad of his strong feet, that ceaseless sound of supple tread behind the iron bands.","Rilke"],
+["Beauty is eternity gazing at itself in a mirror.","Kahlil Gibran"],
+["Your children are not your children. They are the sons and daughters of Life's longing for itself.","Kahlil Gibran"],
 ];
+
+/* ── Artwork pool: avoid repeating the last 3 seen ── */
+let recentArtIndices = [];
+const RECENT_AVOID_COUNT = 3;
 
 function hash(str){
   let h = 5381;
-  for(let i=0;i<str.length;i++){ h = ((h<<5)+h) + str.charCodeAt(i); h = h & 0xffffffff; }
+  for(let i=0;i<str.length;i++){ h=((h<<5)+h)+str.charCodeAt(i); h=h&0xffffffff; }
   return Math.abs(h);
 }
 function todayStr(){
-  const d = new Date();
+  const d=new Date();
   return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
 }
 function seededCard(seedExtra){
   const t = todayStr()+seedExtra;
-  const art = ARTWORKS[hash(t+"i") % ARTWORKS.length];
+  let artIndex = hash(t+"i") % ARTWORKS.length;
+  let attempts = 0;
+  while(recentArtIndices.includes(artIndex) && attempts < ARTWORKS.length){
+    artIndex = (artIndex+1) % ARTWORKS.length;
+    attempts++;
+  }
+  recentArtIndices.push(artIndex);
+  if(recentArtIndices.length > RECENT_AVOID_COUNT) recentArtIndices.shift();
+  const art = ARTWORKS[artIndex];
   const quote = QUOTES[hash(t+"q") % QUOTES.length];
-  return {img: art.img, credit: art.credit, quote};
+  return {img:art.img, credit:art.credit, quote};
 }
 
 let sessionOverride = null;
 
 function renderHeader(){
-  const d = new Date();
-  document.getElementById("hdDate").textContent = (d.getMonth()+1)+" / "+d.getDate();
-  const wk = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()];
-  document.getElementById("hdWeekday").textContent = wk;
+  const d=new Date();
+  document.getElementById("hdDate").textContent=(d.getMonth()+1)+" / "+d.getDate();
+  const wk=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()];
+  document.getElementById("hdWeekday").textContent=wk;
 }
 
 function reveal(forceNew){
   let card;
-  if(forceNew){ card = seededCard("-"+Math.random()); sessionOverride = card; }
-  else { card = sessionOverride || seededCard(""); }
-
-  document.getElementById("cardImg").src = card.img;
-  document.getElementById("cardQuote").textContent = "\u201C"+card.quote[0]+"\u201D";
-  document.getElementById("cardPoet").textContent = "— "+card.quote[1];
-  const artistEl = document.getElementById("cardArtist");
-  if(card.credit){ artistEl.textContent = card.credit; artistEl.style.display = "block"; }
-  else { artistEl.style.display = "none"; }
-
+  if(forceNew){ card=seededCard("-"+Math.random()); sessionOverride=card; }
+  else { card=sessionOverride||seededCard(""); }
+  document.getElementById("cardImg").src=card.img;
+  document.getElementById("cardQuote").textContent="\u201C"+card.quote[0]+"\u201D";
+  document.getElementById("cardPoet").textContent="— "+card.quote[1];
+  const artistEl=document.getElementById("cardArtist");
+  if(card.credit){ artistEl.textContent=card.credit; artistEl.style.display="block"; }
+  else { artistEl.style.display="none"; }
   document.getElementById("s0").classList.remove("active");
   document.getElementById("s1").classList.add("active");
-  const wrap = document.getElementById("cardWrap");
-  wrap.style.animation = "none";
-  requestAnimationFrame(()=>{ wrap.style.animation = "rise .7s ease forwards"; });
+  const wrap=document.getElementById("cardWrap");
+  wrap.style.animation="none";
+  requestAnimationFrame(()=>{ wrap.style.animation="rise .7s ease forwards"; });
 }
 
-function drawCover(ctx, img, x, y, w, h){
-  const ir = img.naturalWidth / img.naturalHeight;
-  const r = w / h;
-  let sx, sy, sw, sh;
-  if(ir > r){ sh = img.naturalHeight; sw = sh * r; sx = (img.naturalWidth - sw)/2; sy = 0; }
-  else { sw = img.naturalWidth; sh = sw / r; sx = 0; sy = (img.naturalHeight - sh)/2; }
-  ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+function drawCover(ctx,img,x,y,w,h){
+  const ir=img.naturalWidth/img.naturalHeight;
+  const r=w/h;
+  let sx,sy,sw,sh;
+  if(ir>r){ sh=img.naturalHeight; sw=sh*r; sx=(img.naturalWidth-sw)/2; sy=0; }
+  else { sw=img.naturalWidth; sh=sw/r; sx=0; sy=(img.naturalHeight-sh)/2; }
+  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
 }
-
-function wrapLines(ctx, text, maxWidth){
-  const words = text.split(" ");
-  let line = "", lines = [];
+function wrapLines(ctx,text,maxWidth){
+  const words=text.split(" ");
+  let line="",lines=[];
   for(let n=0;n<words.length;n++){
-    const test = line + words[n] + " ";
-    if(ctx.measureText(test).width > maxWidth && n > 0){ lines.push(line.trim()); line = words[n] + " "; }
-    else line = test;
+    const test=line+words[n]+" ";
+    if(ctx.measureText(test).width>maxWidth&&n>0){ lines.push(line.trim()); line=words[n]+" "; }
+    else line=test;
   }
   lines.push(line.trim());
   return lines;
 }
-
 function openLoadingTab(){
-  const w = window.open("", "_blank");
-  if(w){
-    w.document.write('<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.5);display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;font-size:14px">Preparing your image…</body></html>');
-    w.document.close();
-  }
+  const w=window.open("","_blank");
+  if(w){ w.document.write('<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.5);display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;font-size:14px">Preparing your image…</body></html>'); w.document.close(); }
   return w;
 }
-function writeToTab(w, html){
-  if(!w || w.closed) return;
+function writeToTab(w,html){
+  if(!w||w.closed)return;
   w.document.open(); w.document.write(html); w.document.close();
 }
-
-/* ── Adaptive composition: tall/portrait artworks get a side-by-side layout
-   so the image keeps its full height instead of being squeezed and cropped
-   from top and bottom. Wide/landscape and square artworks keep the original
-   top-image / bottom-text layout, which already shows them with minimal crop. ── */
 function downloadCard(){
-  const win = openLoadingTab();
-  const card = sessionOverride || seededCard("");
-  const img = new Image();
-  img.crossOrigin = "anonymous";
-
-  img.onload = ()=>{
+  const win=openLoadingTab();
+  const card=sessionOverride||seededCard("");
+  const img=new Image();
+  img.crossOrigin="anonymous";
+  img.onload=()=>{
     document.fonts.ready.then(()=>{
       try{
-        const canvas = document.createElement("canvas");
-        canvas.width = 1080; canvas.height = 1350;
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "#0c0c0a";
+        const canvas=document.createElement("canvas");
+        canvas.width=1080; canvas.height=1350;
+        const ctx=canvas.getContext("2d");
+        ctx.fillStyle="#0c0c0a";
         ctx.fillRect(0,0,canvas.width,canvas.height);
-
-        const ir = img.naturalWidth / img.naturalHeight;
-        const isPortrait = ir < 0.85;
-
+        const ir=img.naturalWidth/img.naturalHeight;
+        const isPortrait=ir<0.85;
         if(isPortrait){
-          const imgW = 620;
-          drawCover(ctx, img, 0, 0, imgW, canvas.height);
-
-          const textX = imgW + 64;
-          const textW = canvas.width - imgW - 110;
-          ctx.textAlign = "left";
-
-          ctx.font = "italic 300 33px 'Cormorant Garamond', serif";
-          const lines = wrapLines(ctx, "\u201C"+card.quote[0]+"\u201D", textW);
-          const lineH = 44;
-          const poetH = 34;
-          const artistH = card.credit ? 32 : 0;
-          const blockH = lines.length*lineH + poetH + artistH;
-          let y = (canvas.height - blockH)/2;
-
-          ctx.fillStyle = "#e8e4dc";
-          lines.forEach(l=>{ ctx.fillText(l, textX, y); y += lineH; });
-
-          y += 8;
-          ctx.font = "400 20px 'Noto Sans', sans-serif";
-          ctx.fillStyle = "rgba(232,228,220,0.5)";
-          ctx.fillText("— "+card.quote[1], textX, y);
-
-          if(card.credit){
-            y += artistH;
-            ctx.font = "italic 300 16px 'Noto Sans', sans-serif";
-            ctx.fillStyle = "rgba(232,228,220,0.3)";
-            const creditLines = wrapLines(ctx, card.credit, textW);
-            creditLines.forEach(l=>{ ctx.fillText(l, textX, y); y += 22; });
-          }
-
-          ctx.font = "300 16px 'Noto Sans', sans-serif";
-          ctx.fillStyle = "rgba(232,228,220,0.22)";
-          ctx.fillText("Pause · iamfeeling™", textX, canvas.height - 50);
-
+          const imgW=620;
+          drawCover(ctx,img,0,0,imgW,canvas.height);
+          const textX=imgW+64;
+          const textW=canvas.width-imgW-110;
+          ctx.textAlign="left";
+          ctx.font="italic 300 33px 'Cormorant Garamond', serif";
+          const lines=wrapLines(ctx,"\u201C"+card.quote[0]+"\u201D",textW);
+          const lineH=44; const poetH=34; const artistH=card.credit?32:0;
+          const blockH=lines.length*lineH+poetH+artistH;
+          let y=(canvas.height-blockH)/2;
+          ctx.fillStyle="#e8e4dc";
+          lines.forEach(l=>{ ctx.fillText(l,textX,y); y+=lineH; });
+          y+=8;
+          ctx.font="400 20px 'Noto Sans', sans-serif";
+          ctx.fillStyle="rgba(232,228,220,0.5)";
+          ctx.fillText("— "+card.quote[1],textX,y);
+          if(card.credit){ y+=artistH; ctx.font="italic 300 16px 'Noto Sans', sans-serif"; ctx.fillStyle="rgba(232,228,220,0.3)"; const cl=wrapLines(ctx,card.credit,textW); cl.forEach(l=>{ ctx.fillText(l,textX,y); y+=22; }); }
+          ctx.font="300 16px 'Noto Sans', sans-serif";
+          ctx.fillStyle="rgba(232,228,220,0.22)";
+          ctx.fillText("Pause · iamfeeling™",textX,canvas.height-50);
         } else {
-          drawCover(ctx, img, 0, 0, canvas.width, 820);
-
-          ctx.textAlign = "center";
-          ctx.fillStyle = "#e8e4dc";
-          ctx.font = "italic 300 44px 'Cormorant Garamond', serif";
-          const lines = wrapLines(ctx, "\u201C"+card.quote[0]+"\u201D", 880);
-          const lineH = 58;
-          let y = 950 - ((lines.length-1)*lineH)/2;
-          lines.forEach(l=>{ ctx.fillText(l, 540, y); y += lineH; });
-
-          y += 26;
-          ctx.font = "400 24px 'Noto Sans', sans-serif";
-          ctx.fillStyle = "rgba(232,228,220,0.5)";
-          ctx.fillText("— "+card.quote[1], 540, y);
-
-          if(card.credit){
-            y += 38;
-            ctx.font = "italic 300 18px 'Noto Sans', sans-serif";
-            ctx.fillStyle = "rgba(232,228,220,0.3)";
-            ctx.fillText(card.credit, 540, y);
-          }
-
-          ctx.font = "300 20px 'Noto Sans', sans-serif";
-          ctx.fillStyle = "rgba(232,228,220,0.22)";
-          ctx.fillText("Pause · iamfeeling™", 540, 1300);
+          drawCover(ctx,img,0,0,canvas.width,820);
+          ctx.textAlign="center";
+          ctx.fillStyle="#e8e4dc";
+          ctx.font="italic 300 44px 'Cormorant Garamond', serif";
+          const lines=wrapLines(ctx,"\u201C"+card.quote[0]+"\u201D",880);
+          const lineH=58;
+          let y=950-((lines.length-1)*lineH)/2;
+          lines.forEach(l=>{ ctx.fillText(l,540,y); y+=lineH; });
+          y+=26;
+          ctx.font="400 24px 'Noto Sans', sans-serif";
+          ctx.fillStyle="rgba(232,228,220,0.5)";
+          ctx.fillText("— "+card.quote[1],540,y);
+          if(card.credit){ y+=38; ctx.font="italic 300 18px 'Noto Sans', sans-serif"; ctx.fillStyle="rgba(232,228,220,0.3)"; ctx.fillText(card.credit,540,y); }
+          ctx.font="300 20px 'Noto Sans', sans-serif";
+          ctx.fillStyle="rgba(232,228,220,0.22)";
+          ctx.fillText("Pause · iamfeeling™",540,1300);
         }
-
-        const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
-        writeToTab(win,
-          '<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head>'+
-          '<body style="margin:0;background:#0c0c0a;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:1.25rem;padding:1.5rem">'+
-          '<img src="'+dataUrl+'" style="max-width:100%;max-height:80vh;border-radius:6px">'+
-          '<p style="color:rgba(232,228,220,.5);font-size:14px;font-family:sans-serif;text-align:center;line-height:1.85">On phone: press and hold the image, then "Save image"<br>On desktop: right-click the image, then "Save image as…"</p>'+
-          "</body></html>"
-        );
+        const dataUrl=canvas.toDataURL("image/jpeg",0.92);
+        writeToTab(win,'<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>iamfeeling™</title></head><body style="margin:0;background:#0c0c0a;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:1.25rem;padding:1.5rem"><img src="'+dataUrl+'" style="max-width:100%;max-height:80vh;border-radius:6px"><p style="color:rgba(232,228,220,.5);font-size:14px;font-family:sans-serif;text-align:center;line-height:1.85">On phone: press and hold the image, then "Save image"<br>On desktop: right-click the image, then "Save image as…"</p></body></html>');
       }catch(e){
-        writeToTab(win, '<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">This image can\'t be composed for download right now.<br>Please take a screenshot of the card instead.</body></html>');
+        writeToTab(win,'<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">This image can\'t be composed for download right now.<br>Please take a screenshot of the card instead.</body></html>');
       }
     });
   };
-  img.onerror = ()=>{
-    writeToTab(win, '<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">The image couldn\'t load.<br>Please take a screenshot of the card instead.</body></html>');
+  img.onerror=()=>{
+    writeToTab(win,'<html><body style="margin:0;background:#0c0c0a;color:rgba(232,228,220,.6);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center;font-family:sans-serif;font-size:15px;line-height:1.8">The image couldn\'t load.<br>Please take a screenshot of the card instead.</body></html>');
   };
-  img.src = card.img;
+  img.src=card.img;
 }
-
 renderHeader();
 </script>
 </body>
