@@ -40,11 +40,13 @@ body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min
 .btn-amber:active{background:rgba(255,220,100,.12)}
 .card-wrap{opacity:0;transform:translateY(8px);animation:rise .7s ease forwards}
 @keyframes rise{to{opacity:1;transform:translateY(0)}}
-.card-frame{position:relative;width:100%;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#111;border:.5px solid rgba(255,255,255,.08)}
+.card-frame{position:relative;width:100%;aspect-ratio:3/2;border-radius:6px;overflow:hidden;background:#111;border:.5px solid rgba(255,255,255,.08)}
 .card-frame img{width:100%;height:100%;object-fit:cover;display:block}
-.card-quote{font-size:1.3rem;font-weight:300;font-style:italic;line-height:1.7;color:#e8e4dc;text-align:center;margin:1.85rem 0 .5rem}
-.card-poet{font-family:'Noto Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;color:rgba(232,228,220,.4);text-align:center;text-transform:uppercase}
-.card-artist{font-family:'Noto Sans',sans-serif;font-size:.68rem;letter-spacing:.06em;color:rgba(232,228,220,.28);text-align:center;margin-top:.6rem;font-style:italic}
+.card-quote{font-size:1.15rem;font-weight:300;font-style:italic;line-height:1.85;color:#e8e4dc;text-align:left;margin:1.85rem 0 .5rem;white-space:pre-line;padding:0 .25rem}
+.card-poet{font-family:'Noto Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;color:rgba(232,228,220,.4);text-align:left;text-transform:uppercase;padding:0 .25rem}
+.card-artist{font-family:'Noto Sans',sans-serif;font-size:.68rem;letter-spacing:.06em;color:rgba(232,228,220,.28);text-align:left;margin-top:.6rem;font-style:italic;padding:0 .25rem}
+.card-copy{font-family:'Noto Sans',sans-serif;font-size:.75rem;letter-spacing:.08em;color:rgba(232,228,220,.3);background:none;border:none;cursor:pointer;padding:.5rem .25rem;text-transform:uppercase;display:block;margin-top:.5rem;transition:color .2s}
+.card-copy:hover{color:rgba(232,228,220,.65)}
 .card-note{font-family:'Noto Sans',sans-serif;font-size:.85rem;color:rgba(232,228,220,.55);line-height:2;text-align:center;margin:2rem 0 .25rem}
 .footer{text-align:center;padding:2.5rem 0 1rem;border-top:.5px solid rgba(255,255,255,.06);margin-top:2.5rem}
 .footer-line{font-family:'Noto Sans',sans-serif;font-size:.7rem;letter-spacing:.05em;color:rgba(232,228,220,.3);line-height:1.9}
@@ -80,6 +82,7 @@ body{font-family:'Cormorant Garamond',serif;background:#0c0c0a;color:#e8e4dc;min
       <div class="card-quote" id="cardQuote"></div>
       <div class="card-poet" id="cardPoet"></div>
       <div class="card-artist" id="cardArtist" style="display:none"></div>
+      <button class="card-copy" id="copyBtn" onclick="copyPoem()">Copy poem text</button>
       <div class="card-note">It crossed centuries for this encounter.<br>Feel where it lands — that's your vibration. Carry it into today.</div>
     </div>
     <button class="btn-go" id="downloadBtn" onclick="downloadCard()">Save today's image</button>
@@ -276,6 +279,27 @@ const QUOTES = [
 ["The pad of his strong feet, that ceaseless sound of supple tread behind the iron bands.","Rilke"],
 ["Beauty is eternity gazing at itself in a mirror.","Kahlil Gibran"],
 ["Your children are not your children. They are the sons and daughters of Life's longing for itself.","Kahlil Gibran"],
+/* ── Rumi — E.H. Whinfield translation, 1898, public domain ── */
+["Hearken to the reed-flute, how it complains, lamenting its banishment from its home.","Rumi (tr. Whinfield)"],
+["My secrets are not alien from my plaintive notes, yet they are not manifest to the sensual eye and ear.","Rumi (tr. Whinfield)"],
+["Body is not veiled from soul, neither soul from body, yet no man hath ever seen a soul.","Rumi (tr. Whinfield)"],
+["This plaint of the flute is fire, not mere air. Let him who lacks this fire be accounted dead!","Rumi (tr. Whinfield)"],
+["Shadows, indeed, may indicate the sun's presence, but only the sun displays the light of life.","Rumi (tr. Whinfield)"],
+["Every moment the world and we are renewed, though we are ignorant of this renewing forever and aye.","Rumi (tr. Whinfield)"],
+["Since Not-being is the mirror of Being, if you are wise, choose Not-being.","Rumi (tr. Whinfield)"],
+["When the rose has faded and the garden is withered, the song of the nightingale is no longer to be heard.","Rumi (tr. Whinfield)"],
+/* ── Rumi — Reed-Flute Prologue, multi-line (Whinfield 1898) ── */
+["Hearken to the reed-flute, how it complains,\nLamenting its banishment from its home:\nEver since they tore me from my osier bed,\nMy plaintive notes have moved men and women to tears.","Rumi (tr. Whinfield)"],
+["My secrets are not alien from my plaintive notes,\nYet they are not manifest to the sensual eye and ear.\nBody is not veiled from soul, neither soul from body,\nYet no man hath ever seen a soul.","Rumi (tr. Whinfield)"],
+/* ── Wang Wei — Magnolia Cove (tr. Lichi, original) ── */
+["Hibiscus blossoms at the tips of branches,\nred calyxes opening, deep in the hills.\nBy the ravine's gate, silent, no one there,\nagain and again, they open, and fall.","Wang Wei (tr. Lichi)"],
+/* ── Wei Yingwu — West Stream at Chuzhou (tr. Lichi, original) ── */
+["Alone, I love the quiet grass growing by the stream,\nabove, an oriole calls in the deep trees.\nThe spring flood, carrying rain, rushes in by evening,\nat the wild crossing, no one — the boat lies across, on its own.","Wei Yingwu (tr. Lichi)"],
+/* ── Emily Dickinson — F1274 ── */
+["Now I knew I lost her —\nNot that she was gone —\nBut Remoteness travelled\nOn her Face and Tongue.","Emily Dickinson"],
+/* ── Rilke — The Panther (Lemont 1918) ── */
+["His weary glance, from passing by the bars,\nHas grown into a dazed and vacant stare;\nIt seems to him there are a thousand bars\nAnd out beyond those bars the empty air.","Rilke (tr. Lemont)"],
+["But there are times the pupils of his eyes\nDilate, the strong limbs stand alert, apart,\nTense with the flood of visions that arise\nOnly to sink and die within his heart.","Rilke (tr. Lemont)"],
 ];
 
 /* ── Artwork pool: avoid repeating the last 3 seen ── */
@@ -320,16 +344,45 @@ function reveal(forceNew){
   if(forceNew){ card=seededCard("-"+Math.random()); sessionOverride=card; }
   else { card=sessionOverride||seededCard(""); }
   document.getElementById("cardImg").src=card.img;
-  document.getElementById("cardQuote").textContent="\u201C"+card.quote[0]+"\u201D";
+  /* 支援多行詩句:用 \n 分行,轉成 <br> 呈現 */
+  const rawText = card.quote[0];
+  const isMultiLine = rawText.indexOf('\n') !== -1;
+  const quoteEl = document.getElementById("cardQuote");
+  if(isMultiLine){
+    quoteEl.innerHTML = rawText.replace(/\n/g,'<br>');
+  } else {
+    quoteEl.innerHTML = '\u201C' + rawText + '\u201D';
+  }
   document.getElementById("cardPoet").textContent="— "+card.quote[1];
   const artistEl=document.getElementById("cardArtist");
   if(card.credit){ artistEl.textContent=card.credit; artistEl.style.display="block"; }
   else { artistEl.style.display="none"; }
+  /* 重置copy按鈕文字 */
+  const copyBtn=document.getElementById("copyBtn");
+  if(copyBtn) copyBtn.textContent="Copy poem text";
   document.getElementById("s0").classList.remove("active");
   document.getElementById("s1").classList.add("active");
   const wrap=document.getElementById("cardWrap");
   wrap.style.animation="none";
   requestAnimationFrame(()=>{ wrap.style.animation="rise .7s ease forwards"; });
+}
+
+function copyPoem(){
+  const card = sessionOverride || seededCard("");
+  const poet = card.quote[1];
+  const text = card.quote[0] + "\n— " + poet;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.getElementById("copyBtn");
+    btn.textContent = "Copied ✓";
+    setTimeout(()=>{ btn.textContent = "Copy poem text"; }, 2500);
+  }).catch(()=>{
+    /* fallback: select text */
+    const el = document.getElementById("cardQuote");
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+  });
 }
 
 function drawCover(ctx,img,x,y,w,h){
