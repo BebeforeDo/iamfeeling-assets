@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>對頻 — iamfeeling™</title>
-<meta name="description" content="這一輪的牌，是愚者。讓你的振頻浮現。每週四晚上 8:00，線上，NT$500。">
+<meta name="description" content="呼吸、抽牌、拼貼。讓你的振頻浮現。每週四晚上 8:00，線上，NT$500。">
 <meta property="og:title" content="對頻 — iamfeeling™">
-<meta property="og:description" content="這一輪的牌，是愚者。讓你的振頻浮現。">
+<meta property="og:description" content="呼吸、抽牌、拼貼。讓你的振頻浮現。">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -441,85 +441,6 @@
   .sessions-wrap .section-label { color: var(--amber); }
   .sessions-wrap p { color: var(--t-dim); }
 
-  /* ── CARD FEATURE (this round's card) ── */
-  .card-feature {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 72px 28px 0;
-    text-align: center;
-  }
-
-  .card-feature .section-label { text-align: center; }
-
-  .card-feature h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.6rem, 5vw, 2.1rem);
-    font-weight: 300;
-    color: var(--t-text);
-    letter-spacing: 0.06em;
-    margin-bottom: 36px;
-  }
-
-  .card-feature img {
-    max-width: 320px;
-    width: 100%;
-    border-radius: var(--r-md);
-    margin: 0 auto 40px;
-    display: block;
-    box-shadow: 0 18px 60px rgba(0,0,0,0.5);
-  }
-
-  .card-feature-body {
-    text-align: left;
-  }
-
-  .card-feature-body p {
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--t-dim);
-    line-height: 1.95;
-    letter-spacing: 0.01em;
-    margin-bottom: 14px;
-  }
-
-  .aspects-list {
-    margin: 28px 0 0;
-    padding: 24px 0 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .aspects-intro {
-    font-size: 12px;
-    color: var(--amber);
-    letter-spacing: 0.1em;
-    margin-bottom: 18px;
-  }
-
-  .aspect-item {
-    font-family: var(--sans);
-    font-size: 14px;
-    color: var(--t-dim);
-    line-height: 1.9;
-    margin-bottom: 12px;
-  }
-
-  .aspect-item b {
-    color: var(--t-text);
-    font-weight: 500;
-  }
-
-  .card-feature-cta {
-    margin-top: 32px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
-    font-family: var(--serif);
-    font-size: 15px;
-    font-style: italic;
-    color: var(--t-text);
-    line-height: 1.9;
-  }
-
   .session-list {
     display: flex;
     flex-direction: column;
@@ -605,6 +526,40 @@
 
   .sessions-note { font-size: 12px; color: var(--smoke); letter-spacing: 0.04em; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); line-height: 1.9; }
 
+  /* ── TAKEAWAY LIST ── */
+  .takeaway-block {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 28px 72px;
+  }
+
+  .takeaway-list { display: flex; flex-direction: column; margin-top: 8px; }
+
+  .takeaway-item {
+    padding: 22px 0;
+    border-bottom: 0.5px solid var(--c-border);
+  }
+
+  .takeaway-item:last-child { border-bottom: none; }
+
+  .takeaway-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--c-text);
+    margin-bottom: 6px;
+  }
+
+  .takeaway-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--c-sub);
+    line-height: 1.9;
+    margin: 0;
+  }
+
   /* ── TOOLS GRID ── */
   .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
 
@@ -675,7 +630,7 @@
     .narrative-block { padding: 0 22px 48px; }
     .offering-block { padding: 48px 22px; }
     .tools-section { padding: 0 22px 56px; }
-    .card-feature { padding: 56px 22px 0; }
+    .takeaway-block { padding: 0 22px 56px; }
     .price-field { padding: 28px 20px; }
     .price-field-top { flex-direction: column; gap: 12px; align-items: flex-start; }
     .price-specs { text-align: left; }
@@ -819,7 +774,12 @@
     <div class="flow-step">
       <div class="flow-dot"></div>
       <p class="flow-title">牌</p>
-      <p class="flow-body">牌不預測。不解讀。不告訴你答案。<br><br>牌做的是：給振頻一個可以被看見的形狀。<br><br>當98%浮出來，那個感受還沒有語言——牌給它一個落點。不是把你帶離生活去解讀什麼，是把振頻帶回生活裡的一個具體範疇。這個振頻和你的哪個現場有關？從那裡，它可以長出去。</p>
+      <p class="flow-body">牌不預測。不解讀。不告訴你答案。<br><br>牌做的是：給振頻一個可以被看見的形狀。<br><br>當98%浮出來，那個感受還沒有語言——牌給它一個落點。不是把你帶離生活去解讀什麼，是把振頻帶回生活裡的一個具體範疇。這個振頻和你的哪個現場有關？從那裡，它可以長出去。報名之後，你會先帶著這張牌去生活幾天，讓它在身體裡發酵——今天遇到的人、看到的顏色、突然想起的一個畫面，開始和這張牌說同一種語言。</p>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot"></div>
+      <p class="flow-title">拼貼</p>
+      <p class="flow-body">拼貼不是美術課。不需要美感，不需要畫畫，不需要任何設計經驗。<br><br>活動當天，我們先一起呼吸，讓縫隙再深一點，然後在 Canva 裡找圖做拼貼——讓這幾天在身體裡發酵的東西，結晶成形。你只需要找到那張讓你停下來的圖，不是因為它美，是因為它讓身體裡某個地方動了一下，把它放進畫布裡，就這樣。<br><br>命名，會在這個過程中自然湧現——不是你想出來的，是整個系統被接通之後，自己說出來的。</p>
     </div>
   </div>
 </div>
@@ -829,28 +789,6 @@
 <!-- ── SESSIONS dark ── -->
 <div class="sessions-wrap" id="sessions">
 
-  <!-- ── 這一輪的牌：愚者 ── -->
-  <div class="card-feature">
-    <p class="section-label">這一輪的牌</p>
-    <h2>愚者</h2>
-
-    <img src="/fool-embryogenesis.jpg" alt="愚者，以胚胎發生與細胞膜的方式重新詮釋">
-
-    <div class="card-feature-body">
-      <p>在塔羅的神秘學傳統裡，愚者常被解讀為希臘酒神戴歐尼修斯（Dionysus）——宙斯為了保護他，把他藏進自己的大腿裡，讓他重新出生一次。</p>
-      <p>愚者的行囊，是一層細胞膜——隨時可以把什麼放進去，也可以把什麼拿出來。他跨出去的那隻腳，是臍帶。呼吸，是這層膜，最核心的工具——新陳代謝，舊的去，新的進來。</p>
-
-      <div class="aspects-list">
-        <p class="aspects-intro">帶著愚者生活的這幾天，你可能會留意到三個面向，不需要解讀，只是留意：</p>
-        <p class="aspect-item"><b>行囊（細胞膜）</b>——這幾天，你的生活裡，有什麼正在被你放進去，又有什麼正在被拿出來？</p>
-        <p class="aspect-item"><b>那隻腳（臍帶）</b>——有沒有一個瞬間，你還不知道結果，但還是跨出去了？</p>
-        <p class="aspect-item"><b>呼吸（核心工具）</b>——當你跨出去的那一刻，呼吸正在做什麼？</p>
-      </div>
-
-      <p class="card-feature-cta">歡迎你帶著這個重新認識，走進日常生活：放下行囊裡舊的慣性，帶著好奇心，把新的可能性，放進去。天數由你決定。</p>
-    </div>
-  </div>
-
   <div class="light-section">
     <p class="section-label">場次</p>
     <h2>你的振頻會幫你改變問題的場. Field。</h2>
@@ -858,17 +796,22 @@
     <div class="session-list">
       <div class="session-item">
         <span class="session-num">第 1 場</span>
-        <span class="session-date">2026 年 6 月 25 日（四）</span>
+        <span class="session-date">2026 年 7 月 23 日（四）</span>
         <span class="session-time">晚上 8:00</span>
       </div>
       <div class="session-item">
         <span class="session-num">第 2 場</span>
-        <span class="session-date">2026 年 7 月 2 日（四）</span>
+        <span class="session-date">2026 年 7 月 30 日（四）</span>
         <span class="session-time">晚上 8:00</span>
       </div>
       <div class="session-item">
         <span class="session-num">第 3 場</span>
-        <span class="session-date">2026 年 7 月 9 日（四）</span>
+        <span class="session-date">2026 年 8 月 6 日（四）</span>
+        <span class="session-time">晚上 8:00</span>
+      </div>
+      <div class="session-item">
+        <span class="session-num">第 4 場</span>
+        <span class="session-date">2026 年 8 月 13 日（四）</span>
         <span class="session-time">晚上 8:00</span>
       </div>
     </div>
@@ -886,8 +829,8 @@
         NT$500，二十個人，一個場 · Field，一個小時。<br><br>
         這個場 · Field<em>沒有邊界</em>——它從你決定進來的那個瞬間就存在了，在你生活裡靜默地持續工作。<br><br>
         確認信寄出的那一刻，你的場 · Field就已經開始了。<br>
-        呼吸讓腳本安靜。一張牌打開一個內在的靜默——在那個靜默裡，98%的振頻開始運作，找到它在你生活裡的落點。那個啟動不會等到週四才發生。<br><br>
-        那一個小時是靜默的。你在自己的場 · Field裡運作。有問題可以透過對話框提問——不打斷集體的場 · Field。
+        呼吸讓腳本安靜。一張牌打開一個內在的靜默，帶著它去生活幾天，讓98%的振頻開始運作，找到它在你生活裡的落點。那個啟動不會等到週四才發生。<br><br>
+        週四當天，我們一起呼吸、拼貼。那一個小時大部分是靜默的——你在自己的場 · Field裡創作，一起呼吸，各自進行。有問題可以透過對話框提問，不打斷集體的場 · Field。拼貼完成後，靜默貼上 iamfeeling 的 Padlet 社群，被其他成員看見、見證——不是按讚，是真實的見證。
       </p>
       <div class="price-field-policy">
         報名後恕無法退費。<br>
@@ -918,6 +861,35 @@
     </div>
 
     <p class="sessions-note">24 小時內寄出確認信、呼吸引導音檔與一張牌的邀請，以及詳細的說明。</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── TAKEAWAY ── -->
+<div class="takeaway-block" style="padding-top: 72px;">
+  <p class="section-label">報名之後，你會帶走</p>
+  <div class="takeaway-list">
+    <div class="takeaway-item">
+      <p class="takeaway-title">呼吸引導音檔</p>
+      <p class="takeaway-body">20 分鐘，活動後繼續用。每一次呼吸，都是在為身體創造新的縫隙。</p>
+    </div>
+    <div class="takeaway-item">
+      <p class="takeaway-title">一張屬於這個時刻的牌</p>
+      <p class="takeaway-body">不是解讀，是一個頻率。帶著它去生活幾天，讓生活主動回應它。</p>
+    </div>
+    <div class="takeaway-item">
+      <p class="takeaway-title">一幅你自己做的拼貼</p>
+      <p class="takeaway-body">不是美術作品，是此刻整個系統說話之後結晶成形的東西。</p>
+    </div>
+    <div class="takeaway-item">
+      <p class="takeaway-title">一個命名</p>
+      <p class="takeaway-body">用你自己的語言，說清楚此刻在哪裡、往哪裡走。這個命名只有你能給自己。</p>
+    </div>
+    <div class="takeaway-item">
+      <p class="takeaway-title">一個足跡</p>
+      <p class="takeaway-body">拼貼和命名保留在 iamfeeling 的 Padlet 空間，被其他成員看見、見證。不是按讚，是真實的見證。</p>
+    </div>
   </div>
 </div>
 
