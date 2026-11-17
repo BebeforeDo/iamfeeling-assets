@@ -182,6 +182,7 @@
   .about figcaption { font-size:12px; font-style:italic; color:var(--c-ter); margin-top:10px; }
   .about .go { display:inline-block; margin-top:20px; font-size:15px; }
   .sub-wrap { max-width:520px; margin:0 auto 28px; text-align:center; }
+  .sub-fallback[hidden]{display:none}
   .sub-wrap > * { margin-left:auto !important; margin-right:auto !important; }
 </style>
 </head>
@@ -273,11 +274,19 @@
   <div class="footer-links">
     <a href="/word/sample/fool/">免費體會一次</a>
     <a href="/word/#join">成為創始會員</a>
-    <a href="/word/about/">讀關於頁</a>
+    <a href="/word/about/">關於</a>
   </div>
   <div class="sub-wrap">
     <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="b599d456-c019-4312-bd4b-33ea70a5b4f9"></script>
     <noscript><div class="sub-box"><b>拆卸</b><span>每週一篇，把文字還給身體</span><a href="https://bedo.beehiiv.com/subscribe" target="_blank" rel="noopener">訂閱</a></div></noscript>
+    <div class="sub-fallback" hidden><div class="sub-box"><b>拆卸</b><span>每週一篇，把文字還給身體</span><a href="https://bedo.beehiiv.com/subscribe" target="_blank" rel="noopener">訂閱電子報</a></div></div>
+    <script>
+    (function(){var w=document.querySelector('.sub-wrap');if(!w)return;
+      setTimeout(function(){var ok=false;
+        Array.prototype.forEach.call(w.children,function(c){var t=c.tagName;if(t!=='SCRIPT'&&t!=='NOSCRIPT'&&!c.classList.contains('sub-fallback')&&c.offsetHeight>40)ok=true;});
+        if(!ok){var f=w.querySelector('.sub-fallback');if(f)f.hidden=false;}
+      },5000);})();
+    </script>
   </div>
   <p class="contact">聯絡：<a class="text-link" href="mailto:contact@iamfeeling.com">contact@iamfeeling.com</a></p>
   <p class="footer-copy">iamfeeling™ &nbsp;·&nbsp; BeDo LLC</p>
