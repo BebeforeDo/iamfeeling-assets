@@ -1,196 +1,26 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-
-<title>愚者｜故事・讓光走</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400&display=swap">
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>愚者故事｜免費體會一次｜造自己的字</title>
+<meta name="description" content="愚者的神話故事。">
+<meta name="robots" content="noindex">
 <style>
-/* Layout: one dark reading field; text rests half-lit, a warm light follows the finger phrase by phrase */
-:root{
-  --ground:#16130f;
-  --ink-rest:rgba(232,220,196,.34);
-  --ink-read:rgba(236,224,200,.66);
-  --ink-lit:#fff3d6;
-  --glow:255,206,120;
-  --muted:#8a7f6c;
-  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
-  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
-  color-scheme:dark;
-}
-html,body{height:100%;}
-body{background:var(--ground);color:var(--ink-rest);overflow:hidden;}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ground);}
-#field{
-  position:relative;height:100%;overflow-y:auto;overflow-x:hidden;
-  touch-action:none;-webkit-user-select:none;user-select:none;
-  padding-left:max(16px,env(safe-area-inset-left,0px));
-  padding-right:max(34px,calc(env(safe-area-inset-right,0px) + 30px));
-}
-#inner{max-width:30em;margin:0 auto;padding-block:56px 40vh;position:relative;}
-header{display:flex;flex-direction:column;gap:6px;margin-bottom:36px;}
-.card{font-family:var(--serif);font-size:15px;letter-spacing:.3em;color:var(--muted);}
-.card .src{margin-left:1.2em;font-size:13px;letter-spacing:.15em;opacity:.85;}
-.hint{font-family:var(--sans);font-size:13px;color:var(--muted);transition:opacity 1.2s ease;}
-.hint.gone{opacity:0;}
-.story{font-family:var(--serif);font-size:19px;line-height:2.05;letter-spacing:.04em;display:flex;flex-direction:column;gap:1.4em;}
-.story p{margin:0;}
-.ph{color:var(--ink-rest);transition:color .9s ease,text-shadow .9s ease;}
-.ph.read{color:var(--ink-read);}
-.ph.lit{color:var(--ink-lit);text-shadow:0 0 14px rgba(var(--glow),.55),0 0 2px rgba(var(--glow),.4);transition:color .35s ease,text-shadow .35s ease;}
-#light{
-  position:absolute;left:0;top:0;width:220px;height:220px;margin:-110px 0 0 -110px;
-  border-radius:50%;pointer-events:none;opacity:0;
-  background:radial-gradient(circle,rgba(var(--glow),.22) 0%,rgba(var(--glow),.09) 38%,rgba(var(--glow),0) 70%);
-  transition:opacity .6s ease;mix-blend-mode:screen;
-}
-#light.on{opacity:1;}
-#rail{position:fixed;top:calc(env(safe-area-inset-top,0px) + 16px);bottom:calc(env(safe-area-inset-bottom,0px) + 16px);right:max(0px,env(safe-area-inset-right,0px));width:30px;z-index:5;touch-action:none;cursor:pointer;}
-#rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;border-radius:1px;background:rgba(232,220,196,.12);}
-#thumb{position:absolute;left:50%;width:6px;margin-left:-3px;border-radius:3px;background:rgba(232,220,196,.34);transition:background .3s ease;}
-#rail.on #thumb{background:rgba(255,206,120,.6);}
-@media (prefers-reduced-motion:reduce){.ph,.ph.lit,#light,.hint{transition:none;}}
+.sbar{position:sticky;top:0;z-index:100;background:#fafaf8;border-bottom:.5px solid #e0e0d8;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif}
+.sbar-in{max-width:900px;margin:0 auto;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between}
+.sbar a{text-decoration:none}
+.sbar-logo img{width:44px;height:44px;object-fit:contain;display:block}
+.sbar-l{display:flex;align-items:center;gap:4px;font-size:13px}
+.sbar-l a{color:#666660;padding:6px 12px;border-radius:6px;white-space:nowrap}
+.sbar-l a:hover{color:#1a1a18;background:#f0f0ec}
+.sbar-l a.cta{background:#1D9E75;color:#fff;margin-left:6px}
+.sbar-l a.cta:hover{opacity:.88;background:#1D9E75;color:#fff}
+@media(max-width:600px){.sbar-l a.opt{display:none}}
 </style>
-
-<div id="field">
-  <div id="inner">
-    <div id="light"></div>
-    <header>
-      <div class="card">0　愚者<span class="src">希臘神話</span></div>
-      <div class="hint" id="hint">手指放在文字上，慢慢往下，讓光走。</div>
-    </header>
-    <div class="story" id="story">
-      <p>狄俄尼索斯是宙斯的兒子，後來，人們叫他酒神。他的母親還沒把他生下來，就被宙斯元配赫拉的妒火燒成了灰燼——宙斯把還沒足月的他，從母親的身體裡搶救出來，縫進自己的大腿，養到足月，讓他第二次誕生。</p>
-      <p>他在一個芬芳的洞穴裡長大，精靈撫養他，洞穴裡滿是花朵與葡萄的氣味，纏滿常春藤。稍大一些，宙斯的母親瑞亞，把他接到自己的洞穴，成了他的養母。</p>
-      <p>他看見了野生的葡萄，果實裡飽含著紅色的汁液。他想起養母很久以前說過的一句話，就在岩石上挖了一個坑，把坑壁磨平，挖成像榨酒池一樣的凹洞——用那些葡萄，釀出了世上第一批酒。釀成之後，他帶著一串串葡萄，走進養母的洞穴，為她調了一杯酒。然後，他教那裡的人們，守著這個夜晚，為第一批酒慶祝；從此，這一夜的慶祝，成了一個儀式。</p>
-      <p>後來，他長大了，便開始遊歷——走進一座又一座林木蔥鬱的山谷，身上纏著常春藤與月桂，精靈們跟在他身後，以他為首領，整片森林迴盪著她們的呼喊。</p>
-    </div>
-  </div>
-</div>
-
-<div id="rail" aria-hidden="true"><div id="thumb"></div></div>
-<script>
-(function(){
-  var field=document.getElementById('field'),inner=document.getElementById('inner'),
-      light=document.getElementById('light'),hint=document.getElementById('hint');
-  // split each paragraph into phrases at punctuation, keeping the mark with its phrase
-  document.querySelectorAll('#story p').forEach(function(p){
-    var parts=p.textContent.match(/[^，。；：、——]+(?:——|[，。；：、])?/g)||[];
-    p.textContent='';
-    parts.forEach(function(t){var s=document.createElement('span');s.className='ph';s.textContent=t;p.appendChild(s);});
-  });
-  var phrases=[].slice.call(document.querySelectorAll('.ph'));
-  var current=null,candidate=null,candTimer=null,down=false,lastX=0,lastY=0,isTouch=false,scrollRAF=null;
-
-  var storyEl=document.getElementById('story');
-  // find the line the point is on first (each text line is stretched to fill its full line height,
-  // so lines tile with no gaps), then the closest phrase along that line
-  function nearest(x,y){
-    var lh=parseFloat(getComputedStyle(storyEl).lineHeight)||39;
-    var best=null,bd=80;
-    for(var i=0;i<phrases.length;i++){
-      var rs=phrases[i].getClientRects();
-      for(var j=0;j<rs.length;j++){
-        var r=rs[j],pad=Math.max(0,(lh-r.height)/2);
-        if(y<r.top-pad||y>=r.bottom+pad)continue;
-        var dx=x<r.left?r.left-x:(x>r.right?x-r.right:0);
-        if(dx<bd){bd=dx;best=phrases[i];}
-      }
-    }
-    return best;
-  }
-  // stay on the line already being read until the light is clearly inside the next line,
-  // so crossing a line edge does not jump ahead
-  function stickY(y){
-    if(!current)return y;
-    var lh=parseFloat(getComputedStyle(storyEl).lineHeight)||39;
-    var rs=current.getClientRects(),best=null,bd=1e9;
-    for(var j=0;j<rs.length;j++){var c=(rs[j].top+rs[j].bottom)/2,d=Math.abs(y-c);if(d<bd){bd=d;best=c;}}
-    return (best!==null&&bd<lh*0.8)?best:y;
-  }
-  // vertical-only reading: the finger's height inside a line decides how far along that line the light is.
-  // top of the line = its first character, bottom = its last, so one slow downward stroke reads left to right, line after line
-  function sweep(y){
-    var lh=parseFloat(getComputedStyle(storyEl).lineHeight)||39;
-    var line=[];
-    for(var i=0;i<phrases.length;i++){
-      var rs=phrases[i].getClientRects();
-      for(var j=0;j<rs.length;j++){
-        var r=rs[j],pad=Math.max(0,(lh-r.height)/2);
-        if(y>=r.top-pad&&y<r.bottom+pad)line.push({el:phrases[i],r:r,top:r.top-pad});
-      }
-    }
-    if(!line.length)return null;
-    var left=1e9,right=-1e9;
-    line.forEach(function(o){left=Math.min(left,o.r.left);right=Math.max(right,o.r.right);});
-    var top=line[0].top,f=Math.min(1,Math.max(0,(y-top)/lh));
-    var tx=left+f*(right-left),best=line[0],bd=1e9;
-    line.forEach(function(o){var d=tx<o.r.left?o.r.left-tx:(tx>o.r.right?tx-o.r.right:0);if(d<bd){bd=d;best=o;}});
-    return {el:best.el,x:tx,y:(best.r.top+best.r.bottom)/2};
-  }
-  function setLit(el){
-    if(el===current)return;
-    if(current){current.classList.remove('lit');current.classList.add('read');}
-    current=el;
-    if(el){el.classList.remove('read');el.classList.add('lit');
-      /* 光走到哪裡，前面的字都算讀過：一樣亮 */
-      var k=phrases.indexOf(el);for(var q=0;q<k;q++){if(!phrases[q].classList.contains('read'))phrases[q].classList.add('read');}}
-  }
-  function update(){
-    var lx=lastX,ly=lastY-(isTouch?26:0);
-    var box=inner.getBoundingClientRect();
-    light.style.transform='translate('+(lx-box.left)+'px,'+(ly-box.top)+'px)';
-    var hit=sweep(ly);
-    if(hit){candidate=hit.el;lx=hit.x;ly=hit.y;}
-    light.style.transform='translate('+(lx-box.left)+'px,'+(ly-box.top)+'px)'; // between paragraphs: keep the last phrase lit
-    // follow the finger at a steady pace; the timer is never reset, so a moving finger is never left behind
-    if(!candTimer)candTimer=setTimeout(function(){candTimer=null;setLit(candidate);},60);
-  }
-  function edgeScroll(){
-    scrollRAF=null;
-    if(!down)return;
-    var h=field.clientHeight,v=0;
-    if(lastY>h*0.82)v=(lastY-h*0.82)/(h*0.18)*7;
-    else if(lastY<h*0.14)v=-(h*0.14-lastY)/(h*0.14)*7;
-    if(v){field.scrollTop+=v;update();scrollRAF=requestAnimationFrame(edgeScroll);}
-  }
-  field.addEventListener('pointerdown',function(e){
-    down=true;isTouch=e.pointerType!=='mouse';lastX=e.clientX;lastY=e.clientY;
-    light.classList.add('on');hint.classList.add('gone');
-    try{field.setPointerCapture(e.pointerId);}catch(_){}
-    update();
-  });
-  field.addEventListener('pointermove',function(e){
-    lastX=e.clientX;lastY=e.clientY;
-    if(e.pointerType==='mouse'){isTouch=false;light.classList.add('on');hint.classList.add('gone');update();return;}
-    if(!down)return;
-    update();
-    if(!scrollRAF)scrollRAF=requestAnimationFrame(edgeScroll);
-  });
-  function release(){
-    down=false;clearTimeout(candTimer);candTimer=null;candidate=null;
-    if(isTouch){light.classList.remove('on');setLit(null);}
-  }
-  field.addEventListener('pointerup',release);
-  field.addEventListener('pointercancel',release);
-  field.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse'){light.classList.remove('on');clearTimeout(candTimer);candTimer=null;candidate=null;setLit(null);}});
-  // mouse wheel still scrolls on desktop
-  field.addEventListener('wheel',function(){if(!isTouch)update();},{passive:true});
-})();
-</script>
-
-<script>
-(function(){
-  var field=document.getElementById('field'),rail=document.getElementById('rail'),thumb=document.getElementById('thumb'),drag=false;
-  function th(){var h=rail.clientHeight;return Math.max(44,h*field.clientHeight/Math.max(field.scrollHeight,1));}
-  function paint(){var h=rail.clientHeight,t=th(),max=field.scrollHeight-field.clientHeight;
-    thumb.style.height=t+'px';thumb.style.top=(max>0?field.scrollTop/max*(h-t):0)+'px';}
-  function go(e){var r=rail.getBoundingClientRect(),t=th(),max=field.scrollHeight-field.clientHeight;
-    var f=Math.min(1,Math.max(0,(e.clientY-r.top-t/2)/Math.max(r.height-t,1)));field.scrollTop=f*max;}
-  rail.addEventListener('pointerdown',function(e){e.stopPropagation();drag=true;rail.classList.add('on');try{rail.setPointerCapture(e.pointerId);}catch(_){}go(e);});
-  rail.addEventListener('pointermove',function(e){if(drag){e.stopPropagation();go(e);}});
-  function up(){drag=false;rail.classList.remove('on');}
-  rail.addEventListener('pointerup',up);rail.addEventListener('pointercancel',up);
-  field.addEventListener('scroll',paint,{passive:true});window.addEventListener('resize',paint);paint();setTimeout(paint,600);
-})();
-</script>
-
+<style>html,body{height:100%;margin:0;background:#0b0b0d}body{display:flex;flex-direction:column}iframe{flex:1;width:100%;border:0;min-height:0;display:block}</style>
+</head><body>
+<div class="sbar"><div class="sbar-in">
+<a class="sbar-logo" href="/"><img src="/logo.png" alt="iamfeeling™"></a>
+<div class="sbar-l"><a class="opt" href="/word/">造自己的字</a><a href="/word/sample/fool/">免費體會一次</a><a class="opt" href="/word/about/">關於</a><a class="cta" href="/word/#join">成為創始會員</a></div>
+</div></div>
+<iframe src="story-content.html" title="愚者故事｜免費體會一次｜造自己的字"></iframe>
 </body></html>
